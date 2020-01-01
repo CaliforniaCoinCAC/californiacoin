@@ -18,9 +18,9 @@ CaliforniacoinUnits::CaliforniacoinUnits(QObject *parent):
 QList<CaliforniacoinUnits::Unit> CaliforniacoinUnits::availableUnits()
 {
     QList<CaliforniacoinUnits::Unit> unitlist;
-    unitlist.append(CALIFORNIACOIN);
-    unitlist.append(mCALIFORNIACOIN);
-    unitlist.append(uCALIFORNIACOIN);
+    unitlist.append(CAC);
+    unitlist.append(mCAC);
+    unitlist.append(uCAC);
     return unitlist;
 }
 
@@ -29,8 +29,8 @@ bool CaliforniacoinUnits::valid(int unit)
     switch(unit)
     {
     case CALIFORNIACOIN:
-    case mCALIFORNIACOIN:
-    case uCALIFORNIACOIN:
+    case mCAC:
+    case uCAC:
         return true;
     default:
         return false;
@@ -41,9 +41,9 @@ QString CaliforniacoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case CALIFORNIACOIN: return QString("CALIFORNIACOIN");
-    case mCALIFORNIACOIN: return QString("mCALIFORNIACOIN");
-    case uCALIFORNIACOIN: return QString::fromUtf8("μCALIFORNIACOIN");
+    case CALIFORNIACOIN: return QString("CAC");
+    case mCAC: return QString("mCAC");
+    case uCAC: return QString::fromUtf8("μCAC");
     default: return QString("???");
     }
 }
@@ -53,8 +53,8 @@ QString CaliforniacoinUnits::description(int unit)
     switch(unit)
     {
     case CALIFORNIACOIN: return QString("Californiacoins");
-    case mCALIFORNIACOIN: return QString("Milli-Californiacoins (1 / 1" THIN_SP_UTF8 "000)");
-    case uCALIFORNIACOIN: return QString("Micro-Californiacoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case mCAC: return QString("Milli-Californiacoins (1 / 1" THIN_SP_UTF8 "000)");
+    case uCAC: return QString("Micro-Californiacoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -64,8 +64,8 @@ qint64 CaliforniacoinUnits::factor(int unit)
     switch(unit)
     {
     case CALIFORNIACOIN:  return 100000000;
-    case mCALIFORNIACOIN: return 100000;
-    case uCALIFORNIACOIN: return 100;
+    case mCAC: return 100000;
+    case uCAC: return 100;
     default:   return 100000000;
     }
 }
@@ -75,8 +75,8 @@ int CaliforniacoinUnits::decimals(int unit)
     switch(unit)
     {
     case CALIFORNIACOIN: return 8;
-    case mCALIFORNIACOIN: return 5;
-    case uCALIFORNIACOIN: return 2;
+    case mCAC: return 5;
+    case uCAC: return 2;
     default: return 0;
     }
 }

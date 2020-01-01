@@ -58,8 +58,8 @@ public:
     enum Unit
     {
         CALIFORNIACOIN,
-        mCALIFORNIACOIN,
-        uCALIFORNIACOIN
+        mCAC,
+        uCAC
     };
 
     enum SeparatorStyle
