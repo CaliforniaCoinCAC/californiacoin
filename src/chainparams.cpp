@@ -162,7 +162,7 @@ public:
         pchMessageStart[1] = 0x53;
         pchMessageStart[2] = 0xe3;
         pchMessageStart[3] = 0x5f;
-        nDefaultPort = 55555;
+        nDefaultPort = 11555;
         nPruneAfterHeight = 100000;
         newFutureWindowBlock = 200000;
 
@@ -307,7 +307,7 @@ public:
         pchMessageStart[1] = 0x56;
         pchMessageStart[2] = 0x4E;
         pchMessageStart[3] = 0x54;
-        nDefaultPort = 18757;
+        nDefaultPort = 18555;
         nPruneAfterHeight = 1000;
         newFutureWindowBlock = 1;
 
@@ -394,7 +394,7 @@ public:
         pchMessageStart[1] = 0x52;
         pchMessageStart[2] = 0x4F;
         pchMessageStart[3] = 0x57;
-        nDefaultPort = 18444;
+        nDefaultPort = 14555;
         nPruneAfterHeight = 1000;
         newFutureWindowBlock = 1;
 
