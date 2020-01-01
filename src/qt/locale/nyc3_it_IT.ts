@@ -88,7 +88,7 @@
     </message>
 </context>
 <context>
-    <name>Nyc3GUI</name>
+    <name>CaliforniacoinGUI</name>
     <message>
         <source>&amp;Transactions</source>
         <translation>Transazioni</translation>
@@ -202,6 +202,6 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>nyc3-core</name>
+    <name>californiacoin-core</name>
     </context>
 </TS>

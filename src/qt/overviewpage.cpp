@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "overviewpage.h"
 #include "ui_overviewpage.h"
 
-#include "nyc3units.h"
+#include "californiacoinunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -27,7 +27,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     explicit TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(Nyc3Units::NYC3),
+        QAbstractItemDelegate(parent), unit(CaliforniacoinUnits::CALIFORNIACOIN),
         platformStyle(_platformStyle)
     {
 
@@ -85,7 +85,7 @@ public:
             foreground = option.palette.color(QPalette::Text);
         }
         painter->setPen(foreground);
-        QString amountText = Nyc3Units::formatWithUnit(unit, amount, true, Nyc3Units::separatorAlways);
+        QString amountText = CaliforniacoinUnits::formatWithUnit(unit, amount, true, CaliforniacoinUnits::separatorAlways);
         if(!confirmed)
         {
             amountText = QString("[") + amountText + QString("]");
@@ -169,14 +169,14 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     currentWatchOnlyBalance = watchOnlyBalance;
     currentWatchUnconfBalance = watchUnconfBalance;
     currentWatchImmatureBalance = watchImmatureBalance;
-    ui->labelBalance->setText(Nyc3Units::formatWithUnit(unit, balance, false, Nyc3Units::separatorAlways));
-    ui->labelUnconfirmed->setText(Nyc3Units::formatWithUnit(unit, unconfirmedBalance, false, Nyc3Units::separatorAlways));
-    ui->labelImmature->setText(Nyc3Units::formatWithUnit(unit, immatureBalance, false, Nyc3Units::separatorAlways));
-    ui->labelTotal->setText(Nyc3Units::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, Nyc3Units::separatorAlways));
-    ui->labelWatchAvailable->setText(Nyc3Units::formatWithUnit(unit, watchOnlyBalance, false, Nyc3Units::separatorAlways));
-    ui->labelWatchPending->setText(Nyc3Units::formatWithUnit(unit, watchUnconfBalance, false, Nyc3Units::separatorAlways));
-    ui->labelWatchImmature->setText(Nyc3Units::formatWithUnit(unit, watchImmatureBalance, false, Nyc3Units::separatorAlways));
-    ui->labelWatchTotal->setText(Nyc3Units::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, Nyc3Units::separatorAlways));
+    ui->labelBalance->setText(CaliforniacoinUnits::formatWithUnit(unit, balance, false, CaliforniacoinUnits::separatorAlways));
+    ui->labelUnconfirmed->setText(CaliforniacoinUnits::formatWithUnit(unit, unconfirmedBalance, false, CaliforniacoinUnits::separatorAlways));
+    ui->labelImmature->setText(CaliforniacoinUnits::formatWithUnit(unit, immatureBalance, false, CaliforniacoinUnits::separatorAlways));
+    ui->labelTotal->setText(CaliforniacoinUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, CaliforniacoinUnits::separatorAlways));
+    ui->labelWatchAvailable->setText(CaliforniacoinUnits::formatWithUnit(unit, watchOnlyBalance, false, CaliforniacoinUnits::separatorAlways));
+    ui->labelWatchPending->setText(CaliforniacoinUnits::formatWithUnit(unit, watchUnconfBalance, false, CaliforniacoinUnits::separatorAlways));
+    ui->labelWatchImmature->setText(CaliforniacoinUnits::formatWithUnit(unit, watchImmatureBalance, false, CaliforniacoinUnits::separatorAlways));
+    ui->labelWatchTotal->setText(CaliforniacoinUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, CaliforniacoinUnits::separatorAlways));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
@@ -242,7 +242,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(model, SIGNAL(notifyWatchonlyChanged(bool)), this, SLOT(updateWatchOnlyLabels(bool)));
     }
 
-    // update the display unit, to not use the default ("NYC3")
+    // update the display unit, to not use the default ("CALIFORNIACOIN")
     updateDisplayUnit();
 }
 

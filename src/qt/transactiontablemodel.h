@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef PIGEON_QT_TRANSACTIONTABLEMODEL_H
 #define PIGEON_QT_TRANSACTIONTABLEMODEL_H
 
-#include "nyc3units.h"
+#include "californiacoinunits.h"
 
 #include <QAbstractTableModel>
 #include <QStringList>
@@ -99,7 +99,7 @@ private:
     QString formatTxDate(const TransactionRecord *wtx) const;
     QString formatTxType(const TransactionRecord *wtx) const;
     QString formatTxToAddress(const TransactionRecord *wtx, bool tooltip) const;
-    QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, Nyc3Units::SeparatorStyle separators=Nyc3Units::separatorStandard) const;
+    QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, CaliforniacoinUnits::SeparatorStyle separators=CaliforniacoinUnits::separatorStandard) const;
     QString formatTooltip(const TransactionRecord *rec) const;
     QVariant txStatusDecoration(const TransactionRecord *wtx) const;
     QVariant txWatchonlyDecoration(const TransactionRecord *wtx) const;

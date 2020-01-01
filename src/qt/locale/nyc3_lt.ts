@@ -72,7 +72,7 @@
     </message>
 </context>
 <context>
-    <name>Nyc3GUI</name>
+    <name>CaliforniacoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Pasirašyti ži&amp;nutę...</translation>
@@ -154,8 +154,8 @@
         <translation>Blokai iš naujo indeksuojami...</translation>
     </message>
     <message>
-        <source>Send coins to a Nyc3 address</source>
-        <translation>Siųsti monetas Nyc3 adresui</translation>
+        <source>Send coins to a Californiacoin address</source>
+        <translation>Siųsti monetas Californiacoin adresui</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -178,8 +178,8 @@
         <translation>&amp;Tikrinti žinutę...</translation>
     </message>
     <message>
-        <source>Nyc3</source>
-        <translation>Nyc3</translation>
+        <source>Californiacoin</source>
+        <translation>Californiacoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -418,8 +418,8 @@
         <translation>Piniginė</translation>
     </message>
     <message>
-        <source>Automatically open the Nyc3 client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatiškai atidaryti Nyc3 kliento prievadą maršrutizatoriuje. Tai veikia tik tada, kai jūsų maršrutizatorius palaiko UPnP ir ji įjungta.</translation>
+        <source>Automatically open the Californiacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatiškai atidaryti Californiacoin kliento prievadą maršrutizatoriuje. Tai veikia tik tada, kai jūsų maršrutizatorius palaiko UPnP ir ji įjungta.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -847,7 +847,7 @@
         <translation>Įveskite pranešimą, kurį norite pasirašyti čia</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Nyc3 address</source>
+        <source>Sign the message to prove you own this Californiacoin address</source>
         <translation>Registruotis žinute įrodymuii, kad turite šį adresą</translation>
     </message>
     <message>
@@ -863,8 +863,8 @@
         <translation>&amp;Patikrinti žinutę</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Nyc3 address</source>
-        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas Nyc3 adresas</translation>
+        <source>Verify the message to ensure it was signed with the specified Californiacoin address</source>
+        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas Californiacoin adresas</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -914,7 +914,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>nyc3-core</name>
+    <name>californiacoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Parinktys:</translation>
@@ -936,8 +936,8 @@
         <translation>Dirbti fone kaip šešėlyje ir priimti komandas</translation>
     </message>
     <message>
-        <source>Nyc3 Core</source>
-        <translation>Nyc3 branduolys</translation>
+        <source>Californiacoin Core</source>
+        <translation>Californiacoin branduolys</translation>
     </message>
     <message>
         <source>Error opening block database</source>

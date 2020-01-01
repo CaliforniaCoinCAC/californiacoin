@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # Copyright (c) 2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test processing of feefilter messages."""
 
 from test_framework.mininode import *
-from test_framework.test_framework import Nyc3TestFramework
+from test_framework.test_framework import CaliforniacoinTestFramework
 from test_framework.util import *
 import time
 
@@ -37,7 +37,7 @@ class TestNode(NodeConnCB):
         with mininode_lock:
             self.txinvs = []
 
-class FeeFilterTest(Nyc3TestFramework):
+class FeeFilterTest(CaliforniacoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 

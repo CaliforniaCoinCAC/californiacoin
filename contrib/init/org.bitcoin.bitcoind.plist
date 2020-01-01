@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>org.nyc3.nyc3d</string>
+	<string>org.californiacoin.californiacoind</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/bin/nyc3d</string>
+		<string>/usr/local/bin/californiacoind</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

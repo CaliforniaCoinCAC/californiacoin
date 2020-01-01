@@ -64,7 +64,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>Nyc3GUI</name>
+    <name>CaliforniacoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Firmar &amp;mensaje...</translation>
@@ -142,8 +142,8 @@
         <translation>Reindexando bloques en disco...</translation>
     </message>
     <message>
-        <source>Send coins to a Nyc3 address</source>
-        <translation>Enviar monedas a una dirección Nyc3</translation>
+        <source>Send coins to a Californiacoin address</source>
+        <translation>Enviar monedas a una dirección Californiacoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -166,8 +166,8 @@
         <translation>&amp;Verificar mensaje...</translation>
     </message>
     <message>
-        <source>Nyc3</source>
-        <translation>Nyc3</translation>
+        <source>Californiacoin</source>
+        <translation>Californiacoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +194,12 @@
         <translation>Cifrar las claves privadas de su monedero</translation>
     </message>
     <message>
-        <source>Sign messages with your Nyc3 addresses to prove you own them</source>
-        <translation>Firmar mensajes con sus direcciones Nyc3 para demostrar la propiedad</translation>
+        <source>Sign messages with your Californiacoin addresses to prove you own them</source>
+        <translation>Firmar mensajes con sus direcciones Californiacoin para demostrar la propiedad</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Nyc3 addresses</source>
-        <translation>Verificar mensajes comprobando que están firmados con direcciones Nyc3 concretas</translation>
+        <source>Verify messages to ensure they were signed with specified Californiacoin addresses</source>
+        <translation>Verificar mensajes comprobando que están firmados con direcciones Californiacoin concretas</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -218,8 +218,8 @@
         <translation>Barra de pestañas</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and nyc3: URIs)</source>
-        <translation>Solicitar pagos (genera codigo QR y URL's de Nyc3)</translation>
+        <source>Request payments (generates QR codes and californiacoin: URIs)</source>
+        <translation>Solicitar pagos (genera codigo QR y URL's de Californiacoin)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -230,8 +230,8 @@
         <translation>Muestra la lista de direcciones de recepción y etiquetas</translation>
     </message>
     <message>
-        <source>Open a nyc3: URI or payment request</source>
-        <translation>Abrir un nyc3: URI o petición de pago</translation>
+        <source>Open a californiacoin: URI or payment request</source>
+        <translation>Abrir un californiacoin: URI o petición de pago</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -494,8 +494,8 @@
         <translation>Experto</translation>
     </message>
     <message>
-        <source>Automatically open the Nyc3 client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Abrir automáticamente el puerto del cliente Nyc3 en el router. Esta opción solo funciona si el router admite UPnP y está activado.</translation>
+        <source>Automatically open the Californiacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Abrir automáticamente el puerto del cliente Californiacoin en el router. Esta opción solo funciona si el router admite UPnP y está activado.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -589,8 +589,8 @@
         <translation>Desde</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Nyc3 network after a connection is established, but this process has not completed yet.</source>
-        <translation>La información mostrada puede estar desactualizada. Su monedero se sincroniza automáticamente con la red Nyc3 después de que se haya establecido una conexión, pero este proceso aún no se ha completado.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Californiacoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>La información mostrada puede estar desactualizada. Su monedero se sincroniza automáticamente con la red Californiacoin después de que se haya establecido una conexión, pero este proceso aún no se ha completado.</translation>
     </message>
     <message>
         <source>Your current spendable balance</source>
@@ -1019,8 +1019,8 @@
         <translation>Copiar la firma actual al portapapeles del sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Nyc3 address</source>
-        <translation>Firmar el mensaje para demostrar que se posee esta dirección Nyc3</translation>
+        <source>Sign the message to prove you own this Californiacoin address</source>
+        <translation>Firmar el mensaje para demostrar que se posee esta dirección Californiacoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1039,8 +1039,8 @@
         <translation>&amp;Verificar mensaje</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Nyc3 address</source>
-        <translation>Verificar el mensaje para comprobar que fue firmado con la dirección Nyc3 indicada</translation>
+        <source>Verify the message to ensure it was signed with the specified Californiacoin address</source>
+        <translation>Verificar el mensaje para comprobar que fue firmado con la dirección Californiacoin indicada</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1094,7 +1094,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>nyc3-core</name>
+    <name>californiacoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opciones:
@@ -1123,8 +1123,8 @@
 </translation>
     </message>
     <message>
-        <source>Nyc3 Core</source>
-        <translation>Núcleo de Nyc3</translation>
+        <source>Californiacoin Core</source>
+        <translation>Núcleo de Californiacoin</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

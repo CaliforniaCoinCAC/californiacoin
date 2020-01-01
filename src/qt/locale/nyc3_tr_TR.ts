@@ -52,7 +52,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>Nyc3GUI</name>
+    <name>CaliforniacoinGUI</name>
     <message>
         <source>&amp;Receiving addresses...</source>
         <translation>Alış adresleri</translation>
@@ -170,6 +170,6 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>nyc3-core</name>
+    <name>californiacoin-core</name>
     </context>
 </TS>

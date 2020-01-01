@@ -1,21 +1,21 @@
 Shared Libraries
 ================
 
-## nyc3consensus
+## californiacoinconsensus
 
-The purpose of this library is to make the verification functionality that is critical to Nyc3's consensus available to other applications, e.g. to language bindings.
+The purpose of this library is to make the verification functionality that is critical to Californiacoin's consensus available to other applications, e.g. to language bindings.
 
 ### API
 
-The interface is defined in the C header `nyc3consensus.h` located in  `src/script/nyc3consensus.h`.
+The interface is defined in the C header `californiacoinconsensus.h` located in  `src/script/californiacoinconsensus.h`.
 
 #### Version
 
-`nyc3consensus_version` returns an `unsigned int` with the API version *(currently at an experimental `0`)*.
+`californiacoinconsensus_version` returns an `unsigned int` with the API version *(currently at an experimental `0`)*.
 
 #### Script Validation
 
-`nyc3consensus_verify_script` returns an `int` with the status of the verification. It will be `1` if the input script correctly spends the previous output `scriptPubKey`.
+`californiacoinconsensus_verify_script` returns an `int` with the status of the verification. It will be `1` if the input script correctly spends the previous output `scriptPubKey`.
 
 ##### Parameters
 - `const unsigned char *scriptPubKey` - The previous output script that encumbers spending.
@@ -24,26 +24,26 @@ The interface is defined in the C header `nyc3consensus.h` located in  `src/scri
 - `unsigned int txToLen` - The number of bytes for the `txTo`.
 - `unsigned int nIn` - The index of the input in `txTo` that spends the `scriptPubKey`.
 - `unsigned int flags` - The script validation flags *(see below)*.
-- `nyc3consensus_error* err` - Will have the error/success code for the operation *(see below)*.
+- `californiacoinconsensus_error* err` - Will have the error/success code for the operation *(see below)*.
 
 ##### Script Flags
-- `nyc3consensus_SCRIPT_FLAGS_VERIFY_NONE`
-- `nyc3consensus_SCRIPT_FLAGS_VERIFY_P2SH` - Evaluate P2SH ([BIP16](https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki)) subscripts
-- `nyc3consensus_SCRIPT_FLAGS_VERIFY_DERSIG` - Enforce strict DER ([BIP66](https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki)) compliance
-- `nyc3consensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY` - Enforce NULLDUMMY ([BIP147](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki))
-- `nyc3consensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY` - Enable CHECKLOCKTIMEVERIFY ([BIP65](https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki))
-- `nyc3consensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY` - Enable CHECKSEQUENCEVERIFY ([BIP112](https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki))
-- `nyc3consensus_SCRIPT_FLAGS_VERIFY_WITNESS` - Enable WITNESS ([BIP141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki))
+- `californiacoinconsensus_SCRIPT_FLAGS_VERIFY_NONE`
+- `californiacoinconsensus_SCRIPT_FLAGS_VERIFY_P2SH` - Evaluate P2SH ([BIP16](https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki)) subscripts
+- `californiacoinconsensus_SCRIPT_FLAGS_VERIFY_DERSIG` - Enforce strict DER ([BIP66](https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki)) compliance
+- `californiacoinconsensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY` - Enforce NULLDUMMY ([BIP147](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki))
+- `californiacoinconsensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY` - Enable CHECKLOCKTIMEVERIFY ([BIP65](https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki))
+- `californiacoinconsensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY` - Enable CHECKSEQUENCEVERIFY ([BIP112](https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki))
+- `californiacoinconsensus_SCRIPT_FLAGS_VERIFY_WITNESS` - Enable WITNESS ([BIP141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki))
 
 ##### Errors
-- `nyc3consensus_ERR_OK` - No errors with input parameters *(see the return value of `nyc3consensus_verify_script` for the verification status)*
-- `nyc3consensus_ERR_TX_INDEX` - An invalid index for `txTo`
-- `nyc3consensus_ERR_TX_SIZE_MISMATCH` - `txToLen` did not match with the size of `txTo`
-- `nyc3consensus_ERR_DESERIALIZE` - An error deserializing `txTo`
-- `nyc3consensus_ERR_AMOUNT_REQUIRED` - Input amount is required if WITNESS is used
+- `californiacoinconsensus_ERR_OK` - No errors with input parameters *(see the return value of `californiacoinconsensus_verify_script` for the verification status)*
+- `californiacoinconsensus_ERR_TX_INDEX` - An invalid index for `txTo`
+- `californiacoinconsensus_ERR_TX_SIZE_MISMATCH` - `txToLen` did not match with the size of `txTo`
+- `californiacoinconsensus_ERR_DESERIALIZE` - An error deserializing `txTo`
+- `californiacoinconsensus_ERR_AMOUNT_REQUIRED` - Input amount is required if WITNESS is used
 
 ### Example Implementations
-- [NNyc3](https://github.com/NicolasDorier/NNyc3/blob/master/NNyc3/Script.cs#L814) (.NET Bindings)
-- [node-libnyc3consensus](https://github.com/bitpay/node-libnyc3consensus) (Node.js Bindings)
-- [java-libnyc3consensus](https://github.com/dexX7/java-libnyc3consensus) (Java Bindings)
-- [nyc3consensus-php](https://github.com/Bit-Wasp/nyc3consensus-php) (PHP Bindings)
+- [NCaliforniacoin](https://github.com/NicolasDorier/NCaliforniacoin/blob/master/NCaliforniacoin/Script.cs#L814) (.NET Bindings)
+- [node-libcaliforniacoinconsensus](https://github.com/bitpay/node-libcaliforniacoinconsensus) (Node.js Bindings)
+- [java-libcaliforniacoinconsensus](https://github.com/dexX7/java-libcaliforniacoinconsensus) (Java Bindings)
+- [californiacoinconsensus-php](https://github.com/Bit-Wasp/californiacoinconsensus-php) (PHP Bindings)

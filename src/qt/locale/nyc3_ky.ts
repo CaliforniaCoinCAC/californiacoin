@@ -28,7 +28,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>Nyc3GUI</name>
+    <name>CaliforniacoinGUI</name>
     <message>
         <source>&amp;Transactions</source>
         <translation>&amp;Транзакциялар</translation>
@@ -38,8 +38,8 @@
         <translation>Билдирүүнү &amp;текшерүү...</translation>
     </message>
     <message>
-        <source>Nyc3</source>
-        <translation>Nyc3</translation>
+        <source>Californiacoin</source>
+        <translation>Californiacoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -334,7 +334,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>nyc3-core</name>
+    <name>californiacoin-core</name>
     <message>
         <source>Information</source>
         <translation>Маалымат</translation>

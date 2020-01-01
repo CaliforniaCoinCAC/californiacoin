@@ -62,12 +62,12 @@
         <translation>Vastuvõtvad aadressid</translation>
     </message>
     <message>
-        <source>These are your Nyc3 addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Need on sinu Nyc3 aadressid maksete saatmiseks. Ennem müntide saatmist kontrolli alati summat ja makse saaja aadressi.</translation>
+        <source>These are your Californiacoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Need on sinu Californiacoin aadressid maksete saatmiseks. Ennem müntide saatmist kontrolli alati summat ja makse saaja aadressi.</translation>
     </message>
     <message>
-        <source>These are your Nyc3 addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Need on sinu Nyc3 aadressid sisenevate maksete vastu võtmiseks. Soovitav on iga tehingu tarbeks kasutada uut aadressi.</translation>
+        <source>These are your Californiacoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Need on sinu Californiacoin aadressid sisenevate maksete vastu võtmiseks. Soovitav on iga tehingu tarbeks kasutada uut aadressi.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -220,7 +220,7 @@
     </message>
     </context>
 <context>
-    <name>Nyc3GUI</name>
+    <name>CaliforniacoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signeeri &amp;sõnum</translation>
@@ -290,8 +290,8 @@
         <translation>Kettal olevate blokkide re-indekseerimine...</translation>
     </message>
     <message>
-        <source>Send coins to a Nyc3 address</source>
-        <translation>Saada münte Nyc3i aadressile</translation>
+        <source>Send coins to a Californiacoin address</source>
+        <translation>Saada münte Californiacoini aadressile</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -314,8 +314,8 @@
         <translation>&amp;Kontrolli sõnumit...</translation>
     </message>
     <message>
-        <source>Nyc3</source>
-        <translation>Nyc3</translation>
+        <source>Californiacoin</source>
+        <translation>Californiacoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -342,12 +342,12 @@
         <translation>Krüpteeri oma rahakoti privaatvõtmed</translation>
     </message>
     <message>
-        <source>Sign messages with your Nyc3 addresses to prove you own them</source>
-        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Nyc3i aadressiga</translation>
+        <source>Sign messages with your Californiacoin addresses to prove you own them</source>
+        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Californiacoini aadressiga</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Nyc3 addresses</source>
-        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Nyc3i aadressiga</translation>
+        <source>Verify messages to ensure they were signed with specified Californiacoin addresses</source>
+        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Californiacoini aadressiga</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -366,20 +366,20 @@
         <translation>Vahelehe tööriistariba</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and nyc3: URIs)</source>
-        <translation>Loo maksepäring (genereerib QR koodid ja nyc3i: URId)</translation>
+        <source>Request payments (generates QR codes and californiacoin: URIs)</source>
+        <translation>Loo maksepäring (genereerib QR koodid ja californiacoini: URId)</translation>
     </message>
     <message>
-        <source>Open a nyc3: URI or payment request</source>
-        <translation>Ava nyc3i: URI või maksepäring</translation>
+        <source>Open a californiacoin: URI or payment request</source>
+        <translation>Ava californiacoini: URI või maksepäring</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Käsurea valikud</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Nyc3 network</source>
-        <translation><numerusform>%n aktiivne ühendus Nyc3i võrku</numerusform><numerusform>%n aktiivset ühendust Nyc3i võrku</numerusform></translation>
+        <source>%n active connection(s) to Californiacoin network</source>
+        <translation><numerusform>%n aktiivne ühendus Californiacoini võrku</numerusform><numerusform>%n aktiivset ühendust Californiacoini võrku</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -626,8 +626,8 @@
         <translation>Muuda saatvat aadressi</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Nyc3 address.</source>
-        <translation>Sisestatud aadress "%1" ei ole korrektne Nyc3 aadress.</translation>
+        <source>The entered address "%1" is not a valid Californiacoin address.</source>
+        <translation>Sisestatud aadress "%1" ei ole korrektne Californiacoin aadress.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -756,8 +756,8 @@
         <translation>Ekspert</translation>
     </message>
     <message>
-        <source>Automatically open the Nyc3 client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Nyc3i kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
+        <source>Automatically open the Californiacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Californiacoini kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -855,7 +855,7 @@
         <translation>Vorm</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Nyc3 network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Californiacoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Kuvatav info ei pruugi olla ajakohane. Ühenduse loomisel süngitakse sinu rahakott automaatselt Bitconi võrgustikuga, kuid see toiming on hetkel lõpetamata.</translation>
     </message>
     <message>
@@ -1337,8 +1337,8 @@
         <translation>Maksepäring aegunud.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Nyc3 address</source>
-        <translation>Hoiatus: Ebakorrektne Nyc3 aadress</translation>
+        <source>Warning: Invalid Californiacoin address</source>
+        <translation>Hoiatus: Ebakorrektne Californiacoin aadress</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1417,8 +1417,8 @@
         <translation>&amp;Allkirjastamise teade</translation>
     </message>
     <message>
-        <source>The Nyc3 address to sign the message with</source>
-        <translation>Nyc3 aadress millega sõnum allkirjastada</translation>
+        <source>The Californiacoin address to sign the message with</source>
+        <translation>Californiacoin aadress millega sõnum allkirjastada</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1449,8 +1449,8 @@
         <translation>Kopeeri praegune signatuur vahemällu</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Nyc3 address</source>
-        <translation>Allkirjasta sõnum Nyc3i aadressi sulle kuulumise tõestamiseks</translation>
+        <source>Sign the message to prove you own this Californiacoin address</source>
+        <translation>Allkirjasta sõnum Californiacoini aadressi sulle kuulumise tõestamiseks</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1469,12 +1469,12 @@
         <translation>&amp;Kinnita Sõnum</translation>
     </message>
     <message>
-        <source>The Nyc3 address the message was signed with</source>
-        <translation>Nyc3 aadress millega sõnum on allkirjastatud</translation>
+        <source>The Californiacoin address the message was signed with</source>
+        <translation>Californiacoin aadress millega sõnum on allkirjastatud</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Nyc3 address</source>
-        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Nyc3i aadressiga.</translation>
+        <source>Verify the message to ensure it was signed with the specified Californiacoin address</source>
+        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Californiacoini aadressiga.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1732,7 +1732,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>nyc3-core</name>
+    <name>californiacoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Valikud:</translation>
@@ -1758,8 +1758,8 @@
         <translation>Tööta taustal ning aktsepteeri käsklusi</translation>
     </message>
     <message>
-        <source>Nyc3 Core</source>
-        <translation>Nyc3i tuumik</translation>
+        <source>Californiacoin Core</source>
+        <translation>Californiacoini tuumik</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

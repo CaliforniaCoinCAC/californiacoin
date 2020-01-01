@@ -1,15 +1,15 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/nyc3-config.h"
+#include "config/californiacoin-config.h"
 #endif
 
-#include "nyc3gui.h"
+#include "californiacoingui.h"
 
-#include "nyc3units.h"
+#include "californiacoinunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -65,7 +65,7 @@
 #include <QUrlQuery>
 #endif
 
-const std::string Nyc3GUI::DEFAULT_UIPLATFORM =
+const std::string CaliforniacoinGUI::DEFAULT_UIPLATFORM =
 #if defined(Q_OS_MAC)
         "macosx"
 #elif defined(Q_OS_WIN)
@@ -77,9 +77,9 @@ const std::string Nyc3GUI::DEFAULT_UIPLATFORM =
 
 /** Display name for default wallet name. Uses tilde to avoid name
  * collisions in the future with additional wallets */
-const QString Nyc3GUI::DEFAULT_WALLET = "~Default";
+const QString CaliforniacoinGUI::DEFAULT_WALLET = "~Default";
 
-Nyc3GUI::Nyc3GUI(const PlatformStyle *_platformStyle, const NetworkStyle *networkStyle, QWidget *parent) :
+CaliforniacoinGUI::CaliforniacoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *networkStyle, QWidget *parent) :
     QMainWindow(parent),
     enableWallet(false),
     clientModel(0),
@@ -261,7 +261,7 @@ Nyc3GUI::Nyc3GUI(const PlatformStyle *_platformStyle, const NetworkStyle *networ
 #endif
 }
 
-Nyc3GUI::~Nyc3GUI()
+CaliforniacoinGUI::~CaliforniacoinGUI()
 {
     // Unsubscribe from notifications from core
     unsubscribeFromCoreSignals();
@@ -278,7 +278,7 @@ Nyc3GUI::~Nyc3GUI()
     delete rpcConsole;
 }
 
-void Nyc3GUI::createActions()
+void CaliforniacoinGUI::createActions()
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
@@ -290,7 +290,7 @@ void Nyc3GUI::createActions()
     tabGroup->addAction(overviewAction);
 
     sendCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/send"), tr("&Send"), this);
-    sendCoinsAction->setStatusTip(tr("Send coins to a Nyc3 address"));
+    sendCoinsAction->setStatusTip(tr("Send coins to a Californiacoin address"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
@@ -301,7 +301,7 @@ void Nyc3GUI::createActions()
     sendCoinsMenuAction->setToolTip(sendCoinsMenuAction->statusTip());
 
     receiveCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/receiving_addresses"), tr("&Receive"), this);
-    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and nyc3: URIs)"));
+    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and californiacoin: URIs)"));
     receiveCoinsAction->setToolTip(receiveCoinsAction->statusTip());
     receiveCoinsAction->setCheckable(true);
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
@@ -361,9 +361,9 @@ void Nyc3GUI::createActions()
     changePassphraseAction = new QAction(platformStyle->TextColorIcon(":/icons/key"), tr("&Change Passphrase..."), this);
     changePassphraseAction->setStatusTip(tr("Change the passphrase used for wallet encryption"));
     signMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/edit"), tr("Sign &message..."), this);
-    signMessageAction->setStatusTip(tr("Sign messages with your Nyc3 addresses to prove you own them"));
+    signMessageAction->setStatusTip(tr("Sign messages with your Californiacoin addresses to prove you own them"));
     verifyMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/verify"), tr("&Verify message..."), this);
-    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Nyc3 addresses"));
+    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Californiacoin addresses"));
 
     openRPCConsoleAction = new QAction(platformStyle->TextColorIcon(":/icons/debugwindow"), tr("&Debug window"), this);
     openRPCConsoleAction->setStatusTip(tr("Open debugging and diagnostic console"));
@@ -376,11 +376,11 @@ void Nyc3GUI::createActions()
     usedReceivingAddressesAction->setStatusTip(tr("Show the list of used receiving addresses and labels"));
 
     openAction = new QAction(platformStyle->TextColorIcon(":/icons/open"), tr("Open &URI..."), this);
-    openAction->setStatusTip(tr("Open a nyc3: URI or payment request"));
+    openAction->setStatusTip(tr("Open a californiacoin: URI or payment request"));
 
     showHelpMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/info"), tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);
-    showHelpMessageAction->setStatusTip(tr("Show the %1 help message to get a list with possible Nyc3 command-line options").arg(tr(PACKAGE_NAME)));
+    showHelpMessageAction->setStatusTip(tr("Show the %1 help message to get a list with possible Californiacoin command-line options").arg(tr(PACKAGE_NAME)));
 
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutClicked()));
@@ -410,7 +410,7 @@ void Nyc3GUI::createActions()
     new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_D), this, SLOT(showDebugWindow()));
 }
 
-void Nyc3GUI::createMenuBar()
+void CaliforniacoinGUI::createMenuBar()
 {
 #ifdef Q_OS_MAC
     // Create a decoupled menu bar on Mac which stays even if the window is closed
@@ -455,7 +455,7 @@ void Nyc3GUI::createMenuBar()
     help->addAction(aboutQtAction);
 }
 
-void Nyc3GUI::createToolBars()
+void CaliforniacoinGUI::createToolBars()
 {
     if(walletFrame)
     {
@@ -471,7 +471,7 @@ void Nyc3GUI::createToolBars()
     }
 }
 
-void Nyc3GUI::setClientModel(ClientModel *_clientModel)
+void CaliforniacoinGUI::setClientModel(ClientModel *_clientModel)
 {
     this->clientModel = _clientModel;
     if(_clientModel)
@@ -534,7 +534,7 @@ void Nyc3GUI::setClientModel(ClientModel *_clientModel)
 }
 
 #ifdef ENABLE_WALLET
-bool Nyc3GUI::addWallet(const QString& name, WalletModel *walletModel)
+bool CaliforniacoinGUI::addWallet(const QString& name, WalletModel *walletModel)
 {
     if(!walletFrame)
         return false;
@@ -542,14 +542,14 @@ bool Nyc3GUI::addWallet(const QString& name, WalletModel *walletModel)
     return walletFrame->addWallet(name, walletModel);
 }
 
-bool Nyc3GUI::setCurrentWallet(const QString& name)
+bool CaliforniacoinGUI::setCurrentWallet(const QString& name)
 {
     if(!walletFrame)
         return false;
     return walletFrame->setCurrentWallet(name);
 }
 
-void Nyc3GUI::removeAllWallets()
+void CaliforniacoinGUI::removeAllWallets()
 {
     if(!walletFrame)
         return;
@@ -558,7 +558,7 @@ void Nyc3GUI::removeAllWallets()
 }
 #endif // ENABLE_WALLET
 
-void Nyc3GUI::setWalletActionsEnabled(bool enabled)
+void CaliforniacoinGUI::setWalletActionsEnabled(bool enabled)
 {
     overviewAction->setEnabled(enabled);
     sendCoinsAction->setEnabled(enabled);
@@ -576,7 +576,7 @@ void Nyc3GUI::setWalletActionsEnabled(bool enabled)
     openAction->setEnabled(enabled);
 }
 
-void Nyc3GUI::createTrayIcon(const NetworkStyle *networkStyle)
+void CaliforniacoinGUI::createTrayIcon(const NetworkStyle *networkStyle)
 {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
@@ -589,7 +589,7 @@ void Nyc3GUI::createTrayIcon(const NetworkStyle *networkStyle)
     notificator = new Notificator(QApplication::applicationName(), trayIcon, this);
 }
 
-void Nyc3GUI::createTrayIconMenu()
+void CaliforniacoinGUI::createTrayIconMenu()
 {
 #ifndef Q_OS_MAC
     // return if trayIcon is unset (only on non-Mac OSes)
@@ -626,7 +626,7 @@ void Nyc3GUI::createTrayIconMenu()
 }
 
 #ifndef Q_OS_MAC
-void Nyc3GUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
+void CaliforniacoinGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 {
     if(reason == QSystemTrayIcon::Trigger)
     {
@@ -636,7 +636,7 @@ void Nyc3GUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 }
 #endif
 
-void Nyc3GUI::optionsClicked()
+void CaliforniacoinGUI::optionsClicked()
 {
     if(!clientModel || !clientModel->getOptionsModel())
         return;
@@ -646,7 +646,7 @@ void Nyc3GUI::optionsClicked()
     dlg.exec();
 }
 
-void Nyc3GUI::aboutClicked()
+void CaliforniacoinGUI::aboutClicked()
 {
     if(!clientModel)
         return;
@@ -655,7 +655,7 @@ void Nyc3GUI::aboutClicked()
     dlg.exec();
 }
 
-void Nyc3GUI::showDebugWindow()
+void CaliforniacoinGUI::showDebugWindow()
 {
     rpcConsole->showNormal();
     rpcConsole->show();
@@ -663,19 +663,19 @@ void Nyc3GUI::showDebugWindow()
     rpcConsole->activateWindow();
 }
 
-void Nyc3GUI::showDebugWindowActivateConsole()
+void CaliforniacoinGUI::showDebugWindowActivateConsole()
 {
     rpcConsole->setTabFocus(RPCConsole::TAB_CONSOLE);
     showDebugWindow();
 }
 
-void Nyc3GUI::showHelpMessageClicked()
+void CaliforniacoinGUI::showHelpMessageClicked()
 {
     helpMessageDialog->show();
 }
 
 #ifdef ENABLE_WALLET
-void Nyc3GUI::openClicked()
+void CaliforniacoinGUI::openClicked()
 {
     OpenURIDialog dlg(this);
     if(dlg.exec())
@@ -684,42 +684,42 @@ void Nyc3GUI::openClicked()
     }
 }
 
-void Nyc3GUI::gotoOverviewPage()
+void CaliforniacoinGUI::gotoOverviewPage()
 {
     overviewAction->setChecked(true);
     if (walletFrame) walletFrame->gotoOverviewPage();
 }
 
-void Nyc3GUI::gotoHistoryPage()
+void CaliforniacoinGUI::gotoHistoryPage()
 {
     historyAction->setChecked(true);
     if (walletFrame) walletFrame->gotoHistoryPage();
 }
 
-void Nyc3GUI::gotoReceiveCoinsPage()
+void CaliforniacoinGUI::gotoReceiveCoinsPage()
 {
     receiveCoinsAction->setChecked(true);
     if (walletFrame) walletFrame->gotoReceiveCoinsPage();
 }
 
-void Nyc3GUI::gotoSendCoinsPage(QString addr)
+void CaliforniacoinGUI::gotoSendCoinsPage(QString addr)
 {
     sendCoinsAction->setChecked(true);
     if (walletFrame) walletFrame->gotoSendCoinsPage(addr);
 }
 
-void Nyc3GUI::gotoSignMessageTab(QString addr)
+void CaliforniacoinGUI::gotoSignMessageTab(QString addr)
 {
     if (walletFrame) walletFrame->gotoSignMessageTab(addr);
 }
 
-void Nyc3GUI::gotoVerifyMessageTab(QString addr)
+void CaliforniacoinGUI::gotoVerifyMessageTab(QString addr)
 {
     if (walletFrame) walletFrame->gotoVerifyMessageTab(addr);
 }
 #endif // ENABLE_WALLET
 
-void Nyc3GUI::updateNetworkState()
+void CaliforniacoinGUI::updateNetworkState()
 {
     int count = clientModel->getNumConnections();
     QString icon;
@@ -735,7 +735,7 @@ void Nyc3GUI::updateNetworkState()
     QString tooltip;
 
     if (clientModel->getNetworkActive()) {
-        tooltip = tr("%n active connection(s) to Nyc3 network", "", count) + QString(".<br>") + tr("Click to disable network activity.");
+        tooltip = tr("%n active connection(s) to Californiacoin network", "", count) + QString(".<br>") + tr("Click to disable network activity.");
     } else {
         tooltip = tr("Network activity disabled.") + QString("<br>") + tr("Click to enable network activity again.");
         icon = ":/icons/network_disabled";
@@ -748,17 +748,17 @@ void Nyc3GUI::updateNetworkState()
     connectionsControl->setPixmap(platformStyle->SingleColorIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
 }
 
-void Nyc3GUI::setNumConnections(int count)
+void CaliforniacoinGUI::setNumConnections(int count)
 {
     updateNetworkState();
 }
 
-void Nyc3GUI::setNetworkActive(bool networkActive)
+void CaliforniacoinGUI::setNetworkActive(bool networkActive)
 {
     updateNetworkState();
 }
 
-void Nyc3GUI::updateHeadersSyncProgressLabel()
+void CaliforniacoinGUI::updateHeadersSyncProgressLabel()
 {
     int64_t headersTipTime = clientModel->getHeaderTipTime();
     int headersTipHeight = clientModel->getHeaderTipHeight();
@@ -767,7 +767,7 @@ void Nyc3GUI::updateHeadersSyncProgressLabel()
         progressBarLabel->setText(tr("Syncing Headers (%1%)...").arg(QString::number(100.0 / (headersTipHeight+estHeadersLeft)*headersTipHeight, 'f', 1)));
 }
 
-void Nyc3GUI::setNumBlocks(int count, const QDateTime& blockDate, double nVerificationProgress, bool header)
+void CaliforniacoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVerificationProgress, bool header)
 {
     if (modalOverlay)
     {
@@ -877,9 +877,9 @@ void Nyc3GUI::setNumBlocks(int count, const QDateTime& blockDate, double nVerifi
     progressBar->setToolTip(tooltip);
 }
 
-void Nyc3GUI::message(const QString &title, const QString &message, unsigned int style, bool *ret)
+void CaliforniacoinGUI::message(const QString &title, const QString &message, unsigned int style, bool *ret)
 {
-    QString strTitle = tr("Nyc3"); // default title
+    QString strTitle = tr("Californiacoin"); // default title
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;
@@ -905,7 +905,7 @@ void Nyc3GUI::message(const QString &title, const QString &message, unsigned int
             break;
         }
     }
-    // Append title to "Nyc3 - "
+    // Append title to "Californiacoin - "
     if (!msgType.isEmpty())
         strTitle += " - " + msgType;
 
@@ -936,7 +936,7 @@ void Nyc3GUI::message(const QString &title, const QString &message, unsigned int
         notificator->notify((Notificator::Class)nNotifyIcon, strTitle, message);
 }
 
-void Nyc3GUI::changeEvent(QEvent *e)
+void CaliforniacoinGUI::changeEvent(QEvent *e)
 {
     QMainWindow::changeEvent(e);
 #ifndef Q_OS_MAC // Ignored on Mac
@@ -955,7 +955,7 @@ void Nyc3GUI::changeEvent(QEvent *e)
 #endif
 }
 
-void Nyc3GUI::closeEvent(QCloseEvent *event)
+void CaliforniacoinGUI::closeEvent(QCloseEvent *event)
 {
 #ifndef Q_OS_MAC // Ignored on Mac
     if(clientModel && clientModel->getOptionsModel())
@@ -978,7 +978,7 @@ void Nyc3GUI::closeEvent(QCloseEvent *event)
 #endif
 }
 
-void Nyc3GUI::showEvent(QShowEvent *event)
+void CaliforniacoinGUI::showEvent(QShowEvent *event)
 {
     // enable the debug window when the main window shows up
     openRPCConsoleAction->setEnabled(true);
@@ -987,11 +987,11 @@ void Nyc3GUI::showEvent(QShowEvent *event)
 }
 
 #ifdef ENABLE_WALLET
-void Nyc3GUI::incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address, const QString& label)
+void CaliforniacoinGUI::incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address, const QString& label)
 {
     // On new transaction, make an info balloon
     QString msg = tr("Date: %1\n").arg(date) +
-                  tr("Amount: %1\n").arg(Nyc3Units::formatWithUnit(unit, amount, true)) +
+                  tr("Amount: %1\n").arg(CaliforniacoinUnits::formatWithUnit(unit, amount, true)) +
                   tr("Type: %1\n").arg(type);
     if (!label.isEmpty())
         msg += tr("Label: %1\n").arg(label);
@@ -1002,14 +1002,14 @@ void Nyc3GUI::incomingTransaction(const QString& date, int unit, const CAmount& 
 }
 #endif // ENABLE_WALLET
 
-void Nyc3GUI::dragEnterEvent(QDragEnterEvent *event)
+void CaliforniacoinGUI::dragEnterEvent(QDragEnterEvent *event)
 {
     // Accept only URIs
     if(event->mimeData()->hasUrls())
         event->acceptProposedAction();
 }
 
-void Nyc3GUI::dropEvent(QDropEvent *event)
+void CaliforniacoinGUI::dropEvent(QDropEvent *event)
 {
     if(event->mimeData()->hasUrls())
     {
@@ -1021,7 +1021,7 @@ void Nyc3GUI::dropEvent(QDropEvent *event)
     event->acceptProposedAction();
 }
 
-bool Nyc3GUI::eventFilter(QObject *object, QEvent *event)
+bool CaliforniacoinGUI::eventFilter(QObject *object, QEvent *event)
 {
     // Catch status tip events
     if (event->type() == QEvent::StatusTip)
@@ -1034,7 +1034,7 @@ bool Nyc3GUI::eventFilter(QObject *object, QEvent *event)
 }
 
 #ifdef ENABLE_WALLET
-bool Nyc3GUI::handlePaymentRequest(const SendCoinsRecipient& recipient)
+bool CaliforniacoinGUI::handlePaymentRequest(const SendCoinsRecipient& recipient)
 {
     // URI has to be valid
     if (walletFrame && walletFrame->handlePaymentRequest(recipient))
@@ -1046,7 +1046,7 @@ bool Nyc3GUI::handlePaymentRequest(const SendCoinsRecipient& recipient)
     return false;
 }
 
-void Nyc3GUI::setHDStatus(int hdEnabled)
+void CaliforniacoinGUI::setHDStatus(int hdEnabled)
 {
     labelWalletHDStatusIcon->setPixmap(platformStyle->SingleColorIcon(hdEnabled ? ":/icons/hd_enabled" : ":/icons/hd_disabled").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
     labelWalletHDStatusIcon->setToolTip(hdEnabled ? tr("HD key generation is <b>enabled</b>") : tr("HD key generation is <b>disabled</b>"));
@@ -1055,7 +1055,7 @@ void Nyc3GUI::setHDStatus(int hdEnabled)
     labelWalletHDStatusIcon->setEnabled(hdEnabled);
 }
 
-void Nyc3GUI::setEncryptionStatus(int status)
+void CaliforniacoinGUI::setEncryptionStatus(int status)
 {
     switch(status)
     {
@@ -1085,7 +1085,7 @@ void Nyc3GUI::setEncryptionStatus(int status)
 }
 #endif // ENABLE_WALLET
 
-void Nyc3GUI::showNormalIfMinimized(bool fToggleHidden)
+void CaliforniacoinGUI::showNormalIfMinimized(bool fToggleHidden)
 {
     if(!clientModel)
         return;
@@ -1110,12 +1110,12 @@ void Nyc3GUI::showNormalIfMinimized(bool fToggleHidden)
         hide();
 }
 
-void Nyc3GUI::toggleHidden()
+void CaliforniacoinGUI::toggleHidden()
 {
     showNormalIfMinimized(true);
 }
 
-void Nyc3GUI::detectShutdown()
+void CaliforniacoinGUI::detectShutdown()
 {
     if (ShutdownRequested())
     {
@@ -1125,7 +1125,7 @@ void Nyc3GUI::detectShutdown()
     }
 }
 
-void Nyc3GUI::showProgress(const QString &title, int nProgress)
+void CaliforniacoinGUI::showProgress(const QString &title, int nProgress)
 {
     if (nProgress == 0)
     {
@@ -1148,7 +1148,7 @@ void Nyc3GUI::showProgress(const QString &title, int nProgress)
         progressDialog->setValue(nProgress);
 }
 
-void Nyc3GUI::setTrayIconVisible(bool fHideTrayIcon)
+void CaliforniacoinGUI::setTrayIconVisible(bool fHideTrayIcon)
 {
     if (trayIcon)
     {
@@ -1156,13 +1156,13 @@ void Nyc3GUI::setTrayIconVisible(bool fHideTrayIcon)
     }
 }
 
-void Nyc3GUI::showModalOverlay()
+void CaliforniacoinGUI::showModalOverlay()
 {
     if (modalOverlay && (progressBar->isVisible() || modalOverlay->isLayerVisible()))
         modalOverlay->toggleVisibility();
 }
 
-static bool ThreadSafeMessageBox(Nyc3GUI *gui, const std::string& message, const std::string& caption, unsigned int style)
+static bool ThreadSafeMessageBox(CaliforniacoinGUI *gui, const std::string& message, const std::string& caption, unsigned int style)
 {
     bool modal = (style & CClientUIInterface::MODAL);
     // The SECURE flag has no effect in the Qt GUI.
@@ -1179,21 +1179,21 @@ static bool ThreadSafeMessageBox(Nyc3GUI *gui, const std::string& message, const
     return ret;
 }
 
-void Nyc3GUI::subscribeToCoreSignals()
+void CaliforniacoinGUI::subscribeToCoreSignals()
 {
     // Connect signals to client
     uiInterface.ThreadSafeMessageBox.connect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
     uiInterface.ThreadSafeQuestion.connect(boost::bind(ThreadSafeMessageBox, this, _1, _3, _4));
 }
 
-void Nyc3GUI::unsubscribeFromCoreSignals()
+void CaliforniacoinGUI::unsubscribeFromCoreSignals()
 {
     // Disconnect signals from client
     uiInterface.ThreadSafeMessageBox.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
     uiInterface.ThreadSafeQuestion.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _3, _4));
 }
 
-void Nyc3GUI::toggleNetworkActive()
+void CaliforniacoinGUI::toggleNetworkActive()
 {
     if (clientModel) {
         clientModel->setNetworkActive(!clientModel->getNetworkActive());
@@ -1206,12 +1206,12 @@ UnitDisplayStatusBarControl::UnitDisplayStatusBarControl(const PlatformStyle *pl
 {
     createContextMenu();
     setToolTip(tr("Unit to show amounts in. Click to select another unit."));
-    QList<Nyc3Units::Unit> units = Nyc3Units::availableUnits();
+    QList<CaliforniacoinUnits::Unit> units = CaliforniacoinUnits::availableUnits();
     int max_width = 0;
     const QFontMetrics fm(font());
-    for (const Nyc3Units::Unit unit : units)
+    for (const CaliforniacoinUnits::Unit unit : units)
     {
-        max_width = qMax(max_width, fm.width(Nyc3Units::name(unit)));
+        max_width = qMax(max_width, fm.width(CaliforniacoinUnits::name(unit)));
     }
     setMinimumSize(max_width, 0);
     setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -1228,9 +1228,9 @@ void UnitDisplayStatusBarControl::mousePressEvent(QMouseEvent *event)
 void UnitDisplayStatusBarControl::createContextMenu()
 {
     menu = new QMenu(this);
-    for (Nyc3Units::Unit u : Nyc3Units::availableUnits())
+    for (CaliforniacoinUnits::Unit u : CaliforniacoinUnits::availableUnits())
     {
-        QAction *menuAction = new QAction(QString(Nyc3Units::name(u)), this);
+        QAction *menuAction = new QAction(QString(CaliforniacoinUnits::name(u)), this);
         menuAction->setData(QVariant(u));
         menu->addAction(menuAction);
     }
@@ -1255,7 +1255,7 @@ void UnitDisplayStatusBarControl::setOptionsModel(OptionsModel *_optionsModel)
 /** When Display Units are changed on OptionsModel it will refresh the display text of the control on the status bar */
 void UnitDisplayStatusBarControl::updateDisplayUnit(int newUnits)
 {
-    setText(Nyc3Units::name(newUnits));
+    setText(CaliforniacoinUnits::name(newUnits));
 }
 
 /** Shows context menu with Display Unit options by the mouse coordinates */

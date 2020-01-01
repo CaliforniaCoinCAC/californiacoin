@@ -1,4 +1,4 @@
-Source: nyc3
+Source: californiacoin
 Section: utils
 Priority: optional
 Maintainer: Matt Corallo <matt@mattcorallo.com>
@@ -26,45 +26,45 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://nyc3.org/
-Vcs-Git: git://github.com/Nyc3Project/Nyc3coin.git
-Vcs-Browser: https://github.com/Nyc3Project/Nyc3coin
+Homepage: https://californiacoin.org/
+Vcs-Git: git://github.com/CaliforniacoinProject/Californiacoincoin.git
+Vcs-Browser: https://github.com/CaliforniacoinProject/Californiacoincoin
 
-Package: nyc3d
+Package: californiacoind
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Nyc3 is a free open source peer-to-peer electronic cash system that
+ Californiacoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides the daemon, nyc3d, and the CLI tool
- nyc3-cli to interact with the daemon.
+ This package provides the daemon, californiacoind, and the CLI tool
+ californiacoin-cli to interact with the daemon.
 
-Package: nyc3-qt
+Package: californiacoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Nyc3 is a free open source peer-to-peer electronic cash system that
+ Californiacoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides Nyc3-Qt, a GUI for Nyc3 based on Qt.
+ This package provides Californiacoin-Qt, a GUI for Californiacoin based on Qt.
 
-Package: nyc3-tx
+Package: californiacoin-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- Nyc3 is a free open source peer-to-peer electronic cash system that
+ Californiacoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides nyc3-tx, a command-line transaction creation
- tool which can be used without a nyc3 daemon.  Some means of
+ This package provides californiacoin-tx, a command-line transaction creation
+ tool which can be used without a californiacoin daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

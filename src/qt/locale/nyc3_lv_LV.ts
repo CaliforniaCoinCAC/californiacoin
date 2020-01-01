@@ -64,7 +64,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>Nyc3GUI</name>
+    <name>CaliforniacoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Parakstīt &amp;ziņojumu...</translation>
@@ -142,8 +142,8 @@
         <translation>Bloku reindeksēšana no diska...</translation>
     </message>
     <message>
-        <source>Send coins to a Nyc3 address</source>
-        <translation>Nosūtīt bitkoinus uz Nyc3 adresi</translation>
+        <source>Send coins to a Californiacoin address</source>
+        <translation>Nosūtīt bitkoinus uz Californiacoin adresi</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -166,8 +166,8 @@
         <translation>&amp;Pārbaudīt ziņojumu...</translation>
     </message>
     <message>
-        <source>Nyc3</source>
-        <translation>Nyc3</translation>
+        <source>Californiacoin</source>
+        <translation>Californiacoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +194,12 @@
         <translation>Šifrēt privātās atslēgas kuras pieder tavam maciņam</translation>
     </message>
     <message>
-        <source>Sign messages with your Nyc3 addresses to prove you own them</source>
-        <translation>Parakstīt ziņojumus ar savām Nyc3 adresēm lai pierādītu ka tās pieder tev</translation>
+        <source>Sign messages with your Californiacoin addresses to prove you own them</source>
+        <translation>Parakstīt ziņojumus ar savām Californiacoin adresēm lai pierādītu ka tās pieder tev</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Nyc3 addresses</source>
-        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām Nyc3 adresēm</translation>
+        <source>Verify messages to ensure they were signed with specified Californiacoin addresses</source>
+        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām Californiacoin adresēm</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -218,12 +218,12 @@
         <translation>Ciļņu rīkjosla</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and nyc3: URIs)</source>
-        <translation>Pieprasīt maksājumus (izveido QR kodu un nyc3: URIs)</translation>
+        <source>Request payments (generates QR codes and californiacoin: URIs)</source>
+        <translation>Pieprasīt maksājumus (izveido QR kodu un californiacoin: URIs)</translation>
     </message>
     <message>
-        <source>Open a nyc3: URI or payment request</source>
-        <translation>Atvērt nyc3 URI vai maksājuma pieprasījumu</translation>
+        <source>Open a californiacoin: URI or payment request</source>
+        <translation>Atvērt californiacoin URI vai maksājuma pieprasījumu</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -499,15 +499,15 @@
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
-        <translation>Ieslēgt nyc3 &amp;kontroles funkcijas</translation>
+        <translation>Ieslēgt californiacoin &amp;kontroles funkcijas</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
         <translation>&amp;Tērēt neapstiprinātu atlikumu</translation>
     </message>
     <message>
-        <source>Automatically open the Nyc3 client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Uz rūtera automātiski atvērt Nyc3 klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
+        <source>Automatically open the Californiacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Uz rūtera automātiski atvērt Californiacoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -559,7 +559,7 @@
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
-        <translation>Vai rādīt Nyc3 kontroles funkcijas vai nē.</translation>
+        <translation>Vai rādīt Californiacoin kontroles funkcijas vai nē.</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -593,8 +593,8 @@
         <translation>Forma</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Nyc3 network after a connection is established, but this process has not completed yet.</source>
-        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Nyc3 tīklu, taču šis process vēl nav beidzies.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Californiacoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Californiacoin tīklu, taču šis process vēl nav beidzies.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -852,7 +852,7 @@
     </message>
     <message>
         <source>Coin Control Features</source>
-        <translation>Nyc3 Kontroles Funkcijas</translation>
+        <translation>Californiacoin Kontroles Funkcijas</translation>
     </message>
     <message>
         <source>Inputs...</source>
@@ -1027,8 +1027,8 @@
         <translation>Kopēt parakstu uz sistēmas starpliktuvi</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Nyc3 address</source>
-        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs Nyc3 adreses īpašnieks.</translation>
+        <source>Sign the message to prove you own this Californiacoin address</source>
+        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs Californiacoin adreses īpašnieks.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1098,7 +1098,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>nyc3-core</name>
+    <name>californiacoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Iespējas:</translation>
@@ -1124,8 +1124,8 @@
         <translation>Darbināt fonā kā servisu un pieņemt komandas</translation>
     </message>
     <message>
-        <source>Nyc3 Core</source>
-        <translation>Nyc3 Core</translation>
+        <source>Californiacoin Core</source>
+        <translation>Californiacoin Core</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>

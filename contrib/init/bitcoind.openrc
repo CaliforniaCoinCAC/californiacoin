@@ -2,26 +2,26 @@
 
 # backward compatibility for existing gentoo layout 
 #
-if [ -d "/var/lib/nyc3/.nyc3" ]; then
-	PIGEOND_DEFAULT_DATADIR="/var/lib/nyc3/.nyc3"
+if [ -d "/var/lib/californiacoin/.californiacoin" ]; then
+	PIGEOND_DEFAULT_DATADIR="/var/lib/californiacoin/.californiacoin"
 else
-	PIGEOND_DEFAULT_DATADIR="/var/lib/nyc3d"
+	PIGEOND_DEFAULT_DATADIR="/var/lib/californiacoind"
 fi
 
-PIGEOND_CONFIGFILE=${PIGEOND_CONFIGFILE:-/etc/nyc3/nyc3.conf}
-PIGEOND_PIDDIR=${PIGEOND_PIDDIR:-/var/run/nyc3d}
-PIGEOND_PIDFILE=${PIGEOND_PIDFILE:-${PIGEOND_PIDDIR}/nyc3d.pid}
+PIGEOND_CONFIGFILE=${PIGEOND_CONFIGFILE:-/etc/californiacoin/californiacoin.conf}
+PIGEOND_PIDDIR=${PIGEOND_PIDDIR:-/var/run/californiacoind}
+PIGEOND_PIDFILE=${PIGEOND_PIDFILE:-${PIGEOND_PIDDIR}/californiacoind.pid}
 PIGEOND_DATADIR=${PIGEOND_DATADIR:-${PIGEOND_DEFAULT_DATADIR}}
-PIGEOND_USER=${PIGEOND_USER:-${PIGEON_USER:-nyc3}}
-PIGEOND_GROUP=${PIGEOND_GROUP:-nyc3}
-PIGEOND_BIN=${PIGEOND_BIN:-/usr/bin/nyc3d}
+PIGEOND_USER=${PIGEOND_USER:-${PIGEON_USER:-californiacoin}}
+PIGEOND_GROUP=${PIGEOND_GROUP:-californiacoin}
+PIGEOND_BIN=${PIGEOND_BIN:-/usr/bin/californiacoind}
 PIGEOND_NICE=${PIGEOND_NICE:-${NICELEVEL:-0}}
 PIGEOND_OPTS="${PIGEOND_OPTS:-${PIGEON_OPTS}}"
 
-name="Nyc3 Core Daemon"
-description="Nyc3 cryptocurrency P2P network daemon"
+name="Californiacoin Core Daemon"
+description="Californiacoin cryptocurrency P2P network daemon"
 
-command="/usr/bin/nyc3d"
+command="/usr/bin/californiacoind"
 command_args="-pid=\"${PIGEOND_PIDFILE}\" \
 		-conf=\"${PIGEOND_CONFIGFILE}\" \
 		-datadir=\"${PIGEOND_DATADIR}\" \
@@ -71,7 +71,7 @@ checkconfig()
 {
 	if ! grep -qs '^rpcpassword=' "${PIGEOND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run nyc3d."
+		eerror "ERROR: You must set a secure rpcpassword to run californiacoind."
 		eerror "The setting must appear in ${PIGEOND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
@@ -84,7 +84,7 @@ checkconfig()
 		eerror "It is recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"Nyc3 Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"Californiacoin Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1

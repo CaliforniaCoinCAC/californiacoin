@@ -1,13 +1,13 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-TESTS += test/test_nyc3
-bin_PROGRAMS += test/test_nyc3
-noinst_PROGRAMS += test/test_nyc3_fuzzy
+TESTS += test/test_californiacoin
+bin_PROGRAMS += test/test_californiacoin
+noinst_PROGRAMS += test/test_californiacoin_fuzzy
 TEST_SRCDIR = test
-TEST_BINARY=test/test_nyc3$(EXEEXT)
+TEST_BINARY=test/test_californiacoin$(EXEEXT)
 
 JSON_TEST_FILES = \
   test/data/script_tests.json \
@@ -22,7 +22,7 @@ RAW_TEST_FILES =
 
 GENERATED_TEST_FILES = $(JSON_TEST_FILES:.json=.json.h) $(RAW_TEST_FILES:.raw=.raw.h)
 
-# test_nyc3 binary #
+# test_californiacoin binary #
 PIGEON_TESTS =\
   test/arith_uint256_tests.cpp \
   test/scriptnum10.h \
@@ -75,9 +75,9 @@ PIGEON_TESTS =\
   test/sigopcount_tests.cpp \
   test/skiplist_tests.cpp \
   test/streams_tests.cpp \
-  test/test_nyc3.cpp \
-  test/test_nyc3.h \
-  test/test_nyc3_main.cpp \
+  test/test_californiacoin.cpp \
+  test/test_californiacoin.h \
+  test/test_californiacoin_main.cpp \
   test/timedata_tests.cpp \
   test/torcontrol_tests.cpp \
   test/transaction_tests.cpp \
@@ -96,31 +96,31 @@ PIGEON_TESTS += \
   wallet/test/crypto_tests.cpp
 endif
 
-test_test_nyc3_SOURCES = $(PIGEON_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
-test_test_nyc3_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_CFLAGS)
-test_test_nyc3_LDADD =
+test_test_californiacoin_SOURCES = $(PIGEON_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
+test_test_californiacoin_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_CFLAGS)
+test_test_californiacoin_LDADD =
 if ENABLE_WALLET
-test_test_nyc3_LDADD += $(LIBPIGEON_WALLET)
+test_test_californiacoin_LDADD += $(LIBPIGEON_WALLET)
 endif
-test_test_nyc3_LDADD += $(LIBPIGEON_SERVER) $(LIBPIGEON_CLI) $(LIBPIGEON_COMMON) $(LIBPIGEON_UTIL) $(LIBPIGEON_CONSENSUS) $(LIBPIGEON_CRYPTO) $(LIBUNIVALUE) \
+test_test_californiacoin_LDADD += $(LIBPIGEON_SERVER) $(LIBPIGEON_CLI) $(LIBPIGEON_COMMON) $(LIBPIGEON_UTIL) $(LIBPIGEON_CONSENSUS) $(LIBPIGEON_CRYPTO) $(LIBUNIVALUE) \
   $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB) $(LIBSECP256K1) $(EVENT_LIBS) $(EVENT_PTHREADS_LIBS)
-test_test_nyc3_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+test_test_californiacoin_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
-test_test_nyc3_LDADD += $(LIBPIGEON_CONSENSUS) $(LIBPIGEON_CRYPTO) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-test_test_nyc3_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
+test_test_californiacoin_LDADD += $(LIBPIGEON_CONSENSUS) $(LIBPIGEON_CRYPTO) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+test_test_californiacoin_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
 
 if ENABLE_ZMQ
-test_test_nyc3_LDADD += $(ZMQ_LIBS)
+test_test_californiacoin_LDADD += $(ZMQ_LIBS)
 endif
 #
 
-# test_nyc3_fuzzy binary #
-test_test_nyc3_fuzzy_SOURCES = test/test_nyc3_fuzzy.cpp
-test_test_nyc3_fuzzy_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
-test_test_nyc3_fuzzy_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-test_test_nyc3_fuzzy_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# test_californiacoin_fuzzy binary #
+test_test_californiacoin_fuzzy_SOURCES = test/test_californiacoin_fuzzy.cpp
+test_test_californiacoin_fuzzy_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
+test_test_californiacoin_fuzzy_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+test_test_californiacoin_fuzzy_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
-test_test_nyc3_fuzzy_LDADD = \
+test_test_californiacoin_fuzzy_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBPIGEON_SERVER) \
   $(LIBPIGEON_COMMON) \
@@ -129,10 +129,10 @@ test_test_nyc3_fuzzy_LDADD = \
   $(LIBPIGEON_CRYPTO) \
   $(LIBSECP256K1)
 
-test_test_nyc3_fuzzy_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+test_test_californiacoin_fuzzy_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-nodist_test_test_nyc3_SOURCES = $(GENERATED_TEST_FILES)
+nodist_test_test_californiacoin_SOURCES = $(GENERATED_TEST_FILES)
 
 $(PIGEON_TESTS): $(GENERATED_TEST_FILES)
 
@@ -140,17 +140,17 @@ CLEAN_PIGEON_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
 
 CLEANFILES += $(CLEAN_PIGEON_TEST)
 
-nyc3_test: $(TEST_BINARY)
+californiacoin_test: $(TEST_BINARY)
 
-nyc3_test_check: $(TEST_BINARY) FORCE
+californiacoin_test_check: $(TEST_BINARY) FORCE
 	$(MAKE) check-TESTS TESTS=$^
 
-nyc3_test_clean : FORCE
-	rm -f $(CLEAN_PIGEON_TEST) $(test_test_nyc3_OBJECTS) $(TEST_BINARY)
+californiacoin_test_clean : FORCE
+	rm -f $(CLEAN_PIGEON_TEST) $(test_test_californiacoin_OBJECTS) $(TEST_BINARY)
 
 check-local:
-	@echo "Running test/util/nyc3-util-test.py..."
-	$(PYTHON) $(top_builddir)/test/util/nyc3-util-test.py
+	@echo "Running test/util/californiacoin-util-test.py..."
+	$(PYTHON) $(top_builddir)/test/util/californiacoin-util-test.py
 	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -C secp256k1 check
 if EMBEDDED_UNIVALUE
 	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -C univalue check

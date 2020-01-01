@@ -1,9 +1,9 @@
 // Copyright (c) 2011-2014 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "nyc3addressvalidator.h"
+#include "californiacoinaddressvalidator.h"
 
 #include "base58.h"
 
@@ -16,12 +16,12 @@
   - All lower-case letters except for 'l'
 */
 
-Nyc3AddressEntryValidator::Nyc3AddressEntryValidator(QObject *parent) :
+CaliforniacoinAddressEntryValidator::CaliforniacoinAddressEntryValidator(QObject *parent) :
     QValidator(parent)
 {
 }
 
-QValidator::State Nyc3AddressEntryValidator::validate(QString &input, int &pos) const
+QValidator::State CaliforniacoinAddressEntryValidator::validate(QString &input, int &pos) const
 {
     Q_UNUSED(pos);
 
@@ -81,15 +81,15 @@ QValidator::State Nyc3AddressEntryValidator::validate(QString &input, int &pos) 
     return state;
 }
 
-Nyc3AddressCheckValidator::Nyc3AddressCheckValidator(QObject *parent) :
+CaliforniacoinAddressCheckValidator::CaliforniacoinAddressCheckValidator(QObject *parent) :
     QValidator(parent)
 {
 }
 
-QValidator::State Nyc3AddressCheckValidator::validate(QString &input, int &pos) const
+QValidator::State CaliforniacoinAddressCheckValidator::validate(QString &input, int &pos) const
 {
     Q_UNUSED(pos);
-    // Validate the passed Nyc3 address
+    // Validate the passed Californiacoin address
     if (IsValidDestinationString(input.toStdString())) {
         return QValidator::Acceptable;
     }

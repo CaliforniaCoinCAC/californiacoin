@@ -63,12 +63,12 @@ Alihkan fail data ke dalam tab semasa</translation>
         <translation>alamat-alamat penerimaan</translation>
     </message>
     <message>
-        <source>These are your Nyc3 addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Ini adalah alamat Nyc3 anda untuk pembayaran. Periksa jumlah dan alamat penerima sebelum membuat penghantaran koin sentiasa.</translation>
+        <source>These are your Californiacoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Ini adalah alamat Californiacoin anda untuk pembayaran. Periksa jumlah dan alamat penerima sebelum membuat penghantaran koin sentiasa.</translation>
     </message>
     <message>
-        <source>These are your Nyc3 addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Ini adalah alamat Nyc3 anda untuk menerima pembayaraan.  Anda disyorkan untuk menguna alamat menerima untuk setiap transaksi.</translation>
+        <source>These are your Californiacoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Ini adalah alamat Californiacoin anda untuk menerima pembayaraan.  Anda disyorkan untuk menguna alamat menerima untuk setiap transaksi.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -181,8 +181,8 @@ Alihkan fail data ke dalam tab semasa</translation>
         <translation>Dompet dienkripsi</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your nyc3s from being stolen by malware infecting your computer.</source>
-        <translation>%1 akan tutup untuk menyelesaikan proses enkripsi. Ingat bahawa enkripsi tidak boleh melidungi sepenuhnya nyc3s anda daripada dicuri oleh malware yang menjangkiti komputer anda.</translation>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your californiacoins from being stolen by malware infecting your computer.</source>
+        <translation>%1 akan tutup untuk menyelesaikan proses enkripsi. Ingat bahawa enkripsi tidak boleh melidungi sepenuhnya californiacoins anda daripada dicuri oleh malware yang menjangkiti komputer anda.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -233,7 +233,7 @@ Alihkan fail data ke dalam tab semasa</translation>
     </message>
 </context>
 <context>
-    <name>Nyc3GUI</name>
+    <name>CaliforniacoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Tandatangan &amp; mesej...</translation>
@@ -323,8 +323,8 @@ Alihkan fail data ke dalam tab semasa</translation>
         <translation>Reindexi blok pada cakera...</translation>
     </message>
     <message>
-        <source>Send coins to a Nyc3 address</source>
-        <translation>Menghantar koin kepada alamat Nyc3</translation>
+        <source>Send coins to a Californiacoin address</source>
+        <translation>Menghantar koin kepada alamat Californiacoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -500,6 +500,6 @@ Alihkan fail data ke dalam tab semasa</translation>
     </message>
     </context>
 <context>
-    <name>nyc3-core</name>
+    <name>californiacoin-core</name>
     </context>
 </TS>

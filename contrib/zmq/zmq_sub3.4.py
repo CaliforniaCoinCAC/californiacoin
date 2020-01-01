@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 """
     ZMQ example using python3's asyncio
 
-    Nyc3 should be started with the command line arguments:
-        nyc3d -testnet -daemon \
+    Californiacoin should be started with the command line arguments:
+        californiacoind -testnet -daemon \
                 -zmqpubhashblock=tcp://127.0.0.1:28756 \
                 -zmqpubrawtx=tcp://127.0.0.1:28756 \
                 -zmqpubhashtx=tcp://127.0.0.1:28756 \
@@ -24,7 +24,7 @@
     and `await` keywords respectively.
 
     A blocking example using python 2.7 can be obtained from the git history:
-    https://github.com/Nyc3Project/Nyc3coin/blob/37a7fe9e440b83e2364d5498931253937abe9294/contrib/zmq/zmq_sub.py
+    https://github.com/CaliforniacoinProject/Californiacoincoin/blob/37a7fe9e440b83e2364d5498931253937abe9294/contrib/zmq/zmq_sub.py
 """
 
 import binascii

@@ -1,2 +1,2 @@
-contrib/nyc3d.bash-completion	nyc3d
-contrib/nyc3-cli.bash-completion	nyc3-cli
+contrib/californiacoind.bash-completion	californiacoind
+contrib/californiacoin-cli.bash-completion	californiacoin-cli

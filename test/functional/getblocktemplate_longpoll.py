@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test longpolling with getblocktemplate."""
 
-from test_framework.test_framework import Nyc3TestFramework
+from test_framework.test_framework import CaliforniacoinTestFramework
 from test_framework.util import *
 
 import threading
@@ -23,7 +23,7 @@ class LongpollThread(threading.Thread):
     def run(self):
         self.node.getblocktemplate({'longpollid':self.longpollid})
 
-class GetBlockTemplateLPTest(Nyc3TestFramework):
+class GetBlockTemplateLPTest(CaliforniacoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 

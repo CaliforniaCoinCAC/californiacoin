@@ -1,87 +1,87 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "nyc3units.h"
+#include "californiacoinunits.h"
 
 #include "primitives/transaction.h"
 
 #include <QStringList>
 
-Nyc3Units::Nyc3Units(QObject *parent):
+CaliforniacoinUnits::CaliforniacoinUnits(QObject *parent):
         QAbstractListModel(parent),
         unitlist(availableUnits())
 {
 }
 
-QList<Nyc3Units::Unit> Nyc3Units::availableUnits()
+QList<CaliforniacoinUnits::Unit> CaliforniacoinUnits::availableUnits()
 {
-    QList<Nyc3Units::Unit> unitlist;
-    unitlist.append(NYC3);
-    unitlist.append(mNYC3);
-    unitlist.append(uNYC3);
+    QList<CaliforniacoinUnits::Unit> unitlist;
+    unitlist.append(CALIFORNIACOIN);
+    unitlist.append(mCALIFORNIACOIN);
+    unitlist.append(uCALIFORNIACOIN);
     return unitlist;
 }
 
-bool Nyc3Units::valid(int unit)
+bool CaliforniacoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case NYC3:
-    case mNYC3:
-    case uNYC3:
+    case CALIFORNIACOIN:
+    case mCALIFORNIACOIN:
+    case uCALIFORNIACOIN:
         return true;
     default:
         return false;
     }
 }
 
-QString Nyc3Units::name(int unit)
+QString CaliforniacoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case NYC3: return QString("NYC3");
-    case mNYC3: return QString("mNYC3");
-    case uNYC3: return QString::fromUtf8("μNYC3");
+    case CALIFORNIACOIN: return QString("CALIFORNIACOIN");
+    case mCALIFORNIACOIN: return QString("mCALIFORNIACOIN");
+    case uCALIFORNIACOIN: return QString::fromUtf8("μCALIFORNIACOIN");
     default: return QString("???");
     }
 }
 
-QString Nyc3Units::description(int unit)
+QString CaliforniacoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case NYC3: return QString("Nyc3s");
-    case mNYC3: return QString("Milli-Nyc3s (1 / 1" THIN_SP_UTF8 "000)");
-    case uNYC3: return QString("Micro-Nyc3s (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case CALIFORNIACOIN: return QString("Californiacoins");
+    case mCALIFORNIACOIN: return QString("Milli-Californiacoins (1 / 1" THIN_SP_UTF8 "000)");
+    case uCALIFORNIACOIN: return QString("Micro-Californiacoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
 
-qint64 Nyc3Units::factor(int unit)
+qint64 CaliforniacoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case NYC3:  return 100000000;
-    case mNYC3: return 100000;
-    case uNYC3: return 100;
+    case CALIFORNIACOIN:  return 100000000;
+    case mCALIFORNIACOIN: return 100000;
+    case uCALIFORNIACOIN: return 100;
     default:   return 100000000;
     }
 }
 
-int Nyc3Units::decimals(int unit)
+int CaliforniacoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case NYC3: return 8;
-    case mNYC3: return 5;
-    case uNYC3: return 2;
+    case CALIFORNIACOIN: return 8;
+    case mCALIFORNIACOIN: return 5;
+    case uCALIFORNIACOIN: return 2;
     default: return 0;
     }
 }
 
-QString Nyc3Units::format(int unit, const CAmount& nIn, bool fPlus, SeparatorStyle separators)
+QString CaliforniacoinUnits::format(int unit, const CAmount& nIn, bool fPlus, SeparatorStyle separators)
 {
     // Note: not using straight sprintf here because we do NOT want
     // localized number formatting.
@@ -120,12 +120,12 @@ QString Nyc3Units::format(int unit, const CAmount& nIn, bool fPlus, SeparatorSty
 // Please take care to use formatHtmlWithUnit instead, when
 // appropriate.
 
-QString Nyc3Units::formatWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)
+QString CaliforniacoinUnits::formatWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)
 {
     return format(unit, amount, plussign, separators) + QString(" ") + name(unit);
 }
 
-QString Nyc3Units::formatHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)
+QString CaliforniacoinUnits::formatHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)
 {
     QString str(formatWithUnit(unit, amount, plussign, separators));
     str.replace(QChar(THIN_SP_CP), QString(THIN_SP_HTML));
@@ -133,7 +133,7 @@ QString Nyc3Units::formatHtmlWithUnit(int unit, const CAmount& amount, bool plus
 }
 
 
-bool Nyc3Units::parse(int unit, const QString &value, CAmount *val_out)
+bool CaliforniacoinUnits::parse(int unit, const QString &value, CAmount *val_out)
 {
     if(!valid(unit) || value.isEmpty())
         return false; // Refuse to parse invalid unit or empty string
@@ -172,23 +172,23 @@ bool Nyc3Units::parse(int unit, const QString &value, CAmount *val_out)
     return ok;
 }
 
-QString Nyc3Units::getAmountColumnTitle(int unit)
+QString CaliforniacoinUnits::getAmountColumnTitle(int unit)
 {
     QString amountTitle = QObject::tr("Amount");
-    if (Nyc3Units::valid(unit))
+    if (CaliforniacoinUnits::valid(unit))
     {
-        amountTitle += " ("+Nyc3Units::name(unit) + ")";
+        amountTitle += " ("+CaliforniacoinUnits::name(unit) + ")";
     }
     return amountTitle;
 }
 
-int Nyc3Units::rowCount(const QModelIndex &parent) const
+int CaliforniacoinUnits::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return unitlist.size();
 }
 
-QVariant Nyc3Units::data(const QModelIndex &index, int role) const
+QVariant CaliforniacoinUnits::data(const QModelIndex &index, int role) const
 {
     int row = index.row();
     if(row >= 0 && row < unitlist.size())
@@ -208,7 +208,7 @@ QVariant Nyc3Units::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-CAmount Nyc3Units::maxMoney()
+CAmount CaliforniacoinUnits::maxMoney()
 {
     return MAX_MONEY;
 }

@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # Copyright (c) 2015-2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the prioritisetransaction mining RPC."""
 
-from test_framework.test_framework import Nyc3TestFramework
+from test_framework.test_framework import CaliforniacoinTestFramework
 from test_framework.util import *
 from test_framework.mininode import COIN, MAX_BLOCK_BASE_SIZE
 
-class PrioritiseTransactionTest(Nyc3TestFramework):
+class PrioritiseTransactionTest(CaliforniacoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

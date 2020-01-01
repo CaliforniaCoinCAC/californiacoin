@@ -3,9 +3,9 @@ Release Process
 
 Before every release candidate:
 
-* Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/Nyc3Project/Nyc3coin/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/CaliforniacoinProject/Californiacoincoin/blob/master/doc/translation_process.md#synchronising-translations).
 
-* Update manpages, see [gen-manpages.sh](https://github.com/Nyc3Project/Nyc3coin/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/CaliforniacoinProject/Californiacoincoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -21,7 +21,7 @@ Before every minor and major release:
 
 Before every major release:
 
-* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/Nyc3Project/Nyc3coin/pull/7415) for an example.
+* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/CaliforniacoinProject/Californiacoincoin/pull/7415) for an example.
 * Update [`BLOCK_CHAIN_SIZE`](/src/qt/intro.cpp) to the current size plus some overhead.
 * Update `src/chainparams.cpp` chainTxData with statistics about the transaction count and rate.
 * Update version of `contrib/gitian-descriptors/*.yml`: usually one'd want to do this on master after branching off the release - but be sure to at least do it before a new major release
@@ -33,12 +33,12 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/nyc3-core/gitian.sigs.git
-    git clone https://github.com/nyc3-core/nyc3-detached-sigs.git
+    git clone https://github.com/californiacoin-core/gitian.sigs.git
+    git clone https://github.com/californiacoin-core/californiacoin-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/Nyc3Project/Nyc3coin.git
+    git clone https://github.com/CaliforniacoinProject/Californiacoincoin.git
 
-### Nyc3 maintainers/release engineers, suggestion for writing release notes
+### Californiacoin maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -61,7 +61,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./nyc3
+    pushd ./californiacoin
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.8.0)
     git fetch
@@ -84,7 +84,7 @@ Ensure gitian-builder is up-to-date:
 
     pushd ./gitian-builder
     mkdir -p inputs
-    wget -P inputs https://nyc3coin.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+    wget -P inputs https://californiacoincoin.org/cfields/osslsigncode-Backports-to-1.7.1.patch
     wget -P inputs http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
     popd
 
@@ -95,7 +95,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../nyc3/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../californiacoin/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -103,50 +103,50 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url nyc3=/path/to/nyc3,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url californiacoin=/path/to/californiacoin,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign Nyc3 Core for Linux, Windows, and OS X:
+### Build and sign Californiacoin Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --num-make 2 --memory 3000 --commit nyc3=v${VERSION} ../nyc3/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../nyc3/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/nyc3-*.tar.gz build/out/src/nyc3-*.tar.gz ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit californiacoin=v${VERSION} ../californiacoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../californiacoin/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/californiacoin-*.tar.gz build/out/src/californiacoin-*.tar.gz ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit nyc3=v${VERSION} ../nyc3/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../nyc3/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/nyc3-*-win-unsigned.tar.gz inputs/nyc3-win-unsigned.tar.gz
-    mv build/out/nyc3-*.zip build/out/nyc3-*.exe ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit californiacoin=v${VERSION} ../californiacoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../californiacoin/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/californiacoin-*-win-unsigned.tar.gz inputs/californiacoin-win-unsigned.tar.gz
+    mv build/out/californiacoin-*.zip build/out/californiacoin-*.exe ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit nyc3=v${VERSION} ../nyc3/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../nyc3/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/nyc3-*-osx-unsigned.tar.gz inputs/nyc3-osx-unsigned.tar.gz
-    mv build/out/nyc3-*.tar.gz build/out/nyc3-*.dmg ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit californiacoin=v${VERSION} ../californiacoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../californiacoin/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/californiacoin-*-osx-unsigned.tar.gz inputs/californiacoin-osx-unsigned.tar.gz
+    mv build/out/californiacoin-*.tar.gz build/out/californiacoin-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`nyc3-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`nyc3-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`nyc3-${VERSION}-win[32|64]-setup-unsigned.exe`, `nyc3-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`nyc3-${VERSION}-osx-unsigned.dmg`, `nyc3-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`californiacoin-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`californiacoin-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`californiacoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `californiacoin-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`californiacoin-${VERSION}-osx-unsigned.dmg`, `californiacoin-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import nyc3/contrib/gitian-keys/*.pgp
+    gpg --import californiacoin/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../nyc3/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../nyc3/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../nyc3/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../californiacoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../californiacoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../californiacoin/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -167,22 +167,22 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer nyc3-osx-unsigned.tar.gz to osx for signing
-    tar xf nyc3-osx-unsigned.tar.gz
+    transfer californiacoin-osx-unsigned.tar.gz to osx for signing
+    tar xf californiacoin-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf nyc3-win-unsigned.tar.gz
+    tar xf californiacoin-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/nyc3-detached-sigs
+    cd ~/californiacoin-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -195,25 +195,25 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [nyc3-detached-sigs](https://github.com/nyc3-core/nyc3-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [californiacoin-detached-sigs](https://github.com/californiacoin-core/californiacoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../nyc3/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../nyc3/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../nyc3/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/nyc3-osx-signed.dmg ../nyc3-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../californiacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../californiacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../californiacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/californiacoin-osx-signed.dmg ../californiacoin-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../nyc3/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../nyc3/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../nyc3/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/nyc3-*win64-setup.exe ../nyc3-${VERSION}-win64-setup.exe
-    mv build/out/nyc3-*win32-setup.exe ../nyc3-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../californiacoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../californiacoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../californiacoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/californiacoin-*win64-setup.exe ../californiacoin-${VERSION}-win64-setup.exe
+    mv build/out/californiacoin-*win32-setup.exe ../californiacoin-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -235,23 +235,23 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-nyc3-${VERSION}-aarch64-linux-gnu.tar.gz
-nyc3-${VERSION}-arm-linux-gnueabihf.tar.gz
-nyc3-${VERSION}-i686-pc-linux-gnu.tar.gz
-nyc3-${VERSION}-x86_64-linux-gnu.tar.gz
-nyc3-${VERSION}-osx64.tar.gz
-nyc3-${VERSION}-osx.dmg
-nyc3-${VERSION}.tar.gz
-nyc3-${VERSION}-win32-setup.exe
-nyc3-${VERSION}-win32.zip
-nyc3-${VERSION}-win64-setup.exe
-nyc3-${VERSION}-win64.zip
+californiacoin-${VERSION}-aarch64-linux-gnu.tar.gz
+californiacoin-${VERSION}-arm-linux-gnueabihf.tar.gz
+californiacoin-${VERSION}-i686-pc-linux-gnu.tar.gz
+californiacoin-${VERSION}-x86_64-linux-gnu.tar.gz
+californiacoin-${VERSION}-osx64.tar.gz
+californiacoin-${VERSION}-osx.dmg
+californiacoin-${VERSION}.tar.gz
+californiacoin-${VERSION}-win32-setup.exe
+californiacoin-${VERSION}-win32.zip
+californiacoin-${VERSION}-win64-setup.exe
+californiacoin-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the nyc3.org server, nor put them in the torrent*.
+space *do not upload these to the californiacoin.org server, nor put them in the torrent*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -261,49 +261,49 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the nyc3.org server
-  into `/var/www/bin/nyc3-core-${VERSION}`
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the californiacoin.org server
+  into `/var/www/bin/californiacoin-core-${VERSION}`
 
 - A `.torrent` will appear in the directory after a few minutes. Optionally help seed this torrent. To get the `magnet:` URI use:
 ```bash
 transmission-show -m <torrent file>
 ```
 Insert the magnet URI into the announcement sent to mailing lists. This permits
-people without access to `nyc3.org` to download the binary distribution.
+people without access to `californiacoin.org` to download the binary distribution.
 Also put it into the `optional_magnetlink:` slot in the YAML file for
-nyc3.org (see below for nyc3.org update instructions).
+californiacoin.org (see below for californiacoin.org update instructions).
 
-- Update nyc3.org version
+- Update californiacoin.org version
 
-  - First, check to see if the Nyc3.org maintainers have prepared a
-    release: https://github.com/nyc3-dot-org/nyc3.org/labels/Releases
+  - First, check to see if the Californiacoin.org maintainers have prepared a
+    release: https://github.com/californiacoin-dot-org/californiacoin.org/labels/Releases
 
       - If they have, it will have previously failed their Travis CI
         checks because the final release files weren't uploaded.
         Trigger a Travis CI rebuild---if it passes, merge.
 
-  - If they have not prepared a release, follow the Nyc3.org release
-    instructions: https://github.com/nyc3-dot-org/nyc3.org#release-notes
+  - If they have not prepared a release, follow the Californiacoin.org release
+    instructions: https://github.com/californiacoin-dot-org/californiacoin.org#release-notes
 
   - After the pull request is merged, the website will automatically show the newest version within 15 minutes, as well
     as update the OS download links. Ping @saivann/@harding (saivann/harding on Freenode) in case anything goes wrong
 
 - Announce the release:
 
-  - nyc3-dev and nyc3-core-dev mailing list
+  - californiacoin-dev and californiacoin-core-dev mailing list
 
-  - Nyc3 Core announcements list https://nyc3coin.org/en/list/announcements/join/
+  - Californiacoin Core announcements list https://californiacoincoin.org/en/list/announcements/join/
 
-  - nyc3core.org blog post
+  - californiacoincore.org blog post
 
-  - Update title of #nyc3 on Freenode IRC
+  - Update title of #californiacoin on Freenode IRC
 
-  - Optionally twitter, reddit /r/Nyc3, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/Californiacoin, ... but this will usually sort out itself
 
-  - Notify BlueMatt so that he can start building [the PPAs](https://launchpad.net/~nyc3/+archive/ubuntu/nyc3)
+  - Notify BlueMatt so that he can start building [the PPAs](https://launchpad.net/~californiacoin/+archive/ubuntu/californiacoin)
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/Nyc3Project/Nyc3coin/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/CaliforniacoinProject/Californiacoincoin/releases/new) with a link to the archived release notes.
 
   - Celebrate

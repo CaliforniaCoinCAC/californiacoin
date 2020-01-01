@@ -1,5 +1,5 @@
-Building Nyc3
+Building Californiacoin
 ================
 
 See doc/build-*.md for instructions on building the various
-elements of the Nyc3 Core reference implementation of Nyc3.
+elements of the Californiacoin Core reference implementation of Californiacoin.

@@ -43,11 +43,11 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Choisissez une adresse où envoyer les nyc3s</translation>
+        <translation>Choisissez une adresse où envoyer les californiacoins</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Choisissez une adresse où recevoir les nyc3s</translation>
+        <translation>Choisissez une adresse où recevoir les californiacoins</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -148,7 +148,7 @@
     </message>
 </context>
 <context>
-    <name>Nyc3GUI</name>
+    <name>CaliforniacoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signer un &amp;message...</translation>
@@ -238,8 +238,8 @@
         <translation>Réindexer les blocs sur le disque...</translation>
     </message>
     <message>
-        <source>Send coins to a Nyc3 address</source>
-        <translation>Envoyer des pièces à une adresse Nyc3</translation>
+        <source>Send coins to a Californiacoin address</source>
+        <translation>Envoyer des pièces à une adresse Californiacoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -262,8 +262,8 @@
         <translation>&amp;Vérification du message</translation>
     </message>
     <message>
-        <source>Nyc3</source>
-        <translation>Nyc3</translation>
+        <source>Californiacoin</source>
+        <translation>Californiacoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -290,8 +290,8 @@
         <translation>Crypter les clé privées qui appartiennent votre portefeuille</translation>
     </message>
     <message>
-        <source>Sign messages with your Nyc3 addresses to prove you own them</source>
-        <translation>Signer vos messages avec vos adresses Nyc3 pour prouver que vous les détenez</translation>
+        <source>Sign messages with your Californiacoin addresses to prove you own them</source>
+        <translation>Signer vos messages avec vos adresses Californiacoin pour prouver que vous les détenez</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -310,24 +310,24 @@
         <translation>Barre d'outils des onglets</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and nyc3: URIs)</source>
-        <translation>Demander des paiements (générer QR codes et nyc3: URIs)</translation>
+        <source>Request payments (generates QR codes and californiacoin: URIs)</source>
+        <translation>Demander des paiements (générer QR codes et californiacoin: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
         <translation>Montrer la liste des adresses d'envois utilisées et les étiquettes</translation>
     </message>
     <message>
-        <source>Open a nyc3: URI or payment request</source>
-        <translation>Ouvrir un nyc3: URI ou demande de paiement</translation>
+        <source>Open a californiacoin: URI or payment request</source>
+        <translation>Ouvrir un californiacoin: URI ou demande de paiement</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Options de ligne de commande</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Nyc3 network</source>
-        <translation><numerusform>%n connexion active au réseau Nyc3</numerusform><numerusform>%n connexions actives au réseau Nyc3</numerusform></translation>
+        <source>%n active connection(s) to Californiacoin network</source>
+        <translation><numerusform>%n connexion active au réseau Californiacoin</numerusform><numerusform>%n connexions actives au réseau Californiacoin</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -712,8 +712,8 @@
         <translation>Expert</translation>
     </message>
     <message>
-        <source>Automatically open the Nyc3 client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Ouvrir le port du client Nyc3 automatiquement sur le routeur. Cela ne fonctionne que si votre routeur supporte l'UPnP et si la fonctionnalité est activée.</translation>
+        <source>Automatically open the Californiacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Ouvrir le port du client Californiacoin automatiquement sur le routeur. Cela ne fonctionne que si votre routeur supporte l'UPnP et si la fonctionnalité est activée.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -872,8 +872,8 @@
         <translation>Montant</translation>
     </message>
     <message>
-        <source>Enter a Nyc3 address (e.g. %1)</source>
-        <translation>Entrer une adresse Nyc3 (e.g. %1)</translation>
+        <source>Enter a Californiacoin address (e.g. %1)</source>
+        <translation>Entrer une adresse Californiacoin (e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1708,7 +1708,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>nyc3-core</name>
+    <name>californiacoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Options :</translation>
@@ -1734,8 +1734,8 @@
         <translation>Impossible de démarrer le serveur HTTP. Voir le journal de débogage pour plus de détails.</translation>
     </message>
     <message>
-        <source>Nyc3 Core</source>
-        <translation>Nyc3 Core</translation>
+        <source>Californiacoin Core</source>
+        <translation>Californiacoin Core</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>

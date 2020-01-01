@@ -1,6 +1,6 @@
-usr/local/bin/nyc3-qt usr/bin
-share/pixmaps/nyc332.xpm usr/share/pixmaps
-share/pixmaps/nyc316.xpm usr/share/pixmaps
-share/pixmaps/nyc3128.png usr/share/pixmaps
-debian/nyc3-qt.desktop usr/share/applications
-debian/nyc3-qt.protocol usr/share/kde4/services/
+usr/local/bin/californiacoin-qt usr/bin
+share/pixmaps/californiacoin32.xpm usr/share/pixmaps
+share/pixmaps/californiacoin16.xpm usr/share/pixmaps
+share/pixmaps/californiacoin128.png usr/share/pixmaps
+debian/californiacoin-qt.desktop usr/share/applications
+debian/californiacoin-qt.protocol usr/share/kde4/services/

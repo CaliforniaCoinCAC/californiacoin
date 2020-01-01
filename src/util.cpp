@@ -1,11 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/nyc3-config.h"
+#include "config/californiacoin-config.h"
 #endif
 
 #include "util.h"
@@ -88,8 +88,8 @@
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
-const char * const PIGEON_CONF_FILENAME = "nyc3.conf";
-const char * const PIGEON_PID_FILENAME = "nyc3d.pid";
+const char * const PIGEON_CONF_FILENAME = "californiacoin.conf";
+const char * const PIGEON_PID_FILENAME = "californiacoind.pid";
 
 ArgsManager gArgs;
 bool fPrintToConsole = false;
@@ -504,7 +504,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(nullptr, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "nyc3";
+    const char* pszModule = "californiacoin";
 #endif
     if (pex)
         return strprintf(
@@ -523,13 +523,13 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
 
 fs::path GetDefaultDataDir()
 {
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Nyc3
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Nyc3
-    // Mac: ~/Library/Application Support/Nyc3
-    // Unix: ~/.nyc3
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Californiacoin
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Californiacoin
+    // Mac: ~/Library/Application Support/Californiacoin
+    // Unix: ~/.californiacoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Nyc3";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Californiacoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -539,10 +539,10 @@ fs::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/Nyc3";
+    return pathRet / "Library/Application Support/Californiacoin";
 #else
     // Unix
-    return pathRet / ".nyc3";
+    return pathRet / ".californiacoin";
 #endif
 #endif
 }
@@ -601,7 +601,7 @@ void ArgsManager::ReadConfigFile(const std::string& confPath)
 {
     fs::ifstream streamConfig(GetConfigFile(confPath));
     if (!streamConfig.good())
-        return; // No nyc3.conf file is OK
+        return; // No californiacoin.conf file is OK
 
     {
         LOCK(cs_args);
@@ -610,7 +610,7 @@ void ArgsManager::ReadConfigFile(const std::string& confPath)
 
         for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
         {
-            // Don't overwrite existing settings so command line settings override nyc3.conf
+            // Don't overwrite existing settings so command line settings override californiacoin.conf
             std::string strKey = std::string("-") + it->string_key;
             std::string strValue = it->value[0];
             InterpretNegativeSetting(strKey, strValue);
@@ -887,9 +887,9 @@ std::string CopyrightHolders(const std::string& strPrefix)
 {
     std::string strCopyrightHolders = strPrefix + strprintf(_(COPYRIGHT_HOLDERS), _(COPYRIGHT_HOLDERS_SUBSTITUTION));
 
-    // Check for untranslated substitution to make sure Nyc3 Core copyright is not removed by accident
-    if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Nyc3 Core") == std::string::npos) {
-        strCopyrightHolders += "\n" + strPrefix + "The Nyc3 Core developers";
+    // Check for untranslated substitution to make sure Californiacoin Core copyright is not removed by accident
+    if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Californiacoin Core") == std::string::npos) {
+        strCopyrightHolders += "\n" + strPrefix + "The Californiacoin Core developers";
     }
     return strCopyrightHolders;
 }

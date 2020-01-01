@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +9,7 @@
 #include <QDialog>
 #include <QObject>
 
-class Nyc3GUI;
+class CaliforniacoinGUI;
 
 namespace Ui {
     class HelpMessageDialog;
@@ -43,7 +43,7 @@ class ShutdownWindow : public QWidget
 
 public:
     explicit ShutdownWindow(QWidget *parent=0, Qt::WindowFlags f=0);
-    static QWidget *showShutdownWindow(Nyc3GUI *window);
+    static QWidget *showShutdownWindow(CaliforniacoinGUI *window);
 
 protected:
     void closeEvent(QCloseEvent *event);

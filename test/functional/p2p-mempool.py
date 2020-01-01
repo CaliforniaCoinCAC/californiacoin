@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2015-2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test p2p mempool message.
@@ -10,10 +10,10 @@ filters are not enabled.
 """
 
 from test_framework.mininode import *
-from test_framework.test_framework import Nyc3TestFramework
+from test_framework.test_framework import CaliforniacoinTestFramework
 from test_framework.util import *
 
-class P2PMempoolTests(Nyc3TestFramework):
+class P2PMempoolTests(CaliforniacoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

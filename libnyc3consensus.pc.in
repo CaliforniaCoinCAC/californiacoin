@@ -4,8 +4,8 @@ libdir=@libdir@
 includedir=@includedir@
 
 Name: @PACKAGE_NAME@ consensus library
-Description: Library for the Nyc3 consensus protocol.
+Description: Library for the Californiacoin consensus protocol.
 Version: @PACKAGE_VERSION@
-Libs: -L${libdir} -lnyc3consensus
+Libs: -L${libdir} -lcaliforniacoinconsensus
 Cflags: -I${includedir}
 Requires.private: libcrypto

@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -41,7 +41,7 @@
 extern std::vector<CWalletRef> vpwallets;
 //////////////////////////////////////////////////////////////////////////////
 //
-// Nyc3Miner
+// CaliforniacoinMiner
 //
 
 //
@@ -507,11 +507,11 @@ CWallet *GetFirstWallet() {
     return(vpwallets[0]);
 }
 
-void static Nyc3Miner(const CChainParams& chainparams)
+void static CaliforniacoinMiner(const CChainParams& chainparams)
 {
-    LogPrintf("Nyc3Miner -- started\n");
+    LogPrintf("CaliforniacoinMiner -- started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("nyc3-miner");
+    RenameThread("californiacoin-miner");
 
     unsigned int nExtraNonce = 0;
 
@@ -519,7 +519,7 @@ void static Nyc3Miner(const CChainParams& chainparams)
     CWallet *  pWallet = GetFirstWallet();
 
     if (!EnsureWalletIsAvailable(pWallet, false)) {
-        LogPrintf("Nyc3Miner -- Wallet not available\n");
+        LogPrintf("CaliforniacoinMiner -- Wallet not available\n");
     }
 
     if (pWallet == NULL)
@@ -576,13 +576,13 @@ void static Nyc3Miner(const CChainParams& chainparams)
 
             if (!pblocktemplate.get())
             {
-                LogPrintf("Nyc3Miner -- Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
+                LogPrintf("CaliforniacoinMiner -- Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
                 return;
             }
             CBlock *pblock = &pblocktemplate->block;
             IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-            LogPrintf("Nyc3Miner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+            LogPrintf("CaliforniacoinMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
                 ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
             //
@@ -601,7 +601,7 @@ void static Nyc3Miner(const CChainParams& chainparams)
                     {
                         // Found a solution
                         SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                        LogPrintf("Nyc3Miner:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
+                        LogPrintf("CaliforniacoinMiner:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
                         ProcessBlockFound(pblock, chainparams);
                         SetThreadPriority(THREAD_PRIORITY_LOWEST);
                         coinbaseScript->KeepScript();
@@ -648,17 +648,17 @@ void static Nyc3Miner(const CChainParams& chainparams)
     }
     catch (const boost::thread_interrupted&)
     {
-        LogPrintf("Nyc3Miner -- terminated\n");
+        LogPrintf("CaliforniacoinMiner -- terminated\n");
         throw;
     }
     catch (const std::runtime_error &e)
     {
-        LogPrintf("Nyc3Miner -- runtime error: %s\n", e.what());
+        LogPrintf("CaliforniacoinMiner -- runtime error: %s\n", e.what());
         return;
     }
 }
 
-int GenerateNyc3s(bool fGenerate, int nThreads, const CChainParams& chainparams)
+int GenerateCaliforniacoins(bool fGenerate, int nThreads, const CChainParams& chainparams)
 {
 
     static boost::thread_group* minerThreads = NULL;
@@ -685,7 +685,7 @@ int GenerateNyc3s(bool fGenerate, int nThreads, const CChainParams& chainparams)
     nHashesPerSec = 0;
 
     for (int i = 0; i < nThreads; i++){
-        minerThreads->create_thread(boost::bind(&Nyc3Miner, boost::cref(chainparams)));
+        minerThreads->create_thread(boost::bind(&CaliforniacoinMiner, boost::cref(chainparams)));
     }
 
     return(numCores);

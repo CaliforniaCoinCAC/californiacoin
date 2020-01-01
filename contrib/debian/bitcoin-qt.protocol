@@ -1,6 +1,6 @@
 [Protocol]
-exec=nyc3-qt '%u'
-protocol=nyc3
+exec=californiacoin-qt '%u'
+protocol=californiacoin
 input=none
 output=none
 helper=true

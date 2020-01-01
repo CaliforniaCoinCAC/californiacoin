@@ -76,7 +76,7 @@
     </message>
 </context>
 <context>
-    <name>Nyc3GUI</name>
+    <name>CaliforniacoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Semnează &amp;mesajul...</translation>
@@ -142,8 +142,8 @@
         <translation>Deschide &amp;URI...</translation>
     </message>
     <message>
-        <source>Send coins to a Nyc3 address</source>
-        <translation>Trimite monedele către o adresă Nyc3</translation>
+        <source>Send coins to a Californiacoin address</source>
+        <translation>Trimite monedele către o adresă Californiacoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -166,8 +166,8 @@
         <translation>&amp;Verifică mesajul...</translation>
     </message>
     <message>
-        <source>Nyc3</source>
-        <translation>Nyc3</translation>
+        <source>Californiacoin</source>
+        <translation>Californiacoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +194,12 @@
         <translation>Criptează cheile private care aparțin portofelului tău.</translation>
     </message>
     <message>
-        <source>Sign messages with your Nyc3 addresses to prove you own them</source>
-        <translation>Semnează mesajele cu adresa ta de Nyc3 pentru a face dovada că îți aparțin.</translation>
+        <source>Sign messages with your Californiacoin addresses to prove you own them</source>
+        <translation>Semnează mesajele cu adresa ta de Californiacoin pentru a face dovada că îți aparțin.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Nyc3 addresses</source>
-        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Nyc3 specificată.</translation>
+        <source>Verify messages to ensure they were signed with specified Californiacoin addresses</source>
+        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Californiacoin specificată.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -214,12 +214,12 @@
         <translation>&amp;Ajutor</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and nyc3: URIs)</source>
-        <translation>Cerere plată (generează coduri QR și nyc3: URIs)</translation>
+        <source>Request payments (generates QR codes and californiacoin: URIs)</source>
+        <translation>Cerere plată (generează coduri QR și californiacoin: URIs)</translation>
     </message>
     <message>
-        <source>Open a nyc3: URI or payment request</source>
-        <translation>Deschide un nyc3: URI sau cerere de plată</translation>
+        <source>Open a californiacoin: URI or payment request</source>
+        <translation>Deschide un californiacoin: URI sau cerere de plată</translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -746,10 +746,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>nyc3-core</name>
+    <name>californiacoin-core</name>
     <message>
-        <source>Nyc3 Core</source>
-        <translation>Nyc3 Core</translation>
+        <source>Californiacoin Core</source>
+        <translation>Californiacoin Core</translation>
     </message>
     <message>
         <source>Information</source>

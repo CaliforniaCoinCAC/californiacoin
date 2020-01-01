@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the listtransactions API."""
 
-from test_framework.test_framework import Nyc3TestFramework
+from test_framework.test_framework import CaliforniacoinTestFramework
 from test_framework.util import *
 from test_framework.mininode import CTransaction, COIN
 from io import BytesIO
@@ -16,7 +16,7 @@ def txFromHex(hexstring):
     tx.deserialize(f)
     return tx
 
-class ListTransactionsTest(Nyc3TestFramework):
+class ListTransactionsTest(CaliforniacoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.enable_mocktime()

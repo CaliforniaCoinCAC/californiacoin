@@ -52,7 +52,7 @@
         </size>
        </property>
        <property name="pixmap">
-        <pixmap resource="../nyc3.qrc">:/icons/nyc3</pixmap>
+        <pixmap resource="../californiacoin.qrc">:/icons/californiacoin</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -150,7 +150,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../nyc3.qrc"/>
+  <include location="../californiacoin.qrc"/>
  </resources>
  <connections>
   <connection>

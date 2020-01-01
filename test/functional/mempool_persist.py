@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2017 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test mempool persistence.
 
-By default, nyc3d will dump mempool on shutdown and
+By default, californiacoind will dump mempool on shutdown and
 then reload it on startup. This can be overridden with
 the -persistmempool=0 command line option.
 
@@ -39,10 +39,10 @@ Test is as follows:
 import os
 import time
 
-from test_framework.test_framework import Nyc3TestFramework
+from test_framework.test_framework import CaliforniacoinTestFramework
 from test_framework.util import *
 
-class MempoolPersistTest(Nyc3TestFramework):
+class MempoolPersistTest(CaliforniacoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
         self.extra_args = [[], ["-persistmempool=0"], []]
@@ -68,7 +68,7 @@ class MempoolPersistTest(Nyc3TestFramework):
         self.stop_nodes()
         self.start_node(0)
         self.start_node(1)
-        # Give nyc3d a second to reload the mempool
+        # Give californiacoind a second to reload the mempool
         time.sleep(1)
         wait_until(lambda: len(self.nodes[0].getrawmempool()) == 5)
         assert_equal(len(self.nodes[1].getrawmempool()), 0)
@@ -76,7 +76,7 @@ class MempoolPersistTest(Nyc3TestFramework):
         self.log.debug("Stop-start node0 with -persistmempool=0. Verify that it doesn't load its mempool.dat file.")
         self.stop_nodes()
         self.start_node(0, extra_args=["-persistmempool=0"])
-        # Give nyc3d a second to reload the mempool
+        # Give californiacoind a second to reload the mempool
         time.sleep(1)
         assert_equal(len(self.nodes[0].getrawmempool()), 0)
 
@@ -98,7 +98,7 @@ class MempoolPersistTest(Nyc3TestFramework):
         self.start_node(1, extra_args=[])
         wait_until(lambda: len(self.nodes[1].getrawmempool()) == 5)
 
-        self.log.debug("Prevent nyc3d from writing mempool.dat to disk. Verify that `savemempool` fails")
+        self.log.debug("Prevent californiacoind from writing mempool.dat to disk. Verify that `savemempool` fails")
         # to test the exception we are setting bad permissions on a tmp file called mempool.dat.new
         # which is an implementation detail that could change and break this test
         mempooldotnew1 = mempooldat1 + '.new'

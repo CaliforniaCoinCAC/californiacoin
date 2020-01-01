@@ -1,10 +1,10 @@
 #!/bin/bash
 # Copyright (c) 2014-2015 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-if ! [[ "$2" =~ ^(git@)?(www.)?github.com(:|/)nyc3/nyc3(.git)?$ ]]; then
+if ! [[ "$2" =~ ^(git@)?(www.)?github.com(:|/)californiacoin/californiacoin(.git)?$ ]]; then
     exit 0
 fi
 

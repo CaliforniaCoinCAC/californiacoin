@@ -62,12 +62,12 @@
         <translation>Адреса отримання</translation>
     </message>
     <message>
-        <source>These are your Nyc3 addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Це ваші адреси Nyc3 для надсилання платежів. Завжди перевіряйте суму та адресу одержувача перед відправленням монет.</translation>
+        <source>These are your Californiacoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Це ваші адреси Californiacoin для надсилання платежів. Завжди перевіряйте суму та адресу одержувача перед відправленням монет.</translation>
     </message>
     <message>
-        <source>These are your Nyc3 addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Це ваші адреси Nyc3 для отримання платежів. Для кожної транзакції рекомендується використовувати нову адресу одержувача.</translation>
+        <source>These are your Californiacoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Це ваші адреси Californiacoin для отримання платежів. Для кожної транзакції рекомендується використовувати нову адресу одержувача.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -180,7 +180,7 @@
         <translation>Гаманець зашифровано</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your nyc3s from being stolen by malware infecting your computer.</source>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your californiacoins from being stolen by malware infecting your computer.</source>
         <translation>%1 буде закрито зараз, щоб завершити процес шифрування. Пам'ятайте, що шифрування гаманця не може повністю захистити ваші біткойни від крадіжки шкідливими програмами, у випадку якщо ваш комп'ютер буде інфіковано.</translation>
     </message>
     <message>
@@ -232,7 +232,7 @@
     </message>
 </context>
 <context>
-    <name>Nyc3GUI</name>
+    <name>CaliforniacoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Підписати повідомлення...</translation>
@@ -338,7 +338,7 @@
         <translation>Переіндексація блоків на диску ...</translation>
     </message>
     <message>
-        <source>Send coins to a Nyc3 address</source>
+        <source>Send coins to a Californiacoin address</source>
         <translation>Відправити монети на вказану адресу</translation>
     </message>
     <message>
@@ -362,8 +362,8 @@
         <translation>П&amp;еревірити повідомлення...</translation>
     </message>
     <message>
-        <source>Nyc3</source>
-        <translation>Nyc3</translation>
+        <source>Californiacoin</source>
+        <translation>Californiacoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -390,12 +390,12 @@
         <translation>Зашифрувати закриті ключі, що знаходяться у вашому гаманці</translation>
     </message>
     <message>
-        <source>Sign messages with your Nyc3 addresses to prove you own them</source>
-        <translation>Підтвердіть, що Ви є власником повідомлення підписавши його Вашою Nyc3-адресою </translation>
+        <source>Sign messages with your Californiacoin addresses to prove you own them</source>
+        <translation>Підтвердіть, що Ви є власником повідомлення підписавши його Вашою Californiacoin-адресою </translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Nyc3 addresses</source>
-        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Nyc3-адресою</translation>
+        <source>Verify messages to ensure they were signed with specified Californiacoin addresses</source>
+        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Californiacoin-адресою</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -414,8 +414,8 @@
         <translation>Панель вкладок</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and nyc3: URIs)</source>
-        <translation>Створити запит платежу (генерує QR-код та nyc3: URI)</translation>
+        <source>Request payments (generates QR codes and californiacoin: URIs)</source>
+        <translation>Створити запит платежу (генерує QR-код та californiacoin: URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -426,16 +426,16 @@
         <translation>Показати список адрес і міток, що були використані для отримання</translation>
     </message>
     <message>
-        <source>Open a nyc3: URI or payment request</source>
-        <translation>Відкрити nyc3: URI чи запит платежу</translation>
+        <source>Open a californiacoin: URI or payment request</source>
+        <translation>Відкрити californiacoin: URI чи запит платежу</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>П&amp;араметри командного рядка</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Nyc3 network</source>
-        <translation><numerusform>%n активне з'єднання з мережею Nyc3</numerusform><numerusform>%n активні з'єднання з мережею Nyc3</numerusform><numerusform>%n активних з'єднань з мережею Nyc3</numerusform></translation>
+        <source>%n active connection(s) to Californiacoin network</source>
+        <translation><numerusform>%n активне з'єднання з мережею Californiacoin</numerusform><numerusform>%n активні з'єднання з мережею Californiacoin</numerusform><numerusform>%n активних з'єднань з мережею Californiacoin</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -478,7 +478,7 @@
         <translation>Синхронізовано</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Nyc3 command-line options</source>
+        <source>Show the %1 help message to get a list with possible Californiacoin command-line options</source>
         <translation>Показати довідку %1 для отримання переліку можливих параметрів командного рядка.</translation>
     </message>
     <message>
@@ -548,7 +548,7 @@
         <translation>&lt;b&gt;Зашифрований&lt;/b&gt; гаманець &lt;b&gt;заблоковано&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Nyc3 can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. Californiacoin can no longer continue safely and will quit.</source>
         <translation>Сталася фатальна помилка. Помилки не сумісні з подальщою роботою. Гаманець буде закрито.</translation>
     </message>
 </context>
@@ -738,8 +738,8 @@
         <translation>Редагувати адресу для відправлення</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Nyc3 address.</source>
-        <translation>Введена адреса "%1" не є адресою в мережі Nyc3.</translation>
+        <source>The entered address "%1" is not a valid Californiacoin address.</source>
+        <translation>Введена адреса "%1" не є адресою в мережі Californiacoin.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -878,11 +878,11 @@
         <translation>Форма</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the nyc3 network, as detailed below.</source>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the californiacoin network, as detailed below.</source>
         <translation>Нещодавні транзакції ще не відображаються, тому баланс вашого гаманця може бути неточним. Ця інформація буде вірною після того, як ваш гаманець завершить синхронізацію з мережею біткойн, врахровуйте показники нижче.</translation>
     </message>
     <message>
-        <source>Attempting to spend nyc3s that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <source>Attempting to spend californiacoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>Спроба видправити біткойни, які ще не відображаються, не буде прийнята мережею.</translation>
     </message>
     <message>
@@ -1036,7 +1036,7 @@
         <translation>&amp;Витрачати непідтверджену решту</translation>
     </message>
     <message>
-        <source>Automatically open the Nyc3 client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Californiacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Автоматично відкривати порт для клієнту біткоін на роутері. Працює лише якщо ваш роутер підтримує UPnP і ця функція увімкнена.</translation>
     </message>
     <message>
@@ -1044,8 +1044,8 @@
         <translation>Відображення порту через &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Nyc3 network through a SOCKS5 proxy.</source>
-        <translation>Підключення до мережі Nyc3 через SOCKS5 проксі.</translation>
+        <source>Connect to the Californiacoin network through a SOCKS5 proxy.</source>
+        <translation>Підключення до мережі Californiacoin через SOCKS5 проксі.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1084,8 +1084,8 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Nyc3 network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Підключатися до мережі Nyc3 через окремий SOCKS5 проксі для прихованих сервісів Tor.</translation>
+        <source>Connect to the Californiacoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Підключатися до мережі Californiacoin через окремий SOCKS5 проксі для прихованих сервісів Tor.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -1175,8 +1175,8 @@
         <translation>Форма</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Nyc3 network after a connection is established, but this process has not completed yet.</source>
-        <translation>Показана інформація вже може бути застарілою. Ваш гаманець буде автоматично синхронізовано з мережею Nyc3 після встановлення підключення, але цей процес ще не завершено.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Californiacoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Показана інформація вже може бути застарілою. Ваш гаманець буде автоматично синхронізовано з мережею Californiacoin після встановлення підключення, але цей процес ще не завершено.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1276,8 +1276,8 @@
         <translation>Кількість</translation>
     </message>
     <message>
-        <source>Enter a Nyc3 address (e.g. %1)</source>
-        <translation>Введіть адресу Nyc3 (наприклад %1)</translation>
+        <source>Enter a Californiacoin address (e.g. %1)</source>
+        <translation>Введіть адресу Californiacoin (наприклад %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1632,8 +1632,8 @@
         <translation>По&amp;вторно використати адресу для отримання (не рекомендується)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Nyc3 network.</source>
-        <translation>Необов'язкове повідомлення на додаток до запиту платежу, котре буде показане під час відкриття запиту. Примітка: Це повідомлення не буде відправлено з платежем через мережу Nyc3.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Californiacoin network.</source>
+        <translation>Необов'язкове повідомлення на додаток до запиту платежу, котре буде показане під час відкриття запиту. Примітка: Це повідомлення не буде відправлено з платежем через мережу Californiacoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1849,8 +1849,8 @@
         <translation>всього щонайменше</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for nyc3 transactions than the network can process.</source>
-        <translation>Оплата тільки мінімальної комісії є прийнятною, допоки обсяг транзакцій є меншим простору в блоках. Але майте на увазі, що це може анулювати транзакцію, якщо попит на Nyc3 транзакції стане більшим, ніж мережа зможе обробити.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for californiacoin transactions than the network can process.</source>
+        <translation>Оплата тільки мінімальної комісії є прийнятною, допоки обсяг транзакцій є меншим простору в блоках. Але майте на увазі, що це може анулювати транзакцію, якщо попит на Californiacoin транзакції стане більшим, ніж мережа зможе обробити.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -1968,8 +1968,8 @@
         <translation>Це звичайний платіж.</translation>
     </message>
     <message>
-        <source>The Nyc3 address to send the payment to</source>
-        <translation>Адреса Nyc3 для відправлення платежу</translation>
+        <source>The Californiacoin address to send the payment to</source>
+        <translation>Адреса Californiacoin для відправлення платежу</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1988,7 +1988,7 @@
         <translation>Видалити цей запис</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less nyc3s than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less californiacoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>Комісію буде знято зі вказаної суми. До отримувача надійде менше біткоінів, ніж було вказано в полі кількості. Якщо ж отримувачів декілька - комісію буде розподілено між ними.</translation>
     </message>
     <message>
@@ -2012,8 +2012,8 @@
         <translation>Введіть мітку для цієї адреси для додавання її в список використаних адрес</translation>
     </message>
     <message>
-        <source>A message that was attached to the nyc3: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Nyc3 network.</source>
-        <translation>Повідомлення, що було додане до nyc3:URI та буде збережено разом з транзакцією для довідки. Примітка: Це повідомлення не буде відправлено в мережу Nyc3.</translation>
+        <source>A message that was attached to the californiacoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Californiacoin network.</source>
+        <translation>Повідомлення, що було додане до californiacoin:URI та буде збережено разом з транзакцією для довідки. Примітка: Це повідомлення не буде відправлено в мережу Californiacoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2053,12 +2053,12 @@
         <translation>&amp;Підписати повідомлення</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive nyc3s sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive californiacoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>Ви можете підписувати повідомлення/угоди своїми адресами, щоб довести можливість отримання біткоінів, що будуть надіслані на них. Остерігайтеся підписувати будь-що нечітке чи неочікуване, так як за допомогою фішинг-атаки вас можуть спробувати ввести в оману для отримання вашого підпису під чужими словами. Підписуйте лише чіткі твердження, з якими ви повністю згодні.</translation>
     </message>
     <message>
-        <source>The Nyc3 address to sign the message with</source>
-        <translation>Адреса Nyc3 для підпису цього повідомлення</translation>
+        <source>The Californiacoin address to sign the message with</source>
+        <translation>Адреса Californiacoin для підпису цього повідомлення</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2089,7 +2089,7 @@
         <translation>Копіювати поточну сигнатуру до системного буферу обміну</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Nyc3 address</source>
+        <source>Sign the message to prove you own this Californiacoin address</source>
         <translation>Підпишіть повідомлення щоб довести, що ви є власником цієї адреси</translation>
     </message>
     <message>
@@ -2113,12 +2113,12 @@
         <translation>Введіть нижче адресу отримувача, повідомлення (впевніться, що ви точно скопіювали символи завершення рядка, табуляцію, пробіли тощо) та підпис для перевірки повідомлення. Впевніться, що в підпис не було додано зайвих символів: це допоможе уникнути атак типу «людина посередині». Зауважте, що це лише засвідчує можливість отримання транзакцій підписувачем, але не в стані підтвердити джерело жодної транзакції!</translation>
     </message>
     <message>
-        <source>The Nyc3 address the message was signed with</source>
-        <translation>Адреса Nyc3, якою було підписано це повідомлення</translation>
+        <source>The Californiacoin address the message was signed with</source>
+        <translation>Адреса Californiacoin, якою було підписано це повідомлення</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Nyc3 address</source>
-        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Nyc3-адресою</translation>
+        <source>Verify the message to ensure it was signed with the specified Californiacoin address</source>
+        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Californiacoin-адресою</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2596,7 +2596,7 @@
     </message>
 </context>
 <context>
-    <name>nyc3-core</name>
+    <name>californiacoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Параметри:</translation>
@@ -2654,8 +2654,8 @@
         <translation>Неможливо запустити HTTP-сервер. Детальніший опис наведено в журналі зневадження.</translation>
     </message>
     <message>
-        <source>Nyc3 Core</source>
-        <translation>Nyc3 Core</translation>
+        <source>Californiacoin Core</source>
+        <translation>Californiacoin Core</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

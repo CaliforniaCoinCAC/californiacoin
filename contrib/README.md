@@ -13,7 +13,7 @@ Construct a linear, no-fork, best version of the blockchain.
 
 ### [Qos](/contrib/qos) ###
 
-A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the Nyc3 network. This means one can have an always-on nyc3d instance running, and another local nyc3d/nyc3-qt instance which connects to this node and receives blocks from it.
+A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the Californiacoin network. This means one can have an always-on californiacoind instance running, and another local californiacoind/californiacoin-qt instance which connects to this node and receives blocks from it.
 
 ### [Seeds](/contrib/seeds) ###
 Utility to generate the pnSeed[] array that is compiled into the client.
@@ -22,20 +22,20 @@ Build Tools and Keys
 ---------------------
 
 ### [Debian](/contrib/debian) ###
-Contains files used to package nyc3d/nyc3-qt
-for Debian-based Linux systems. If you compile nyc3d/nyc3-qt yourself, there are some useful files here.
+Contains files used to package californiacoind/californiacoin-qt
+for Debian-based Linux systems. If you compile californiacoind/californiacoin-qt yourself, there are some useful files here.
 
 ### [Gitian-descriptors](/contrib/gitian-descriptors) ###
-Files used during the gitian build process. For more information about gitian, see the [the Nyc3 Core documentation repository](https://github.com/nyc3-core/docs).
+Files used during the gitian build process. For more information about gitian, see the [the Californiacoin Core documentation repository](https://github.com/californiacoin-core/docs).
 
 ### [Gitian-keys](/contrib/gitian-keys)
-PGP keys used for signing Nyc3 Core [Gitian release](/doc/release-process.md) results.
+PGP keys used for signing Californiacoin Core [Gitian release](/doc/release-process.md) results.
 
 ### [MacDeploy](/contrib/macdeploy) ###
 Scripts and notes for Mac builds. 
 
 ### [RPM](/contrib/rpm) ###
-RPM spec file for building nyc3-core on RPM based distributions.
+RPM spec file for building californiacoin-core on RPM based distributions.
 
 ### [Gitian-build](/contrib/gitian-build.sh) ###
 Script for running full Gitian builds.
@@ -44,7 +44,7 @@ Test and Verify Tools
 ---------------------
 
 ### [TestGen](/contrib/testgen) ###
-Utilities to generate test vectors for the data-driven Nyc3 tests.
+Utilities to generate test vectors for the data-driven Californiacoin tests.
 
 ### [Verify Binaries](/contrib/verifybinaries) ###
-This script attempts to download and verify the signature file SHA256SUMS.asc from nyc3.org.
+This script attempts to download and verify the signature file SHA256SUMS.asc from californiacoin.org.

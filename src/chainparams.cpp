@@ -1,5 +1,5 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2016 The nyc3 Core developers
+// Copyright (c) 2009-2016 The californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -55,7 +55,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "nyc3 launches again";
+    const char* pszTimestamp = "californiacoin launches again";
     const CScript genesisOutputScript = CScript() << ParseHex("02673afedb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -249,7 +249,7 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the nyc3 chain
+            // Update as we know more about the contents of the californiacoin chain
             1509572692, // * UNIX timestamp of last known number of transactions
             1,          // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
@@ -322,7 +322,7 @@ public:
         vSeeds.clear();
 
         vSeeds.emplace_back("test-seed.x16s.org", false);
-        vSeeds.emplace_back("test-seed.nyc3coin.org", false);
+        vSeeds.emplace_back("test-seed.californiacoincoin.org", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,112); // from 111
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,193); // from 196
@@ -345,7 +345,7 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the nyc3 chain
+            // Update as we know more about the contents of the californiacoin chain
             1513705170, // * UNIX timestamp of last known number of transactions
             1,          // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)

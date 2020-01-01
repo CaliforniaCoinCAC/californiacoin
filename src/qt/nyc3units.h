@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -42,24 +42,24 @@
 #define THIN_SP_UTF8 REAL_THIN_SP_UTF8
 #define THIN_SP_HTML HTML_HACK_SP
 
-/** Nyc3 unit definitions. Encapsulates parsing and formatting
+/** Californiacoin unit definitions. Encapsulates parsing and formatting
    and serves as list model for drop-down selection boxes.
 */
-class Nyc3Units: public QAbstractListModel
+class CaliforniacoinUnits: public QAbstractListModel
 {
     Q_OBJECT
 
 public:
-    explicit Nyc3Units(QObject *parent);
+    explicit CaliforniacoinUnits(QObject *parent);
 
-    /** Nyc3 units.
-      @note Source: https://en.nyc3.it/wiki/Units . Please add only sensible ones
+    /** Californiacoin units.
+      @note Source: https://en.californiacoin.it/wiki/Units . Please add only sensible ones
      */
     enum Unit
     {
-        NYC3,
-        mNYC3,
-        uNYC3
+        CALIFORNIACOIN,
+        mCALIFORNIACOIN,
+        uCALIFORNIACOIN
     };
 
     enum SeparatorStyle
@@ -122,8 +122,8 @@ public:
     static CAmount maxMoney();
 
 private:
-    QList<Nyc3Units::Unit> unitlist;
+    QList<CaliforniacoinUnits::Unit> unitlist;
 };
-typedef Nyc3Units::Unit Nyc3Unit;
+typedef CaliforniacoinUnits::Unit CaliforniacoinUnit;
 
 #endif // PIGEON_QT_PIGEONUNITS_H

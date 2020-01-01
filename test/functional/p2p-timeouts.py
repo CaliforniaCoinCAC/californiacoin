@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # Copyright (c) 2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test various net timeouts.
 
-- Create three nyc3d nodes:
+- Create three californiacoind nodes:
 
     no_verack_node - we never send a verack in response to their version
     no_version_node - we never send a version (only a ping)
@@ -25,7 +25,7 @@
 from time import sleep
 
 from test_framework.mininode import *
-from test_framework.test_framework import Nyc3TestFramework
+from test_framework.test_framework import CaliforniacoinTestFramework
 from test_framework.util import *
 
 class TestNode(NodeConnCB):
@@ -33,7 +33,7 @@ class TestNode(NodeConnCB):
         # Don't send a verack in response
         pass
 
-class TimeoutsTest(Nyc3TestFramework):
+class TimeoutsTest(CaliforniacoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

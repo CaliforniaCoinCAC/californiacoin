@@ -1,8 +1,8 @@
-/usr/bin/nyc3-cli		--	gen_context(system_u:object_r:nyc3_exec_t,s0)
-/usr/sbin/nyc3d		--	gen_context(system_u:object_r:nyc3_exec_t,s0)
-/usr/lib(64)?/nyc3/nyc3d		--	gen_context(system_u:object_r:nyc3_exec_t,s0)
+/usr/bin/californiacoin-cli		--	gen_context(system_u:object_r:californiacoin_exec_t,s0)
+/usr/sbin/californiacoind		--	gen_context(system_u:object_r:californiacoin_exec_t,s0)
+/usr/lib(64)?/californiacoin/californiacoind		--	gen_context(system_u:object_r:californiacoin_exec_t,s0)
 
-/etc/nyc3(/.*)?		gen_context(system_u:object_r:nyc3_conf_t,s0)
-/var/lib/nyc3(/.*)?		gen_context(system_u:object_r:nyc3_var_lib_t,s0)
+/etc/californiacoin(/.*)?		gen_context(system_u:object_r:californiacoin_conf_t,s0)
+/var/lib/californiacoin(/.*)?		gen_context(system_u:object_r:californiacoin_var_lib_t,s0)
 
-(/var)?/run/nyc3d(/.*)?   gen_context(system_u:object_r:nyc3_var_run_t,s0)
+(/var)?/run/californiacoind(/.*)?   gen_context(system_u:object_r:californiacoin_var_run_t,s0)

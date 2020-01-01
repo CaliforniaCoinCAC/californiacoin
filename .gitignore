@@ -1,13 +1,13 @@
 *.tar.gz
 
 *.exe
-src/nyc3
-src/nyc3d
-src/nyc3-cli
-src/nyc3-tx
-src/test/test_nyc3
-src/test/test_nyc3_fuzzy
-src/qt/test/test_nyc3-qt
+src/californiacoin
+src/californiacoind
+src/californiacoin-cli
+src/californiacoin-tx
+src/test/test_californiacoin
+src/test/test_californiacoin_fuzzy
+src/qt/test/test_californiacoin-qt
 
 # autoreconf
 Makefile.in
@@ -30,8 +30,8 @@ config.log
 config.status
 configure
 libtool
-src/config/nyc3-config.h
-src/config/nyc3-config.h.in
+src/config/californiacoin-config.h
+src/config/californiacoin-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -44,11 +44,11 @@ src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
 
-src/qt/nyc3-qt.config
-src/qt/nyc3-qt.creator
-src/qt/nyc3-qt.creator.user
-src/qt/nyc3-qt.files
-src/qt/nyc3-qt.includes
+src/qt/californiacoin-qt.config
+src/qt/californiacoin-qt.creator
+src/qt/californiacoin-qt.creator.user
+src/qt/californiacoin-qt.files
+src/qt/californiacoin-qt.includes
 
 .deps
 .dirstamp
@@ -80,13 +80,13 @@ src/qt/nyc3-qt.includes
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-nyc3-qt
-Nyc3-Qt.app
+californiacoin-qt
+Californiacoin-Qt.app
 background.tiff*
 
 # Unit-tests
 Makefile.test
-nyc3-qt_test
+californiacoin-qt_test
 
 # Resources cpp
 qrc_*.cpp
@@ -99,7 +99,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_nyc3.coverage/
+test_californiacoin.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -114,5 +114,5 @@ test/cache/*
 
 /doc/doxygen/
 
-libnyc3consensus.pc
+libcaliforniacoinconsensus.pc
 contrib/devtools/split-debug.sh

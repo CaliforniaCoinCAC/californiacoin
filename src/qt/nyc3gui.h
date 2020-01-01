@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,7 +7,7 @@
 #define PIGEON_QT_PIGEONGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/nyc3-config.h"
+#include "config/californiacoin-config.h"
 #endif
 
 #include "amount.h"
@@ -39,10 +39,10 @@ class QProgressDialog;
 QT_END_NAMESPACE
 
 /**
-  Nyc3 GUI main class. This class represents the main window of the Nyc3 UI. It communicates with both the client and
+  Californiacoin GUI main class. This class represents the main window of the Californiacoin UI. It communicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
-class Nyc3GUI : public QMainWindow
+class CaliforniacoinGUI : public QMainWindow
 {
     Q_OBJECT
 
@@ -50,8 +50,8 @@ public:
     static const QString DEFAULT_WALLET;
     static const std::string DEFAULT_UIPLATFORM;
 
-    explicit Nyc3GUI(const PlatformStyle *platformStyle, const NetworkStyle *networkStyle, QWidget *parent = 0);
-    ~Nyc3GUI();
+    explicit CaliforniacoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *networkStyle, QWidget *parent = 0);
+    ~CaliforniacoinGUI();
 
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
@@ -60,7 +60,7 @@ public:
 
 #ifdef ENABLE_WALLET
     /** Set the wallet model.
-        The wallet model represents a nyc3 wallet, and offers access to the list of transactions, address book and sending
+        The wallet model represents a californiacoin wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
     bool addWallet(const QString& name, WalletModel *walletModel);

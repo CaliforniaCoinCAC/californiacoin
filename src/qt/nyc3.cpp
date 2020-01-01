@@ -1,13 +1,13 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/nyc3-config.h"
+#include "config/californiacoin-config.h"
 #endif
 
-#include "nyc3gui.h"
+#include "californiacoingui.h"
 
 #include "chainparams.h"
 #include "clientmodel.h"
@@ -93,7 +93,7 @@ static void InitMessage(const std::string &message)
  */
 static std::string Translate(const char* psz)
 {
-    return QCoreApplication::translate("nyc3-core", psz).toStdString();
+    return QCoreApplication::translate("californiacoin-core", psz).toStdString();
 }
 
 static QString GetLangTerritory()
@@ -140,11 +140,11 @@ static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTrans
     if (qtTranslator.load("qt_" + lang_territory, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         QApplication::installTranslator(&qtTranslator);
 
-    // Load e.g. nyc3_de.qm (shortcut "de" needs to be defined in nyc3.qrc)
+    // Load e.g. californiacoin_de.qm (shortcut "de" needs to be defined in californiacoin.qrc)
     if (translatorBase.load(lang, ":/translations/"))
         QApplication::installTranslator(&translatorBase);
 
-    // Load e.g. nyc3_de_DE.qm (shortcut "de_DE" needs to be defined in nyc3.qrc)
+    // Load e.g. californiacoin_de_DE.qm (shortcut "de_DE" needs to be defined in californiacoin.qrc)
     if (translator.load(lang_territory, ":/translations/"))
         QApplication::installTranslator(&translator);
 }
@@ -171,14 +171,14 @@ void DebugMessageHandler(QtMsgType type, const QMessageLogContext& context, cons
 }
 #endif
 
-/** Class encapsulating Nyc3 Core startup and shutdown.
+/** Class encapsulating Californiacoin Core startup and shutdown.
  * Allows running startup and shutdown in a different thread from the UI thread.
  */
-class Nyc3Core: public QObject
+class CaliforniacoinCore: public QObject
 {
     Q_OBJECT
 public:
-    explicit Nyc3Core();
+    explicit CaliforniacoinCore();
     /** Basic initialization, before starting initialization/shutdown thread.
      * Return true on success.
      */
@@ -201,13 +201,13 @@ private:
     void handleRunawayException(const std::exception *e);
 };
 
-/** Main Nyc3 application object */
-class Nyc3Application: public QApplication
+/** Main Californiacoin application object */
+class CaliforniacoinApplication: public QApplication
 {
     Q_OBJECT
 public:
-    explicit Nyc3Application(int &argc, char **argv);
-    ~Nyc3Application();
+    explicit CaliforniacoinApplication(int &argc, char **argv);
+    ~CaliforniacoinApplication();
 
 #ifdef ENABLE_WALLET
     /// Create payment server
@@ -230,7 +230,7 @@ public:
     /// Get process return value
     int getReturnValue() const { return returnValue; }
 
-    /// Get window identifier of QMainWindow (Nyc3GUI)
+    /// Get window identifier of QMainWindow (CaliforniacoinGUI)
     WId getMainWinId() const;
 
 public Q_SLOTS:
@@ -249,7 +249,7 @@ private:
     QThread *coreThread;
     OptionsModel *optionsModel;
     ClientModel *clientModel;
-    Nyc3GUI *window;
+    CaliforniacoinGUI *window;
     QTimer *pollShutdownTimer;
 #ifdef ENABLE_WALLET
     PaymentServer* paymentServer;
@@ -262,20 +262,20 @@ private:
     void startThread();
 };
 
-#include "nyc3.moc"
+#include "californiacoin.moc"
 
-Nyc3Core::Nyc3Core():
+CaliforniacoinCore::CaliforniacoinCore():
     QObject()
 {
 }
 
-void Nyc3Core::handleRunawayException(const std::exception *e)
+void CaliforniacoinCore::handleRunawayException(const std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
     Q_EMIT runawayException(QString::fromStdString(GetWarnings("gui")));
 }
 
-bool Nyc3Core::baseInitialize()
+bool CaliforniacoinCore::baseInitialize()
 {
     if (!AppInitBasicSetup())
     {
@@ -296,7 +296,7 @@ bool Nyc3Core::baseInitialize()
     return true;
 }
 
-void Nyc3Core::initialize()
+void CaliforniacoinCore::initialize()
 {
     try
     {
@@ -310,7 +310,7 @@ void Nyc3Core::initialize()
     }
 }
 
-void Nyc3Core::shutdown()
+void CaliforniacoinCore::shutdown()
 {
     try
     {
@@ -327,7 +327,7 @@ void Nyc3Core::shutdown()
     }
 }
 
-Nyc3Application::Nyc3Application(int &argc, char **argv):
+CaliforniacoinApplication::CaliforniacoinApplication(int &argc, char **argv):
     QApplication(argc, argv),
     coreThread(0),
     optionsModel(0),
@@ -343,17 +343,17 @@ Nyc3Application::Nyc3Application(int &argc, char **argv):
     setQuitOnLastWindowClosed(false);
 
     // UI per-platform customization
-    // This must be done inside the Nyc3Application constructor, or after it, because
+    // This must be done inside the CaliforniacoinApplication constructor, or after it, because
     // PlatformStyle::instantiate requires a QApplication
     std::string platformName;
-    platformName = gArgs.GetArg("-uiplatform", Nyc3GUI::DEFAULT_UIPLATFORM);
+    platformName = gArgs.GetArg("-uiplatform", CaliforniacoinGUI::DEFAULT_UIPLATFORM);
     platformStyle = PlatformStyle::instantiate(QString::fromStdString(platformName));
     if (!platformStyle) // Fall back to "other" if specified name not found
         platformStyle = PlatformStyle::instantiate("other");
     assert(platformStyle);
 }
 
-Nyc3Application::~Nyc3Application()
+CaliforniacoinApplication::~CaliforniacoinApplication()
 {
     if(coreThread)
     {
@@ -376,27 +376,27 @@ Nyc3Application::~Nyc3Application()
 }
 
 #ifdef ENABLE_WALLET
-void Nyc3Application::createPaymentServer()
+void CaliforniacoinApplication::createPaymentServer()
 {
     paymentServer = new PaymentServer(this);
 }
 #endif
 
-void Nyc3Application::createOptionsModel(bool resetSettings)
+void CaliforniacoinApplication::createOptionsModel(bool resetSettings)
 {
     optionsModel = new OptionsModel(nullptr, resetSettings);
 }
 
-void Nyc3Application::createWindow(const NetworkStyle *networkStyle)
+void CaliforniacoinApplication::createWindow(const NetworkStyle *networkStyle)
 {
-    window = new Nyc3GUI(platformStyle, networkStyle, 0);
+    window = new CaliforniacoinGUI(platformStyle, networkStyle, 0);
 
     pollShutdownTimer = new QTimer(window);
     connect(pollShutdownTimer, SIGNAL(timeout()), window, SLOT(detectShutdown()));
     pollShutdownTimer->start(200);
 }
 
-void Nyc3Application::createSplashScreen(const NetworkStyle *networkStyle)
+void CaliforniacoinApplication::createSplashScreen(const NetworkStyle *networkStyle)
 {
     SplashScreen *splash = new SplashScreen(0, networkStyle);
     // We don't hold a direct pointer to the splash screen after creation, but the splash
@@ -406,12 +406,12 @@ void Nyc3Application::createSplashScreen(const NetworkStyle *networkStyle)
     connect(this, SIGNAL(requestedShutdown()), splash, SLOT(close()));
 }
 
-void Nyc3Application::startThread()
+void CaliforniacoinApplication::startThread()
 {
     if(coreThread)
         return;
     coreThread = new QThread(this);
-    Nyc3Core *executor = new Nyc3Core();
+    CaliforniacoinCore *executor = new CaliforniacoinCore();
     executor->moveToThread(coreThread);
 
     /*  communication to and from thread */
@@ -427,20 +427,20 @@ void Nyc3Application::startThread()
     coreThread->start();
 }
 
-void Nyc3Application::parameterSetup()
+void CaliforniacoinApplication::parameterSetup()
 {
     InitLogging();
     InitParameterInteraction();
 }
 
-void Nyc3Application::requestInitialize()
+void CaliforniacoinApplication::requestInitialize()
 {
     qDebug() << __func__ << ": Requesting initialize";
     startThread();
     Q_EMIT requestedInitialize();
 }
 
-void Nyc3Application::requestShutdown()
+void CaliforniacoinApplication::requestShutdown()
 {
     // Show a simple window indicating shutdown status
     // Do this first as some of the steps may take some time below,
@@ -467,7 +467,7 @@ void Nyc3Application::requestShutdown()
     Q_EMIT requestedShutdown();
 }
 
-void Nyc3Application::initializeResult(bool success)
+void CaliforniacoinApplication::initializeResult(bool success)
 {
     qDebug() << __func__ << ": Initialization result: " << success;
     // Set exit result.
@@ -490,8 +490,8 @@ void Nyc3Application::initializeResult(bool success)
         {
             walletModel = new WalletModel(platformStyle, vpwallets[0], optionsModel);
 
-            window->addWallet(Nyc3GUI::DEFAULT_WALLET, walletModel);
-            window->setCurrentWallet(Nyc3GUI::DEFAULT_WALLET);
+            window->addWallet(CaliforniacoinGUI::DEFAULT_WALLET, walletModel);
+            window->setCurrentWallet(CaliforniacoinGUI::DEFAULT_WALLET);
 
             connect(walletModel, SIGNAL(coinsSent(CWallet*,SendCoinsRecipient,QByteArray)),
                              paymentServer, SLOT(fetchPaymentACK(CWallet*,const SendCoinsRecipient&,QByteArray)));
@@ -511,7 +511,7 @@ void Nyc3Application::initializeResult(bool success)
 
 #ifdef ENABLE_WALLET
         // Now that initialization/startup is done, process any command-line
-        // nyc3: URIs or payment requests:
+        // californiacoin: URIs or payment requests:
         connect(paymentServer, SIGNAL(receivedPaymentRequest(SendCoinsRecipient)),
                          window, SLOT(handlePaymentRequest(SendCoinsRecipient)));
         connect(window, SIGNAL(receivedURI(QString)),
@@ -525,18 +525,18 @@ void Nyc3Application::initializeResult(bool success)
     }
 }
 
-void Nyc3Application::shutdownResult()
+void CaliforniacoinApplication::shutdownResult()
 {
     quit(); // Exit main loop after shutdown finished
 }
 
-void Nyc3Application::handleRunawayException(const QString &message)
+void CaliforniacoinApplication::handleRunawayException(const QString &message)
 {
-    QMessageBox::critical(0, "Runaway exception", Nyc3GUI::tr("A fatal error occurred. Nyc3 can no longer continue safely and will quit.") + QString("\n\n") + message);
+    QMessageBox::critical(0, "Runaway exception", CaliforniacoinGUI::tr("A fatal error occurred. Californiacoin can no longer continue safely and will quit.") + QString("\n\n") + message);
     ::exit(EXIT_FAILURE);
 }
 
-WId Nyc3Application::getMainWinId() const
+WId CaliforniacoinApplication::getMainWinId() const
 {
     if (!window)
         return 0;
@@ -562,10 +562,10 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForTr());
 #endif
 
-    Q_INIT_RESOURCE(nyc3);
-    Q_INIT_RESOURCE(nyc3_locale);
+    Q_INIT_RESOURCE(californiacoin);
+    Q_INIT_RESOURCE(californiacoin_locale);
 
-    Nyc3Application app(argc, argv);
+    CaliforniacoinApplication app(argc, argv);
 #if QT_VERSION > 0x050100
     // Generate high-dpi pixmaps
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
@@ -619,7 +619,7 @@ int main(int argc, char *argv[])
     if (!Intro::pickDataDirectory())
         return EXIT_SUCCESS;
 
-    /// 6. Determine availability of data directory and parse nyc3.conf
+    /// 6. Determine availability of data directory and parse californiacoin.conf
     /// - Do not call GetDataDir(true) before this step finishes
     if (!fs::is_directory(GetDataDir(false)))
     {
@@ -671,7 +671,7 @@ int main(int argc, char *argv[])
         exit(EXIT_SUCCESS);
 
     // Start up the payment server early, too, so impatient users that click on
-    // nyc3: links repeatedly have their payment requests routed to this process:
+    // californiacoin: links repeatedly have their payment requests routed to this process:
     app.createPaymentServer();
 #endif
 
@@ -707,7 +707,7 @@ int main(int argc, char *argv[])
         // Perform base initialization before spinning up initialization/shutdown thread
         // This is acceptable because this function only contains steps that are quick to execute,
         // so the GUI thread won't be held up.
-        if (Nyc3Core::baseInitialize()) {
+        if (CaliforniacoinCore::baseInitialize()) {
             app.requestInitialize();
 #if defined(Q_OS_WIN) && QT_VERSION >= 0x050000
             WinShutdownMonitor::registerShutdownBlockReason(QObject::tr("%1 didn't yet exit safely...").arg(QObject::tr(PACKAGE_NAME)), (HWND)app.getMainWinId());

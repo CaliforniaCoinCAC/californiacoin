@@ -1,10 +1,10 @@
 
-## <summary>policy for nyc3</summary>
+## <summary>policy for californiacoin</summary>
 
 
 ########################################
 ## <summary>
-##	Transition to nyc3.
+##	Transition to californiacoin.
 ## </summary>
 ## <param name="domain">
 ## <summary>
@@ -12,19 +12,19 @@
 ## </summary>
 ## </param>
 #
-interface(`nyc3_domtrans',`
+interface(`californiacoin_domtrans',`
 	gen_require(`
-		type nyc3_t, nyc3_exec_t;
+		type californiacoin_t, californiacoin_exec_t;
 	')
 
 	corecmd_search_bin($1)
-	domtrans_pattern($1, nyc3_exec_t, nyc3_t)
+	domtrans_pattern($1, californiacoin_exec_t, californiacoin_t)
 ')
 
 
 ########################################
 ## <summary>
-##	Execute nyc3 server in the nyc3 domain.
+##	Execute californiacoin server in the californiacoin domain.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -32,18 +32,18 @@ interface(`nyc3_domtrans',`
 ##	</summary>
 ## </param>
 #
-interface(`nyc3_initrc_domtrans',`
+interface(`californiacoin_initrc_domtrans',`
 	gen_require(`
-		type nyc3_initrc_exec_t;
+		type californiacoin_initrc_exec_t;
 	')
 
-	init_labeled_script_domtrans($1, nyc3_initrc_exec_t)
+	init_labeled_script_domtrans($1, californiacoin_initrc_exec_t)
 ')
 
 
 ########################################
 ## <summary>
-##	Search nyc3 lib directories.
+##	Search californiacoin lib directories.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -51,18 +51,18 @@ interface(`nyc3_initrc_domtrans',`
 ##	</summary>
 ## </param>
 #
-interface(`nyc3_search_lib',`
+interface(`californiacoin_search_lib',`
 	gen_require(`
-		type nyc3_var_lib_t;
+		type californiacoin_var_lib_t;
 	')
 
-	allow $1 nyc3_var_lib_t:dir search_dir_perms;
+	allow $1 californiacoin_var_lib_t:dir search_dir_perms;
 	files_search_var_lib($1)
 ')
 
 ########################################
 ## <summary>
-##	Read nyc3 lib files.
+##	Read californiacoin lib files.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -70,18 +70,18 @@ interface(`nyc3_search_lib',`
 ##	</summary>
 ## </param>
 #
-interface(`nyc3_read_lib_files',`
+interface(`californiacoin_read_lib_files',`
 	gen_require(`
-		type nyc3_var_lib_t;
+		type californiacoin_var_lib_t;
 	')
 
 	files_search_var_lib($1)
-	read_files_pattern($1, nyc3_var_lib_t, nyc3_var_lib_t)
+	read_files_pattern($1, californiacoin_var_lib_t, californiacoin_var_lib_t)
 ')
 
 ########################################
 ## <summary>
-##	Manage nyc3 lib files.
+##	Manage californiacoin lib files.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -89,18 +89,18 @@ interface(`nyc3_read_lib_files',`
 ##	</summary>
 ## </param>
 #
-interface(`nyc3_manage_lib_files',`
+interface(`californiacoin_manage_lib_files',`
 	gen_require(`
-		type nyc3_var_lib_t;
+		type californiacoin_var_lib_t;
 	')
 
 	files_search_var_lib($1)
-	manage_files_pattern($1, nyc3_var_lib_t, nyc3_var_lib_t)
+	manage_files_pattern($1, californiacoin_var_lib_t, californiacoin_var_lib_t)
 ')
 
 ########################################
 ## <summary>
-##	Manage nyc3 lib directories.
+##	Manage californiacoin lib directories.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -108,20 +108,20 @@ interface(`nyc3_manage_lib_files',`
 ##	</summary>
 ## </param>
 #
-interface(`nyc3_manage_lib_dirs',`
+interface(`californiacoin_manage_lib_dirs',`
 	gen_require(`
-		type nyc3_var_lib_t;
+		type californiacoin_var_lib_t;
 	')
 
 	files_search_var_lib($1)
-	manage_dirs_pattern($1, nyc3_var_lib_t, nyc3_var_lib_t)
+	manage_dirs_pattern($1, californiacoin_var_lib_t, californiacoin_var_lib_t)
 ')
 
 
 ########################################
 ## <summary>
 ##	All of the rules required to administrate
-##	a nyc3 environment
+##	a californiacoin environment
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -135,23 +135,23 @@ interface(`nyc3_manage_lib_dirs',`
 ## </param>
 ## <rolecap/>
 #
-interface(`nyc3_admin',`
+interface(`californiacoin_admin',`
 	gen_require(`
-		type nyc3_t;
-		type nyc3_initrc_exec_t;
-		type nyc3_var_lib_t;
+		type californiacoin_t;
+		type californiacoin_initrc_exec_t;
+		type californiacoin_var_lib_t;
 	')
 
-	allow $1 nyc3_t:process { ptrace signal_perms };
-	ps_process_pattern($1, nyc3_t)
+	allow $1 californiacoin_t:process { ptrace signal_perms };
+	ps_process_pattern($1, californiacoin_t)
 
-	nyc3_initrc_domtrans($1)
+	californiacoin_initrc_domtrans($1)
 	domain_system_change_exemption($1)
-	role_transition $2 nyc3_initrc_exec_t system_r;
+	role_transition $2 californiacoin_initrc_exec_t system_r;
 	allow $2 system_r;
 
 	files_search_var_lib($1)
-	admin_pattern($1, nyc3_var_lib_t)
+	admin_pattern($1, californiacoin_var_lib_t)
 
 ')
 

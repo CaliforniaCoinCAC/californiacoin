@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "bech32.h"
-#include "test/test_nyc3.h"
+#include "test/test_californiacoin.h"
 
 #include <boost/test/unit_test.hpp>
 

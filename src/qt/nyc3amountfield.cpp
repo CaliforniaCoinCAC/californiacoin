@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "nyc3amountfield.h"
+#include "californiacoinamountfield.h"
 
-#include "nyc3units.h"
+#include "californiacoinunits.h"
 #include "guiconstants.h"
 #include "qvaluecombobox.h"
 
@@ -25,7 +25,7 @@ class AmountSpinBox: public QAbstractSpinBox
 public:
     explicit AmountSpinBox(QWidget *parent):
         QAbstractSpinBox(parent),
-        currentUnit(Nyc3Units::NYC3),
+        currentUnit(CaliforniacoinUnits::CALIFORNIACOIN),
         singleStep(100000) // satoshis
     {
         setAlignment(Qt::AlignRight);
@@ -49,7 +49,7 @@ public:
         CAmount val = parse(input, &valid);
         if(valid)
         {
-            input = Nyc3Units::format(currentUnit, val, false, Nyc3Units::separatorAlways);
+            input = CaliforniacoinUnits::format(currentUnit, val, false, CaliforniacoinUnits::separatorAlways);
             lineEdit()->setText(input);
         }
     }
@@ -61,7 +61,7 @@ public:
 
     void setValue(const CAmount& value)
     {
-        lineEdit()->setText(Nyc3Units::format(currentUnit, value, false, Nyc3Units::separatorAlways));
+        lineEdit()->setText(CaliforniacoinUnits::format(currentUnit, value, false, CaliforniacoinUnits::separatorAlways));
         Q_EMIT valueChanged();
     }
 
@@ -70,7 +70,7 @@ public:
         bool valid = false;
         CAmount val = value(&valid);
         val = val + steps * singleStep;
-        val = qMin(qMax(val, CAmount(0)), Nyc3Units::maxMoney());
+        val = qMin(qMax(val, CAmount(0)), CaliforniacoinUnits::maxMoney());
         setValue(val);
     }
 
@@ -100,7 +100,7 @@ public:
 
             const QFontMetrics fm(fontMetrics());
             int h = lineEdit()->minimumSizeHint().height();
-            int w = fm.width(Nyc3Units::format(Nyc3Units::NYC3, Nyc3Units::maxMoney(), false, Nyc3Units::separatorAlways));
+            int w = fm.width(CaliforniacoinUnits::format(CaliforniacoinUnits::CALIFORNIACOIN, CaliforniacoinUnits::maxMoney(), false, CaliforniacoinUnits::separatorAlways));
             w += 2; // cursor blinking space
 
             QStyleOptionSpinBox opt;
@@ -138,10 +138,10 @@ private:
     CAmount parse(const QString &text, bool *valid_out=0) const
     {
         CAmount val = 0;
-        bool valid = Nyc3Units::parse(currentUnit, text, &val);
+        bool valid = CaliforniacoinUnits::parse(currentUnit, text, &val);
         if(valid)
         {
-            if(val < 0 || val > Nyc3Units::maxMoney())
+            if(val < 0 || val > CaliforniacoinUnits::maxMoney())
                 valid = false;
         }
         if(valid_out)
@@ -179,7 +179,7 @@ protected:
         {
             if(val > 0)
                 rv |= StepDownEnabled;
-            if(val < Nyc3Units::maxMoney())
+            if(val < CaliforniacoinUnits::maxMoney())
                 rv |= StepUpEnabled;
         }
         return rv;
@@ -189,9 +189,9 @@ Q_SIGNALS:
     void valueChanged();
 };
 
-#include "nyc3amountfield.moc"
+#include "californiacoinamountfield.moc"
 
-Nyc3AmountField::Nyc3AmountField(QWidget *parent) :
+CaliforniacoinAmountField::CaliforniacoinAmountField(QWidget *parent) :
     QWidget(parent),
     amount(0)
 {
@@ -203,7 +203,7 @@ Nyc3AmountField::Nyc3AmountField(QWidget *parent) :
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(amount);
     unit = new QValueComboBox(this);
-    unit->setModel(new Nyc3Units(this));
+    unit->setModel(new CaliforniacoinUnits(this));
     layout->addWidget(unit);
     layout->addStretch(1);
     layout->setContentsMargins(0,0,0,0);
@@ -221,19 +221,19 @@ Nyc3AmountField::Nyc3AmountField(QWidget *parent) :
     unitChanged(unit->currentIndex());
 }
 
-void Nyc3AmountField::clear()
+void CaliforniacoinAmountField::clear()
 {
     amount->clear();
     unit->setCurrentIndex(0);
 }
 
-void Nyc3AmountField::setEnabled(bool fEnabled)
+void CaliforniacoinAmountField::setEnabled(bool fEnabled)
 {
     amount->setEnabled(fEnabled);
     unit->setEnabled(fEnabled);
 }
 
-bool Nyc3AmountField::validate()
+bool CaliforniacoinAmountField::validate()
 {
     bool valid = false;
     value(&valid);
@@ -241,7 +241,7 @@ bool Nyc3AmountField::validate()
     return valid;
 }
 
-void Nyc3AmountField::setValid(bool valid)
+void CaliforniacoinAmountField::setValid(bool valid)
 {
     if (valid)
         amount->setStyleSheet("");
@@ -249,7 +249,7 @@ void Nyc3AmountField::setValid(bool valid)
         amount->setStyleSheet(STYLE_INVALID);
 }
 
-bool Nyc3AmountField::eventFilter(QObject *object, QEvent *event)
+bool CaliforniacoinAmountField::eventFilter(QObject *object, QEvent *event)
 {
     if (event->type() == QEvent::FocusIn)
     {
@@ -259,45 +259,45 @@ bool Nyc3AmountField::eventFilter(QObject *object, QEvent *event)
     return QWidget::eventFilter(object, event);
 }
 
-QWidget *Nyc3AmountField::setupTabChain(QWidget *prev)
+QWidget *CaliforniacoinAmountField::setupTabChain(QWidget *prev)
 {
     QWidget::setTabOrder(prev, amount);
     QWidget::setTabOrder(amount, unit);
     return unit;
 }
 
-CAmount Nyc3AmountField::value(bool *valid_out) const
+CAmount CaliforniacoinAmountField::value(bool *valid_out) const
 {
     return amount->value(valid_out);
 }
 
-void Nyc3AmountField::setValue(const CAmount& value)
+void CaliforniacoinAmountField::setValue(const CAmount& value)
 {
     amount->setValue(value);
 }
 
-void Nyc3AmountField::setReadOnly(bool fReadOnly)
+void CaliforniacoinAmountField::setReadOnly(bool fReadOnly)
 {
     amount->setReadOnly(fReadOnly);
 }
 
-void Nyc3AmountField::unitChanged(int idx)
+void CaliforniacoinAmountField::unitChanged(int idx)
 {
     // Use description tooltip for current unit for the combobox
     unit->setToolTip(unit->itemData(idx, Qt::ToolTipRole).toString());
 
     // Determine new unit ID
-    int newUnit = unit->itemData(idx, Nyc3Units::UnitRole).toInt();
+    int newUnit = unit->itemData(idx, CaliforniacoinUnits::UnitRole).toInt();
 
     amount->setDisplayUnit(newUnit);
 }
 
-void Nyc3AmountField::setDisplayUnit(int newUnit)
+void CaliforniacoinAmountField::setDisplayUnit(int newUnit)
 {
     unit->setValue(newUnit);
 }
 
-void Nyc3AmountField::setSingleStep(const CAmount& step)
+void CaliforniacoinAmountField::setSingleStep(const CAmount& step)
 {
     amount->setSingleStep(step);
 }

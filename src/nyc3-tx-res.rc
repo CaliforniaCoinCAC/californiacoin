@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Nyc3"
-            VALUE "FileDescription",    "nyc3-tx (CLI Nyc3 transaction editor utility)"
+            VALUE "CompanyName",        "Californiacoin"
+            VALUE "FileDescription",    "californiacoin-tx (CLI Californiacoin transaction editor utility)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "nyc3-tx"
+            VALUE "InternalName",       "californiacoin-tx"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "nyc3-tx.exe"
-            VALUE "ProductName",        "nyc3-tx"
+            VALUE "OriginalFilename",   "californiacoin-tx.exe"
+            VALUE "ProductName",        "californiacoin-tx"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

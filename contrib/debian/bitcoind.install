@@ -1,2 +1,2 @@
-usr/local/bin/nyc3d usr/bin
-usr/local/bin/nyc3-cli usr/bin
+usr/local/bin/californiacoind usr/bin
+usr/local/bin/californiacoin-cli usr/bin

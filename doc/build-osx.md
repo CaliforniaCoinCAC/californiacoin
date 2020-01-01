@@ -26,17 +26,17 @@ If you want to build the disk image with `make deploy` (.dmg / optional), you ne
 
 NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
 
-Build Nyc3 Core
+Build Californiacoin Core
 ------------------------
 
-1. Clone the nyc3 source code and cd into `nyc3`
+1. Clone the californiacoin source code and cd into `californiacoin`
 
-        git clone https://github.com/Nyc3Project/Nyc3coin
-        cd Nyc3coin
+        git clone https://github.com/CaliforniacoinProject/Californiacoincoin
+        cd Californiacoincoin
 
-2.  Build nyc3-core:
+2.  Build californiacoin-core:
 
-    Configure and build the headless nyc3 binaries as well as the GUI (if Qt is found).
+    Configure and build the headless californiacoin binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
 
@@ -55,37 +55,37 @@ Build Nyc3 Core
 Running
 -------
 
-Nyc3 Core is now available at `./src/nyc3d`
+Californiacoin Core is now available at `./src/californiacoind`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=nyc3rpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Nyc3/nyc3.conf"
+    echo -e "rpcuser=californiacoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Californiacoin/californiacoin.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/Nyc3/nyc3.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Californiacoin/californiacoin.conf"
 
-The first time you run nyc3d, it will start downloading the blockchain. This process could take several hours.
+The first time you run californiacoind, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/Nyc3/debug.log
+    tail -f $HOME/Library/Application\ Support/Californiacoin/debug.log
 
 Other commands:
 -------
 
-    ./src/nyc3d -daemon # Starts the nyc3 daemon.
-    ./src/nyc3-cli --help # Outputs a list of command-line options.
-    ./src/nyc3-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/californiacoind -daemon # Starts the californiacoin daemon.
+    ./src/californiacoin-cli --help # Outputs a list of command-line options.
+    ./src/californiacoin-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Using Qt Creator as IDE
 ------------------------
-You can use Qt Creator as an IDE, for nyc3 development.
+You can use Qt Creator as an IDE, for californiacoin development.
 Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
 Uncheck everything except Qt Creator during the installation process.
 
 1. Make sure you installed everything through Homebrew mentioned above
 2. Do a proper ./configure --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "nyc3-qt" as project name, enter src/qt as location
+4. Enter "californiacoin-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."
@@ -98,4 +98,4 @@ Notes
 
 * Tested on OS X 10.8 through 10.12 on 64-bit Intel processors only.
 
-* Building with downloaded Qt binaries is not officially supported. See the notes in [#7714](https://github.com/Nyc3Project/Nyc3coin/issues/7714)
+* Building with downloaded Qt binaries is not officially supported. See the notes in [#7714](https://github.com/CaliforniacoinProject/Californiacoincoin/issues/7714)
