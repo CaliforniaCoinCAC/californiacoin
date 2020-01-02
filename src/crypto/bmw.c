@@ -153,7 +153,7 @@ static const sph_u64 IV512[] = {
 #define rs6(x)    SPH_ROTL32(x, 23)
 #define rs7(x)    SPH_ROTL32(x, 27)
 
-#define Ks(j)   SPH_T32((sph_u32)(j) * SPH_C32(0x01155555))
+#define Ks(j)   SPH_T32((sph_u32)(j) * SPH_C32(0x05555555))
 
 #define add_elt_s(mf, hf, j0m, j1m, j3m, j4m, j7m, j10m, j11m, j16) \
 	(SPH_T32(SPH_ROTL32(mf(j0m), j1m) + SPH_ROTL32(mf(j3m), j4m) \
@@ -209,7 +209,7 @@ static const sph_u64 IV512[] = {
 #define rb6(x)    SPH_ROTL64(x, 43)
 #define rb7(x)    SPH_ROTL64(x, 53)
 
-#define Kb(j)   SPH_T64((sph_u64)(j) * SPH_C64(0x0115551155511555))
+#define Kb(j)   SPH_T64((sph_u64)(j) * SPH_C64(0x0555555555555555))
 
 #if SPH_SMALL_FOOTPRINT_BMW
 
