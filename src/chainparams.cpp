@@ -225,7 +225,8 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x000000f1be8e899c838668ae5ad947bce8ac10185f9cfd99b7181add7fb89ee8"));
         assert(genesis.hashMerkleRoot == uint256S("0x8ea442d5962f2bbe8f4bc26cd8ce2fbe947b1315471dfbaba6fd4955d5575baf"));
 
-        vSeeds.emplace_back("54.39.201.117", true);
+        vSeeds.emplace_back("cacdnsseed.beyondcoin.io", true);
+        vSeeds.emplace_back("3.136.244.216:11555", true);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,53); // changed 60 to 55
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,122); // changed 122 to 123
