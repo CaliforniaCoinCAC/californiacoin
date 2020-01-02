@@ -1,99 +1,99 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-bin_PROGRAMS += qt/nyc3-qt
-EXTRA_LIBRARIES += qt/libnyc3qt.a
+bin_PROGRAMS += qt/californiacoin-qt
+EXTRA_LIBRARIES += qt/libcaliforniacoinqt.a
 
-# nyc3 qt core #
+# californiacoin qt core #
 QT_TS = \
-  qt/locale/nyc3_af.ts \
-  qt/locale/nyc3_af_ZA.ts \
-  qt/locale/nyc3_ar.ts \
-  qt/locale/nyc3_be_BY.ts \
-  qt/locale/nyc3_bg_BG.ts \
-  qt/locale/nyc3_bg.ts \
-  qt/locale/nyc3_ca_ES.ts \
-  qt/locale/nyc3_ca.ts \
-  qt/locale/nyc3_ca@valencia.ts \
-  qt/locale/nyc3_cs.ts \
-  qt/locale/nyc3_cy.ts \
-  qt/locale/nyc3_da.ts \
-  qt/locale/nyc3_de.ts \
-  qt/locale/nyc3_el_GR.ts \
-  qt/locale/nyc3_el.ts \
-  qt/locale/nyc3_en_GB.ts \
-  qt/locale/nyc3_en.ts \
-  qt/locale/nyc3_eo.ts \
-  qt/locale/nyc3_es_AR.ts \
-  qt/locale/nyc3_es_CL.ts \
-  qt/locale/nyc3_es_CO.ts \
-  qt/locale/nyc3_es_DO.ts \
-  qt/locale/nyc3_es_ES.ts \
-  qt/locale/nyc3_es_MX.ts \
-  qt/locale/nyc3_es.ts \
-  qt/locale/nyc3_es_UY.ts \
-  qt/locale/nyc3_es_VE.ts \
-  qt/locale/nyc3_et_EE.ts \
-  qt/locale/nyc3_et.ts \
-  qt/locale/nyc3_eu_ES.ts \
-  qt/locale/nyc3_fa_IR.ts \
-  qt/locale/nyc3_fa.ts \
-  qt/locale/nyc3_fi.ts \
-  qt/locale/nyc3_fr_CA.ts \
-  qt/locale/nyc3_fr_FR.ts \
-  qt/locale/nyc3_fr.ts \
-  qt/locale/nyc3_gl.ts \
-  qt/locale/nyc3_he.ts \
-  qt/locale/nyc3_hi_IN.ts \
-  qt/locale/nyc3_hr.ts \
-  qt/locale/nyc3_hu.ts \
-  qt/locale/nyc3_id_ID.ts \
-  qt/locale/nyc3_it_IT.ts \
-  qt/locale/nyc3_it.ts \
-  qt/locale/nyc3_ja.ts \
-  qt/locale/nyc3_ka.ts \
-  qt/locale/nyc3_kk_KZ.ts \
-  qt/locale/nyc3_ko_KR.ts \
-  qt/locale/nyc3_ku_IQ.ts \
-  qt/locale/nyc3_ky.ts \
-  qt/locale/nyc3_la.ts \
-  qt/locale/nyc3_lt.ts \
-  qt/locale/nyc3_lv_LV.ts \
-  qt/locale/nyc3_mk_MK.ts \
-  qt/locale/nyc3_mn.ts \
-  qt/locale/nyc3_ms_MY.ts \
-  qt/locale/nyc3_nb.ts \
-  qt/locale/nyc3_ne.ts \
-  qt/locale/nyc3_nl.ts \
-  qt/locale/nyc3_pam.ts \
-  qt/locale/nyc3_pl.ts \
-  qt/locale/nyc3_pt_BR.ts \
-  qt/locale/nyc3_pt_PT.ts \
-  qt/locale/nyc3_ro_RO.ts \
-  qt/locale/nyc3_ro.ts \
-  qt/locale/nyc3_ru_RU.ts \
-  qt/locale/nyc3_ru.ts \
-  qt/locale/nyc3_sk.ts \
-  qt/locale/nyc3_sl_SI.ts \
-  qt/locale/nyc3_sq.ts \
-  qt/locale/nyc3_sr@latin.ts \
-  qt/locale/nyc3_sr.ts \
-  qt/locale/nyc3_sv.ts \
-  qt/locale/nyc3_ta.ts \
-  qt/locale/nyc3_th_TH.ts \
-  qt/locale/nyc3_tr_TR.ts \
-  qt/locale/nyc3_tr.ts \
-  qt/locale/nyc3_uk.ts \
-  qt/locale/nyc3_ur_PK.ts \
-  qt/locale/nyc3_uz@Cyrl.ts \
-  qt/locale/nyc3_vi.ts \
-  qt/locale/nyc3_vi_VN.ts \
-  qt/locale/nyc3_zh_CN.ts \
-  qt/locale/nyc3_zh_HK.ts \
-  qt/locale/nyc3_zh.ts \
-  qt/locale/nyc3_zh_TW.ts
+  qt/locale/californiacoin_af.ts \
+  qt/locale/californiacoin_af_ZA.ts \
+  qt/locale/californiacoin_ar.ts \
+  qt/locale/californiacoin_be_BY.ts \
+  qt/locale/californiacoin_bg_BG.ts \
+  qt/locale/californiacoin_bg.ts \
+  qt/locale/californiacoin_ca_ES.ts \
+  qt/locale/californiacoin_ca.ts \
+  qt/locale/californiacoin_ca@valencia.ts \
+  qt/locale/californiacoin_cs.ts \
+  qt/locale/californiacoin_cy.ts \
+  qt/locale/californiacoin_da.ts \
+  qt/locale/californiacoin_de.ts \
+  qt/locale/californiacoin_el_GR.ts \
+  qt/locale/californiacoin_el.ts \
+  qt/locale/californiacoin_en_GB.ts \
+  qt/locale/californiacoin_en.ts \
+  qt/locale/californiacoin_eo.ts \
+  qt/locale/californiacoin_es_AR.ts \
+  qt/locale/californiacoin_es_CL.ts \
+  qt/locale/californiacoin_es_CO.ts \
+  qt/locale/californiacoin_es_DO.ts \
+  qt/locale/californiacoin_es_ES.ts \
+  qt/locale/californiacoin_es_MX.ts \
+  qt/locale/californiacoin_es.ts \
+  qt/locale/californiacoin_es_UY.ts \
+  qt/locale/californiacoin_es_VE.ts \
+  qt/locale/californiacoin_et_EE.ts \
+  qt/locale/californiacoin_et.ts \
+  qt/locale/californiacoin_eu_ES.ts \
+  qt/locale/californiacoin_fa_IR.ts \
+  qt/locale/californiacoin_fa.ts \
+  qt/locale/californiacoin_fi.ts \
+  qt/locale/californiacoin_fr_CA.ts \
+  qt/locale/californiacoin_fr_FR.ts \
+  qt/locale/californiacoin_fr.ts \
+  qt/locale/californiacoin_gl.ts \
+  qt/locale/californiacoin_he.ts \
+  qt/locale/californiacoin_hi_IN.ts \
+  qt/locale/californiacoin_hr.ts \
+  qt/locale/californiacoin_hu.ts \
+  qt/locale/californiacoin_id_ID.ts \
+  qt/locale/californiacoin_it_IT.ts \
+  qt/locale/californiacoin_it.ts \
+  qt/locale/californiacoin_ja.ts \
+  qt/locale/californiacoin_ka.ts \
+  qt/locale/californiacoin_kk_KZ.ts \
+  qt/locale/californiacoin_ko_KR.ts \
+  qt/locale/californiacoin_ku_IQ.ts \
+  qt/locale/californiacoin_ky.ts \
+  qt/locale/californiacoin_la.ts \
+  qt/locale/californiacoin_lt.ts \
+  qt/locale/californiacoin_lv_LV.ts \
+  qt/locale/californiacoin_mk_MK.ts \
+  qt/locale/californiacoin_mn.ts \
+  qt/locale/californiacoin_ms_MY.ts \
+  qt/locale/californiacoin_nb.ts \
+  qt/locale/californiacoin_ne.ts \
+  qt/locale/californiacoin_nl.ts \
+  qt/locale/californiacoin_pam.ts \
+  qt/locale/californiacoin_pl.ts \
+  qt/locale/californiacoin_pt_BR.ts \
+  qt/locale/californiacoin_pt_PT.ts \
+  qt/locale/californiacoin_ro_RO.ts \
+  qt/locale/californiacoin_ro.ts \
+  qt/locale/californiacoin_ru_RU.ts \
+  qt/locale/californiacoin_ru.ts \
+  qt/locale/californiacoin_sk.ts \
+  qt/locale/californiacoin_sl_SI.ts \
+  qt/locale/californiacoin_sq.ts \
+  qt/locale/californiacoin_sr@latin.ts \
+  qt/locale/californiacoin_sr.ts \
+  qt/locale/californiacoin_sv.ts \
+  qt/locale/californiacoin_ta.ts \
+  qt/locale/californiacoin_th_TH.ts \
+  qt/locale/californiacoin_tr_TR.ts \
+  qt/locale/californiacoin_tr.ts \
+  qt/locale/californiacoin_uk.ts \
+  qt/locale/californiacoin_ur_PK.ts \
+  qt/locale/californiacoin_uz@Cyrl.ts \
+  qt/locale/californiacoin_vi.ts \
+  qt/locale/californiacoin_vi_VN.ts \
+  qt/locale/californiacoin_zh_CN.ts \
+  qt/locale/californiacoin_zh_HK.ts \
+  qt/locale/californiacoin_zh.ts \
+  qt/locale/californiacoin_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -119,10 +119,10 @@ QT_MOC_CPP = \
   qt/moc_addresstablemodel.cpp \
   qt/moc_askpassphrasedialog.cpp \
   qt/moc_bantablemodel.cpp \
-  qt/moc_nyc3addressvalidator.cpp \
-  qt/moc_nyc3amountfield.cpp \
-  qt/moc_nyc3gui.cpp \
-  qt/moc_nyc3units.cpp \
+  qt/moc_californiacoinaddressvalidator.cpp \
+  qt/moc_californiacoinamountfield.cpp \
+  qt/moc_californiacoingui.cpp \
+  qt/moc_californiacoinunits.cpp \
   qt/moc_callback.cpp \
   qt/moc_clientmodel.cpp \
   qt/moc_coincontroldialog.cpp \
@@ -167,17 +167,17 @@ PIGEON_MM = \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/nyc3.moc \
-  qt/nyc3amountfield.moc \
+  qt/californiacoin.moc \
+  qt/californiacoinamountfield.moc \
   qt/callback.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_nyc3.cpp
-QT_QRC = qt/nyc3.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_nyc3_locale.cpp
-QT_QRC_LOCALE = qt/nyc3_locale.qrc
+QT_QRC_CPP = qt/qrc_californiacoin.cpp
+QT_QRC = qt/californiacoin.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_californiacoin_locale.cpp
+QT_QRC_LOCALE = qt/californiacoin_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
@@ -188,10 +188,10 @@ PIGEON_QT_H = \
   qt/addresstablemodel.h \
   qt/askpassphrasedialog.h \
   qt/bantablemodel.h \
-  qt/nyc3addressvalidator.h \
-  qt/nyc3amountfield.h \
-  qt/nyc3gui.h \
-  qt/nyc3units.h \
+  qt/californiacoinaddressvalidator.h \
+  qt/californiacoinamountfield.h \
+  qt/californiacoingui.h \
+  qt/californiacoinunits.h \
   qt/callback.h \
   qt/clientmodel.h \
   qt/coincontroldialog.h \
@@ -243,9 +243,9 @@ RES_ICONS = \
   qt/res/icons/address-book.png \
   qt/res/icons/about.png \
   qt/res/icons/about_qt.png \
-  qt/res/icons/nyc3.ico \
-  qt/res/icons/nyc3_testnet.ico \
-  qt/res/icons/nyc3.png \
+  qt/res/icons/californiacoin.ico \
+  qt/res/icons/californiacoin_testnet.ico \
+  qt/res/icons/californiacoin.png \
   qt/res/icons/chevron.png \
   qt/res/icons/clock1.png \
   qt/res/icons/clock2.png \
@@ -297,10 +297,10 @@ RES_ICONS = \
 
 PIGEON_QT_BASE_CPP = \
   qt/bantablemodel.cpp \
-  qt/nyc3addressvalidator.cpp \
-  qt/nyc3amountfield.cpp \
-  qt/nyc3gui.cpp \
-  qt/nyc3units.cpp \
+  qt/californiacoinaddressvalidator.cpp \
+  qt/californiacoinamountfield.cpp \
+  qt/californiacoingui.cpp \
+  qt/californiacoinunits.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
   qt/guiutil.cpp \
@@ -361,19 +361,19 @@ RES_IMAGES =
 
 RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
-PIGEON_RC = qt/res/nyc3-qt-res.rc
+PIGEON_RC = qt/res/californiacoin-qt-res.rc
 
 PIGEON_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms -DQT_NO_KEYWORDS
 
-qt_libnyc3qt_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES) $(PIGEON_QT_INCLUDES) \
+qt_libcaliforniacoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES) $(PIGEON_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
-qt_libnyc3qt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_libcaliforniacoinqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_libnyc3qt_a_SOURCES = $(PIGEON_QT_CPP) $(PIGEON_QT_H) $(QT_FORMS_UI) \
+qt_libcaliforniacoinqt_a_SOURCES = $(PIGEON_QT_CPP) $(PIGEON_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
 
-nodist_qt_libnyc3qt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+nodist_qt_libcaliforniacoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
 
 # forms/foo.h -> forms/ui_foo.h
@@ -382,71 +382,71 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libnyc3qt_a_OBJECTS) $(qt_nyc3_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libcaliforniacoinqt_a_OBJECTS) $(qt_californiacoin_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# nyc3-qt binary #
-qt_nyc3_qt_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES) $(PIGEON_QT_INCLUDES) \
+# californiacoin-qt binary #
+qt_californiacoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES) $(PIGEON_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
-qt_nyc3_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_californiacoin_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_nyc3_qt_SOURCES = qt/nyc3.cpp
+qt_californiacoin_qt_SOURCES = qt/californiacoin.cpp
 if TARGET_DARWIN
-  qt_nyc3_qt_SOURCES += $(PIGEON_MM)
+  qt_californiacoin_qt_SOURCES += $(PIGEON_MM)
 endif
 if TARGET_WINDOWS
-  qt_nyc3_qt_SOURCES += $(PIGEON_RC)
+  qt_californiacoin_qt_SOURCES += $(PIGEON_RC)
 endif
-qt_nyc3_qt_LDADD = qt/libnyc3qt.a $(LIBPIGEON_SERVER)
+qt_californiacoin_qt_LDADD = qt/libcaliforniacoinqt.a $(LIBPIGEON_SERVER)
 if ENABLE_WALLET
-qt_nyc3_qt_LDADD += $(LIBPIGEON_WALLET)
+qt_californiacoin_qt_LDADD += $(LIBPIGEON_WALLET)
 endif
 if ENABLE_ZMQ
-qt_nyc3_qt_LDADD += $(LIBPIGEON_ZMQ) $(ZMQ_LIBS)
+qt_californiacoin_qt_LDADD += $(LIBPIGEON_ZMQ) $(ZMQ_LIBS)
 endif
-qt_nyc3_qt_LDADD += $(LIBPIGEON_CLI) $(LIBPIGEON_COMMON) $(LIBPIGEON_UTIL) $(LIBPIGEON_CONSENSUS) $(LIBPIGEON_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
+qt_californiacoin_qt_LDADD += $(LIBPIGEON_CLI) $(LIBPIGEON_COMMON) $(LIBPIGEON_UTIL) $(LIBPIGEON_CONSENSUS) $(LIBPIGEON_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-qt_nyc3_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_nyc3_qt_LIBTOOLFLAGS = --tag CXX
+qt_californiacoin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_californiacoin_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 SECONDARY: $(QT_QM)
 
-$(srcdir)/qt/nyc3strings.cpp: $(libnyc3_server_a_SOURCES) $(libnyc3_wallet_a_SOURCES) $(libnyc3_common_a_SOURCES) $(libnyc3_zmq_a_SOURCES) $(libnyc3_consensus_a_SOURCES) $(libnyc3_util_a_SOURCES)
+$(srcdir)/qt/californiacoinstrings.cpp: $(libcaliforniacoin_server_a_SOURCES) $(libcaliforniacoin_wallet_a_SOURCES) $(libcaliforniacoin_common_a_SOURCES) $(libcaliforniacoin_zmq_a_SOURCES) $(libcaliforniacoin_consensus_a_SOURCES) $(libcaliforniacoin_util_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) PACKAGE_NAME="$(PACKAGE_NAME)" COPYRIGHT_HOLDERS="$(COPYRIGHT_HOLDERS)" COPYRIGHT_HOLDERS_SUBSTITUTION="$(COPYRIGHT_HOLDERS_SUBSTITUTION)" $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: $(srcdir)/qt/nyc3strings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(PIGEON_QT_BASE_CPP) qt/nyc3.cpp $(PIGEON_QT_WINDOWS_CPP) $(PIGEON_QT_WALLET_CPP) $(PIGEON_QT_H) $(PIGEON_MM)
+translate: $(srcdir)/qt/californiacoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(PIGEON_QT_BASE_CPP) qt/californiacoin.cpp $(PIGEON_QT_WINDOWS_CPP) $(PIGEON_QT_WALLET_CPP) $(PIGEON_QT_H) $(PIGEON_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/nyc3_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/californiacoin_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@cp -f $< $(@D)/temp_$(<F)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name nyc3_locale $(@D)/temp_$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name californiacoin_locale $(@D)/temp_$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 	@rm $(@D)/temp_$(<F)
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name nyc3 $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name californiacoin $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
-CLEAN_QT = $(nodist_qt_libnyc3qt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
+CLEAN_QT = $(nodist_qt_libcaliforniacoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-nyc3_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libnyc3qt_a_OBJECTS) $(qt_nyc3_qt_OBJECTS) qt/nyc3-qt$(EXEEXT) $(LIBPIGEONQT)
+californiacoin_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libcaliforniacoinqt_a_OBJECTS) $(qt_californiacoin_qt_OBJECTS) qt/californiacoin-qt$(EXEEXT) $(LIBPIGEONQT)
 
-nyc3_qt : qt/nyc3-qt$(EXEEXT)
+californiacoin_qt : qt/californiacoin-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

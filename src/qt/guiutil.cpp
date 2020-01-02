@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "guiutil.h"
 
-#include "nyc3addressvalidator.h"
-#include "nyc3units.h"
+#include "californiacoinaddressvalidator.h"
+#include "californiacoinunits.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
@@ -129,11 +129,11 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Nyc3 address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Californiacoin address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
-    widget->setValidator(new Nyc3AddressEntryValidator(parent));
-    widget->setCheckValidator(new Nyc3AddressCheckValidator(parent));
+    widget->setValidator(new CaliforniacoinAddressEntryValidator(parent));
+    widget->setCheckValidator(new CaliforniacoinAddressCheckValidator(parent));
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -145,10 +145,10 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseNyc3URI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseCaliforniacoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no nyc3: URI
-    if(!uri.isValid() || uri.scheme() != QString("nyc3"))
+    // return if URI is not valid or is no californiacoin: URI
+    if(!uri.isValid() || uri.scheme() != QString("californiacoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -188,7 +188,7 @@ bool parseNyc3URI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!Nyc3Units::parse(Nyc3Units::NYC3, i->second, &rv.amount))
+                if(!CaliforniacoinUnits::parse(CaliforniacoinUnits::CALIFORNIACOIN, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -206,28 +206,28 @@ bool parseNyc3URI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseNyc3URI(QString uri, SendCoinsRecipient *out)
+bool parseCaliforniacoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert nyc3:// to nyc3:
+    // Convert californiacoin:// to californiacoin:
     //
-    //    Cannot handle this later, because nyc3:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because californiacoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("nyc3://", Qt::CaseInsensitive))
+    if(uri.startsWith("californiacoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "nyc3:");
+        uri.replace(0, 10, "californiacoin:");
     }
     QUrl uriInstance(uri);
-    return parseNyc3URI(uriInstance, out);
+    return parseCaliforniacoinURI(uriInstance, out);
 }
 
-QString formatNyc3URI(const SendCoinsRecipient &info)
+QString formatCaliforniacoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("nyc3:%1").arg(info.address);
+    QString ret = QString("californiacoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(Nyc3Units::format(Nyc3Units::NYC3, info.amount, false, Nyc3Units::separatorNever));
+        ret += QString("?amount=%1").arg(CaliforniacoinUnits::format(CaliforniacoinUnits::CALIFORNIACOIN, info.amount, false, CaliforniacoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -417,7 +417,7 @@ void openDebugLogfile()
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathDebug)));
 }
 
-bool openNyc3Conf()
+bool openCaliforniacoinConf()
 {
     boost::filesystem::path pathConfig = GetConfigFile(PIGEON_CONF_FILENAME);
 
@@ -429,7 +429,7 @@ bool openNyc3Conf()
     
     configFile.close();
     
-    /* Open nyc3.conf with the associated application */
+    /* Open californiacoin.conf with the associated application */
     return QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
 
@@ -617,15 +617,15 @@ fs::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Nyc3.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Californiacoin.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Nyc3 (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Nyc3 (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Californiacoin (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Californiacoin (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for Nyc3*.lnk
+    // check for Californiacoin*.lnk
     return fs::exists(StartupShortcutPath());
 }
 
@@ -715,8 +715,8 @@ fs::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "nyc3.desktop";
-    return GetAutostartDir() / strprintf("nyc3-%s.lnk", chain);
+        return GetAutostartDir() / "californiacoin.desktop";
+    return GetAutostartDir() / strprintf("californiacoin-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -756,13 +756,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a nyc3.desktop file to the autostart directory:
+        // Write a californiacoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Nyc3\n";
+            optionFile << "Name=Californiacoin\n";
         else
-            optionFile << strprintf("Name=Nyc3 (%s)\n", chain);
+            optionFile << strprintf("Name=Californiacoin (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", gArgs.GetBoolArg("-testnet", false), gArgs.GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -788,7 +788,7 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
         return nullptr;
     }
     
-    // loop through the list of startup items and try to find the nyc3 app
+    // loop through the list of startup items and try to find the californiacoin app
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
         UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
@@ -822,38 +822,38 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
 
 bool GetStartOnSystemStartup()
 {
-    CFURLRef nyc3AppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (nyc3AppUrl == nullptr) {
+    CFURLRef californiacoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (californiacoinAppUrl == nullptr) {
         return false;
     }
     
     LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, nyc3AppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, californiacoinAppUrl);
 
-    CFRelease(nyc3AppUrl);
+    CFRelease(californiacoinAppUrl);
     return !!foundItem; // return boolified object
 }
 
 bool SetStartOnSystemStartup(bool fAutoStart)
 {
-    CFURLRef nyc3AppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (nyc3AppUrl == nullptr) {
+    CFURLRef californiacoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (californiacoinAppUrl == nullptr) {
         return false;
     }
     
     LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, nyc3AppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, californiacoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add nyc3 app to startup item list
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, nyc3AppUrl, nullptr, nullptr);
+        // add californiacoin app to startup item list
+        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, californiacoinAppUrl, nullptr, nullptr);
     }
     else if(!fAutoStart && foundItem) {
         // remove item
         LSSharedFileListItemRemove(loginItems, foundItem);
     }
     
-    CFRelease(nyc3AppUrl);
+    CFRelease(californiacoinAppUrl);
     return true;
 }
 #pragma GCC diagnostic pop

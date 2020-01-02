@@ -1,5 +1,5 @@
 ---
-name: "nyc3-dmg-signer"
+name: "californiacoin-dmg-signer"
 suites:
 - "trusty"
 architectures:
@@ -7,10 +7,10 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/nyc3coin/nyc3-detached-sigs.git"
+- "url": "https://github.com/californiacoincoin/californiacoin-detached-sigs.git"
   "dir": "signature"
 files:
-- "nyc3-osx-unsigned.tar.gz"
+- "californiacoin-osx-unsigned.tar.gz"
 script: |
   WRAP_DIR=$HOME/wrapped
   mkdir -p ${WRAP_DIR}
@@ -27,8 +27,8 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=nyc3-osx-unsigned.tar.gz
-  SIGNED=nyc3-osx-signed.dmg
+  UNSIGNED=californiacoin-osx-unsigned.tar.gz
+  SIGNED=californiacoin-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"

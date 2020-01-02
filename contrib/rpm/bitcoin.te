@@ -1,81 +1,81 @@
-policy_module(nyc3, 1.100.1)
+policy_module(californiacoin, 1.100.1)
 
 ########################################
 #
 # Declarations
 #
 
-type nyc3_t;
-type nyc3_exec_t;
-init_daemon_domain(nyc3_t, nyc3_exec_t)
+type californiacoin_t;
+type californiacoin_exec_t;
+init_daemon_domain(californiacoin_t, californiacoin_exec_t)
 
-permissive nyc3_t;
+permissive californiacoin_t;
 
-type nyc3_initrc_exec_t;
-init_script_file(nyc3_initrc_exec_t)
+type californiacoin_initrc_exec_t;
+init_script_file(californiacoin_initrc_exec_t)
 
-type nyc3_conf_t;
-files_type(nyc3_conf_t)
+type californiacoin_conf_t;
+files_type(californiacoin_conf_t)
 
-type nyc3_var_lib_t;
-files_type(nyc3_var_lib_t)
+type californiacoin_var_lib_t;
+files_type(californiacoin_var_lib_t)
 
-type nyc3_var_run_t;
-files_type(nyc3_var_run_t)
+type californiacoin_var_run_t;
+files_type(californiacoin_var_run_t)
 
-type nyc3_port_t;
-corenet_port(nyc3_port_t)
+type californiacoin_port_t;
+corenet_port(californiacoin_port_t)
 
 ########################################
 #
-# nyc3 local policy
+# californiacoin local policy
 #
-allow nyc3_t self:process { fork };
+allow californiacoin_t self:process { fork };
 
-allow nyc3_t self:fifo_file rw_fifo_file_perms;
-allow nyc3_t self:unix_stream_socket create_stream_socket_perms;
+allow californiacoin_t self:fifo_file rw_fifo_file_perms;
+allow californiacoin_t self:unix_stream_socket create_stream_socket_perms;
 
-manage_dirs_pattern(nyc3_t, nyc3_conf_t, nyc3_conf_t)
-manage_files_pattern(nyc3_t, nyc3_conf_t, nyc3_conf_t)
+manage_dirs_pattern(californiacoin_t, californiacoin_conf_t, californiacoin_conf_t)
+manage_files_pattern(californiacoin_t, californiacoin_conf_t, californiacoin_conf_t)
 
-manage_dirs_pattern(nyc3_t, nyc3_var_lib_t, nyc3_var_lib_t)
-manage_files_pattern(nyc3_t, nyc3_var_lib_t, nyc3_var_lib_t)
-files_var_lib_filetrans(nyc3_t, nyc3_var_lib_t, { dir file })
+manage_dirs_pattern(californiacoin_t, californiacoin_var_lib_t, californiacoin_var_lib_t)
+manage_files_pattern(californiacoin_t, californiacoin_var_lib_t, californiacoin_var_lib_t)
+files_var_lib_filetrans(californiacoin_t, californiacoin_var_lib_t, { dir file })
 
-manage_dirs_pattern(nyc3_t, nyc3_var_run_t, nyc3_var_run_t)
-manage_files_pattern(nyc3_t, nyc3_var_run_t, nyc3_var_run_t)
+manage_dirs_pattern(californiacoin_t, californiacoin_var_run_t, californiacoin_var_run_t)
+manage_files_pattern(californiacoin_t, californiacoin_var_run_t, californiacoin_var_run_t)
 
-sysnet_dns_name_resolve(nyc3_t)
-corenet_all_recvfrom_unlabeled(nyc3_t)
+sysnet_dns_name_resolve(californiacoin_t)
+corenet_all_recvfrom_unlabeled(californiacoin_t)
 
-allow nyc3_t self:tcp_socket create_stream_socket_perms;
-corenet_tcp_sendrecv_generic_if(nyc3_t)
-corenet_tcp_sendrecv_generic_node(nyc3_t)
-corenet_tcp_sendrecv_all_ports(nyc3_t)
-corenet_tcp_bind_generic_node(nyc3_t)
-
-gen_require(`
-    type nyc3_port_t;
-')
-allow nyc3_t nyc3_port_t:tcp_socket name_bind;
+allow californiacoin_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(californiacoin_t)
+corenet_tcp_sendrecv_generic_node(californiacoin_t)
+corenet_tcp_sendrecv_all_ports(californiacoin_t)
+corenet_tcp_bind_generic_node(californiacoin_t)
 
 gen_require(`
-    type nyc3_port_t;
+    type californiacoin_port_t;
 ')
-allow nyc3_t nyc3_port_t:tcp_socket name_connect;
+allow californiacoin_t californiacoin_port_t:tcp_socket name_bind;
 
-domain_use_interactive_fds(nyc3_t)
+gen_require(`
+    type californiacoin_port_t;
+')
+allow californiacoin_t californiacoin_port_t:tcp_socket name_connect;
 
-files_read_etc_files(nyc3_t)
+domain_use_interactive_fds(californiacoin_t)
 
-miscfiles_read_localization(nyc3_t)
+files_read_etc_files(californiacoin_t)
 
-sysnet_dns_name_resolve(nyc3_t)
+miscfiles_read_localization(californiacoin_t)
 
-allow nyc3_t nyc3_exec_t:file execute_no_trans;
-allow nyc3_t self:process setsched;
-corecmd_exec_ls(nyc3_t)
-corenet_tcp_connect_http_port(nyc3_t)
-dev_read_urand(nyc3_t)
-fs_getattr_xattr_fs(nyc3_t)
-kernel_read_system_state(nyc3_t)
+sysnet_dns_name_resolve(californiacoin_t)
+
+allow californiacoin_t californiacoin_exec_t:file execute_no_trans;
+allow californiacoin_t self:process setsched;
+corecmd_exec_ls(californiacoin_t)
+corenet_tcp_connect_http_port(californiacoin_t)
+dev_read_urand(californiacoin_t)
+fs_getattr_xattr_fs(californiacoin_t)
+kernel_read_system_state(californiacoin_t)

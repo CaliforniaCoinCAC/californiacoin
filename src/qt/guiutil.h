@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -30,7 +30,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the Nyc3 Qt UI.
+/** Utility functions used by the Californiacoin Qt UI.
  */
 namespace GUIUtil
 {
@@ -45,10 +45,10 @@ namespace GUIUtil
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "nyc3:" URI into recipient object, return true on successful parsing
-    bool parseNyc3URI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseNyc3URI(QString uri, SendCoinsRecipient *out);
-    QString formatNyc3URI(const SendCoinsRecipient &info);
+    // Parse "californiacoin:" URI into recipient object, return true on successful parsing
+    bool parseCaliforniacoinURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseCaliforniacoinURI(QString uri, SendCoinsRecipient *out);
+    QString formatCaliforniacoinURI(const SendCoinsRecipient &info);
 
     // Returns true if given address+amount meets "dust" definition
     bool isDust(const QString& address, const CAmount& amount);
@@ -115,7 +115,7 @@ namespace GUIUtil
     void openDebugLogfile();
 
     // Open the config file
-    bool openNyc3Conf();
+    bool openCaliforniacoinConf();
 
     // Replace invalid default fonts with known good ones
     void SubstituteFonts(const QString& language);

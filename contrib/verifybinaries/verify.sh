@@ -1,11 +1,11 @@
 #!/bin/bash
 # Copyright (c) 2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 ###   This script attempts to download the signature file SHA256SUMS.asc from
-###   nyc3core.org and nyc3.org and compares them.
+###   californiacoincore.org and californiacoin.org and compares them.
 ###   It first checks if the signature passes, and then downloads the files specified in
 ###   the file, and checks if the hashes of these files match those that are specified
 ###   in the signature file.
@@ -19,15 +19,15 @@ function clean_up {
    done
 }
 
-WORKINGDIR="/tmp/nyc3_verify_binaries"
+WORKINGDIR="/tmp/californiacoin_verify_binaries"
 TMPFILE="hashes.tmp"
 
 SIGNATUREFILENAME="SHA256SUMS.asc"
 RCSUBDIR="test"
-HOST1="https://nyc3.org"
-HOST2="https://nyc3.org"
+HOST1="https://californiacoin.org"
+HOST2="https://californiacoin.org"
 BASEDIR="/bin/"
-VERSIONPREFIX="nyc3-core-"
+VERSIONPREFIX="californiacoin-core-"
 RCVERSIONSTRING="rc"
 
 if [ ! -d "$WORKINGDIR" ]; then
@@ -38,7 +38,7 @@ cd "$WORKINGDIR"
 
 #test if a version number has been passed as an argument
 if [ -n "$1" ]; then
-   #let's also check if the version number includes the prefix 'nyc3-',
+   #let's also check if the version number includes the prefix 'californiacoin-',
    #  and add this prefix if it doesn't
    if [[ $1 == "$VERSIONPREFIX"* ]]; then
       VERSION="$1"
@@ -98,7 +98,7 @@ fi
 
 WGETOUT=$(wget -N -O "$SIGNATUREFILENAME.2" "$HOST2$BASEDIR$SIGNATUREFILENAME" 2>&1)
 if [ $? -ne 0 ]; then
-   echo "nyc3.org failed to provide signature file, but nyc3core.org did?"
+   echo "californiacoin.org failed to provide signature file, but californiacoincore.org did?"
    echo "wget output:"
    echo "$WGETOUT"|sed 's/^/\t/g'
    clean_up $SIGNATUREFILENAME
@@ -107,7 +107,7 @@ fi
 
 SIGFILEDIFFS="$(diff $SIGNATUREFILENAME $SIGNATUREFILENAME.2)"
 if [ "$SIGFILEDIFFS" != "" ]; then
-   echo "nyc3.org and nyc3core.org signature files were not equal?"
+   echo "californiacoin.org and californiacoincore.org signature files were not equal?"
    clean_up $SIGNATUREFILENAME $SIGNATUREFILENAME.2
    exit 4
 fi
@@ -126,7 +126,7 @@ if [ $RET -ne 0 ]; then
       echo "Bad signature."
    elif [ $RET -eq 2 ]; then
       #or if a gpg error has occurred
-      echo "gpg error. Do you have the Nyc3 Core binary release signing key installed?"
+      echo "gpg error. Do you have the Californiacoin Core binary release signing key installed?"
    fi
 
    echo "gpg output:"

@@ -1,31 +1,31 @@
-# /etc/conf.d/nyc3d: config file for /etc/init.d/nyc3d
+# /etc/conf.d/californiacoind: config file for /etc/init.d/californiacoind
 
 # Config file location
-#PIGEOND_CONFIGFILE="/etc/nyc3/nyc3.conf"
+#PIGEOND_CONFIGFILE="/etc/californiacoin/californiacoin.conf"
 
 # What directory to write pidfile to?  (created and owned by $PIGEOND_USER)
-#PIGEOND_PIDDIR="/var/run/nyc3d"
+#PIGEOND_PIDDIR="/var/run/californiacoind"
 
 # What filename to give the pidfile
-#PIGEOND_PIDFILE="${PIGEOND_PIDDIR}/nyc3d.pid"
+#PIGEOND_PIDFILE="${PIGEOND_PIDDIR}/californiacoind.pid"
 
-# Where to write nyc3d data (be mindful that the blockchain is large)
-#PIGEOND_DATADIR="/var/lib/nyc3d"
+# Where to write californiacoind data (be mindful that the blockchain is large)
+#PIGEOND_DATADIR="/var/lib/californiacoind"
 
-# User and group to own nyc3d process
-#PIGEOND_USER="nyc3"
-#PIGEOND_GROUP="nyc3"
+# User and group to own californiacoind process
+#PIGEOND_USER="californiacoin"
+#PIGEOND_GROUP="californiacoin"
 
-# Path to nyc3d executable
-#PIGEOND_BIN="/usr/bin/nyc3d"
+# Path to californiacoind executable
+#PIGEOND_BIN="/usr/bin/californiacoind"
 
-# Nice value to run nyc3d under
+# Nice value to run californiacoind under
 #PIGEOND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)
 #PIGEOND_OPTS=""
 
-# The timeout in seconds OpenRC will wait for nyc3d to terminate
+# The timeout in seconds OpenRC will wait for californiacoind to terminate
 # after a SIGTERM has been raised.
 # Note that this will be mapped as argument to start-stop-daemon's
 # '--retry' option, which means you can specify a retry schedule

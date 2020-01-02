@@ -1,7 +1,7 @@
-Contributing to Nyc3 Core
+Contributing to Californiacoin Core
 ============================
 
-The Nyc3 Core project operates an open contributor model where anyone is
+The Californiacoin Core project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches. This document explains the practical process and guidelines for
 contributing.
@@ -57,12 +57,12 @@ the pull request affects. Valid areas as:
 
   - *Consensus* for changes to consensus critical code
   - *Docs* for changes to the documentation
-  - *Qt* for changes to nyc3-qt
+  - *Qt* for changes to californiacoin-qt
   - *Mining* for changes to the mining code
   - *Net* or *P2P* for changes to the peer-to-peer network code
   - *RPC/REST/ZMQ* for changes to the RPC, REST or ZMQ APIs
   - *Scripts and tools* for changes to the scripts and tools
-  - *Tests* for changes to the nyc3 unit tests or QA tests
+  - *Tests* for changes to the californiacoin unit tests or QA tests
   - *Trivial* should **only** be used for PRs that do not change generated
     executable code. Notably, refactors (change of function arguments and code
     reorganization) and changes in behavior should **not** be marked as trivial.
@@ -82,7 +82,7 @@ Examples:
     Trivial: Fix typo in init.cpp
 
 Note that translations should not be submitted as pull requests, please see
-[Translation Process](https://github.com/Nyc3Project/Nyc3coin/blob/master/doc/translation_process.md) 
+[Translation Process](https://github.com/CaliforniacoinProject/Californiacoincoin/blob/master/doc/translation_process.md) 
 for more information on helping with translations.
 
 If a pull request is specifically not to be considered for merging (yet) please
@@ -169,11 +169,11 @@ workload on reviewing.
 "Decision Making" Process
 -------------------------
 
-The following applies to code changes to the Nyc3 Core project (and related
-projects such as libsecp256k1), and is not to be confused with overall Nyc3
+The following applies to code changes to the Californiacoin Core project (and related
+projects such as libsecp256k1), and is not to be confused with overall Californiacoin
 Network Protocol consensus changes.
 
-Whether a pull request is merged into Nyc3 Core rests with the project merge
+Whether a pull request is merged into Californiacoin Core rests with the project merge
 maintainers and ultimately the project lead.
 
 Maintainers will take into consideration if a patch is in line with the general
@@ -191,7 +191,7 @@ In general, all pull requests must:
   - Where bugs are fixed, where possible, there should be unit tests
     demonstrating the bug and also proving the fix. This helps prevent regression.
 
-Patches that change Nyc3 consensus rules are considerably more involved than
+Patches that change Californiacoin consensus rules are considerably more involved than
 normal because they affect the entire ecosystem and so must be preceded by
 extensive mailing list discussions and have a numbered BIP. While each case will
 be different, one should be prepared to expend more time and effort than for
@@ -232,7 +232,7 @@ higher in terms of discussion and peer review requirements, keeping in mind that
 mistakes could be very costly to the wider community. This includes refactoring
 of consensus critical code.
 
-Where a patch set proposes to change the Nyc3 consensus, it must have been
+Where a patch set proposes to change the Californiacoin consensus, it must have been
 discussed extensively on the mailing list and IRC, be accompanied by a widely
 discussed BIP and have a generally widely perceived technical consensus of being
 a worthwhile change based on the judgement of the maintainers.
@@ -272,7 +272,7 @@ about:
 Release Policy
 --------------
 
-The project leader is the release manager for each Nyc3 Core release.
+The project leader is the release manager for each Californiacoin Core release.
 
 Copyright
 ---------

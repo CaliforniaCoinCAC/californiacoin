@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.nyc3;
+package org.californiacoin;
 
 public class NativeSecp256k1Util{
 

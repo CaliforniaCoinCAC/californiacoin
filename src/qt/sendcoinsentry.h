@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,7 +18,7 @@ namespace Ui {
 }
 
 /**
- * A single entry in the dialog for sending nyc3s.
+ * A single entry in the dialog for sending californiacoins.
  * Stacked widget, with different UIs for payment requests
  * with a strong payee identity.
  */

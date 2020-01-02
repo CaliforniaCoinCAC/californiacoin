@@ -1,11 +1,11 @@
 // Copyright (c) 2012-2017 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "merkleblock.h"
 #include "uint256.h"
-#include "test/test_nyc3.h"
+#include "test/test_californiacoin.h"
 
 #include <boost/test/unit_test.hpp>
 

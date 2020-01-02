@@ -1,5 +1,5 @@
 # Copyright (c) 2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,7 +18,7 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/Nyc3coin/Nyc3coin
+url=https://github.com/Californiacoincoin/Californiacoincoin
 proc=2
 mem=2000
 lxc=true
@@ -32,7 +32,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the nyc3, gitian-builder, gitian.sigs, and nyc3-detached-sigs.
+Run this script from the directory containing the californiacoin, gitian-builder, gitian.sigs, and californiacoin-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -40,7 +40,7 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the repository. Default is https://github.com/Nyc3coin/Nyc3coin
+-u|--url	Specify the URL of the repository. Default is https://github.com/Californiacoincoin/Californiacoincoin
 -v|--verify 	Verify the Gitian build
 -b|--build	Do a Gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -231,8 +231,8 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/nyc3coin/gitian.sigs.git
-    git clone https://github.com/nyc3coin/nyc3-detached-sigs.git
+    git clone https://github.com/californiacoincoin/gitian.sigs.git
+    git clone https://github.com/californiacoincoin/californiacoin-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
@@ -246,7 +246,7 @@ then
 fi
 
 # Set up build
-pushd ./nyc3
+pushd ./californiacoin
 git fetch
 git checkout ${COMMIT}
 popd
@@ -255,7 +255,7 @@ popd
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p ./nyc3-binaries/${VERSION}
+	mkdir -p ./californiacoin-binaries/${VERSION}
 	
 	# Build Dependencies
 	echo ""
@@ -265,7 +265,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../nyc3/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../californiacoin/depends download SOURCES_PATH=`pwd`/cache/common
 
 	# Linux
 	if [[ $linux = true ]]
@@ -273,9 +273,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit nyc3=${COMMIT} --url nyc3=${url} ../nyc3/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../nyc3/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/nyc3-*.tar.gz build/out/src/nyc3-*.tar.gz ../nyc3-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit californiacoin=${COMMIT} --url californiacoin=${url} ../californiacoin/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../californiacoin/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/californiacoin-*.tar.gz build/out/src/californiacoin-*.tar.gz ../californiacoin-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -283,10 +283,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit nyc3=${COMMIT} --url nyc3=${url} ../nyc3/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../nyc3/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/nyc3-*-win-unsigned.tar.gz inputs/nyc3-win-unsigned.tar.gz
-	    mv build/out/nyc3-*.zip build/out/nyc3-*.exe ../nyc3-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit californiacoin=${COMMIT} --url californiacoin=${url} ../californiacoin/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../californiacoin/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/californiacoin-*-win-unsigned.tar.gz inputs/californiacoin-win-unsigned.tar.gz
+	    mv build/out/californiacoin-*.zip build/out/californiacoin-*.exe ../californiacoin-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -294,10 +294,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit nyc3=${COMMIT} --url nyc3=${url} ../nyc3/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../nyc3/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/nyc3-*-osx-unsigned.tar.gz inputs/nyc3-osx-unsigned.tar.gz
-	    mv build/out/nyc3-*.tar.gz build/out/nyc3-*.dmg ../nyc3-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit californiacoin=${COMMIT} --url californiacoin=${url} ../californiacoin/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../californiacoin/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/californiacoin-*-osx-unsigned.tar.gz inputs/californiacoin-osx-unsigned.tar.gz
+	    mv build/out/californiacoin-*.tar.gz build/out/californiacoin-*.dmg ../californiacoin-binaries/${VERSION}
 	fi
 	popd
 
@@ -324,27 +324,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../nyc3/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../californiacoin/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../nyc3/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../californiacoin/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX	
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""	
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../nyc3/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../californiacoin/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../nyc3/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../californiacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../nyc3/contrib/gitian-descriptors/gitian-osx-signer.yml	
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../californiacoin/contrib/gitian-descriptors/gitian-osx-signer.yml	
 	popd
 fi
 
@@ -359,10 +359,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../nyc3/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../nyc3/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/nyc3-*win64-setup.exe ../nyc3-binaries/${VERSION}
-	    mv build/out/nyc3-*win32-setup.exe ../nyc3-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../californiacoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../californiacoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/californiacoin-*win64-setup.exe ../californiacoin-binaries/${VERSION}
+	    mv build/out/californiacoin-*win32-setup.exe ../californiacoin-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -370,9 +370,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../nyc3/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../nyc3/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/nyc3-osx-signed.dmg ../nyc3-binaries/${VERSION}/nyc3-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../californiacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../californiacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/californiacoin-osx-signed.dmg ../californiacoin-binaries/${VERSION}/californiacoin-${VERSION}-osx.dmg
 	fi
 	popd
 

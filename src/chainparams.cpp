@@ -1,5 +1,5 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2016 The nyc3 Core developers
+// Copyright (c) 2009-2016 The californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -162,7 +162,7 @@ public:
         pchMessageStart[1] = 0x53;
         pchMessageStart[2] = 0xe3;
         pchMessageStart[3] = 0x5f;
-        nDefaultPort = 55555;
+        nDefaultPort = 11555;
         nPruneAfterHeight = 100000;
         newFutureWindowBlock = 200000;
 
@@ -225,7 +225,8 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x000000f1be8e899c838668ae5ad947bce8ac10185f9cfd99b7181add7fb89ee8"));
         assert(genesis.hashMerkleRoot == uint256S("0x8ea442d5962f2bbe8f4bc26cd8ce2fbe947b1315471dfbaba6fd4955d5575baf"));
 
-        vSeeds.emplace_back("54.39.201.117", true);
+        vSeeds.emplace_back("cacdnsseed.beyondcoin.io", true);
+        vSeeds.emplace_back("3.136.244.216:11555", true);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,53); // changed 60 to 55
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,122); // changed 122 to 123
@@ -249,7 +250,7 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the nyc3 chain
+            // Update as we know more about the contents of the californiacoin chain
             1509572692, // * UNIX timestamp of last known number of transactions
             1,          // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
@@ -307,7 +308,7 @@ public:
         pchMessageStart[1] = 0x56;
         pchMessageStart[2] = 0x4E;
         pchMessageStart[3] = 0x54;
-        nDefaultPort = 18757;
+        nDefaultPort = 18555;
         nPruneAfterHeight = 1000;
         newFutureWindowBlock = 1;
 
@@ -345,7 +346,7 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the nyc3 chain
+            // Update as we know more about the contents of the californiacoin chain
             1513705170, // * UNIX timestamp of last known number of transactions
             1,          // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
@@ -394,7 +395,7 @@ public:
         pchMessageStart[1] = 0x52;
         pchMessageStart[2] = 0x4F;
         pchMessageStart[3] = 0x57;
-        nDefaultPort = 18444;
+        nDefaultPort = 14555;
         nPruneAfterHeight = 1000;
         newFutureWindowBlock = 1;
 

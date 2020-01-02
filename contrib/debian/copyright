@@ -1,13 +1,13 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: Nyc3
+Upstream-Name: Californiacoin
 Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
- irc://#nyc3@freenode.net
-Source: https://github.com/Nyc3Project/Nyc3coin
+ irc://#californiacoin@freenode.net
+Source: https://github.com/CaliforniacoinProject/Californiacoincoin
 
 Files: *
-Copyright: 2009-2017, Nyc3 Core Developers
+Copyright: 2009-2017, Californiacoin Core Developers
 License: Expat
-Comment: The Nyc3 Core Developers encompasses the current developers listed on nyc3.org,
+Comment: The Californiacoin Core Developers encompasses the current developers listed on californiacoin.org,
          as well as the numerous contributors to the project.
 
 Files: debian/*
@@ -78,12 +78,12 @@ License: Expat
 Comment: Modifications of Stephan Hutchings Typicons
 
 Files: src/qt/res/icons/about.png
-       src/qt/res/icons/nyc3.*
-       share/pixmaps/nyc3*
-       src/qt/res/src/nyc3.svg
+       src/qt/res/icons/californiacoin.*
+       share/pixmaps/californiacoin*
+       src/qt/res/src/californiacoin.svg
 Copyright: Bitboy, Jonas Schnelli
 License: public-domain
-Comment: Site: https://nyc3talk.org/?topic=1756.0
+Comment: Site: https://californiacointalk.org/?topic=1756.0
 
 
 License: Expat

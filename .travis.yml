@@ -60,24 +60,24 @@ script:
     - mkdir build && cd build
     - ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
     - make distdir VERSION=$HOST
-    - cd nyc3-$HOST
+    - cd californiacoin-$HOST
     - ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
     - make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
     - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib
     - if [ -n "$OSX_SDK" ]; then ls -la; fi
-    - if [ -n "$OSX_SDK" ]; then cp -rf Nyc3-Core.dmg ${OUTDIR}; fi
-    - if [ -n "$OSX_SDK" ]; then cp -rf Nyc3-Qt.app ${OUTDIR}; fi
+    - if [ -n "$OSX_SDK" ]; then cp -rf Californiacoin-Core.dmg ${OUTDIR}; fi
+    - if [ -n "$OSX_SDK" ]; then cp -rf Californiacoin-Qt.app ${OUTDIR}; fi
 after_script:
     - echo $TRAVIS_COMMIT_RANGE
     - echo $TRAVIS_COMMIT_LOG
-before_deploy: cd ${OUTDIR}/../ && tar -zcvf nyc3-$HOST.tar.gz ${OUTDIR}
+before_deploy: cd ${OUTDIR}/../ && tar -zcvf californiacoin-$HOST.tar.gz ${OUTDIR}
 deploy:
   skip_cleanup: true
   provider: releases
   api_key:
     secure: FPKP0CfxfgkL226okig5DGe4w3qOk9kb1ryQzodYwkWEBZFZBqeMCRKRWKMLrkshaW9jQ8eaK815z/Vr8AS0DeOT1VEuBvjb1k2Zz9QuNxqIyJ4zjz7dpsP990x7H4NaLxXrbGBBsfBvuafPMxrBB/u8wHWGlGpq2mBQkCU6ExG2U/pBBqX0Ttk+cVFIZktWZFJSVcbAaYVWmj/U4RIFLBXaTXuExOByNPh9frt4sVwvxQy+m9uoyyut6+jvI6pcJ+0pfJG5yGrWaGp+ySqhb7pTwHLqo0ckLtw6SntOQKc23fd+S/ykFEW71w2bZv70293+V+HEZNlApRGQLXaCwhFqFpabSFr47mspaKFV9e0BxcjySTrprYGP3dlu4wgXPnUHl+SmfMJgMiqbBlkBN/8v4R2CaNv3WacsMYj9k0V7Llg89ig2kuTB0MLi0aw6XQK/Ejaprwsm5EhWUaEQGfdP0Z2O5ZKgwX1KFWVEbDRxKT5wnSfshOSV78jLJj1eCmOKPCVNVOmFjNvRb7kqg8ZzRbkSlbOftvZo0o1sE5GDSmyApQZ2kLPtlIQL5TaFDRC+eMBJYkSbP+OSQNsDj3I7+qmQKOiivClmebGUoGXI1QtedykORgT427qye2FtFx4RgkUNz/toDvAmTfODiLtkPk7lf32Acm1TX+KjL0E=
-  file: ${OUTDIR}/../nyc3-$HOST.tar.gz
+  file: ${OUTDIR}/../californiacoin-$HOST.tar.gz
   on:
     all_branches: true
-    repo: ahmedbodi/nyc3
+    repo: ahmedbodi/californiacoin
 

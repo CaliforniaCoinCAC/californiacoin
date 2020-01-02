@@ -1,5 +1,5 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,23 +24,23 @@ PIGEON_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS
 PIGEON_INCLUDES += -I$(srcdir)/secp256k1/include
 PIGEON_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBPIGEON_SERVER=libnyc3_server.a
-LIBPIGEON_COMMON=libnyc3_common.a
-LIBPIGEON_CONSENSUS=libnyc3_consensus.a
-LIBPIGEON_CLI=libnyc3_cli.a
-LIBPIGEON_UTIL=libnyc3_util.a
-LIBPIGEON_CRYPTO=crypto/libnyc3_crypto.a
-LIBPIGEONQT=qt/libnyc3qt.a
+LIBPIGEON_SERVER=libcaliforniacoin_server.a
+LIBPIGEON_COMMON=libcaliforniacoin_common.a
+LIBPIGEON_CONSENSUS=libcaliforniacoin_consensus.a
+LIBPIGEON_CLI=libcaliforniacoin_cli.a
+LIBPIGEON_UTIL=libcaliforniacoin_util.a
+LIBPIGEON_CRYPTO=crypto/libcaliforniacoin_crypto.a
+LIBPIGEONQT=qt/libcaliforniacoinqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBPIGEON_ZMQ=libnyc3_zmq.a
+LIBPIGEON_ZMQ=libcaliforniacoin_zmq.a
 endif
 if BUILD_PIGEON_LIBS
-LIBPIGEONCONSENSUS=libnyc3consensus.la
+LIBPIGEONCONSENSUS=libcaliforniacoinconsensus.la
 endif
 if ENABLE_WALLET
-LIBPIGEON_WALLET=libnyc3_wallet.a
+LIBPIGEON_WALLET=libcaliforniacoin_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -66,15 +66,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_PIGEOND
-  bin_PROGRAMS += nyc3d
+  bin_PROGRAMS += californiacoind
 endif
 
 if BUILD_PIGEON_UTILS
-  bin_PROGRAMS += nyc3-cli nyc3-tx
+  bin_PROGRAMS += californiacoin-cli californiacoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# nyc3 core #
+# californiacoin core #
 PIGEON_CORE_H = \
   addrdb.h \
   addrman.h \
@@ -180,12 +180,12 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh "$(abs_top_builddir)/src/obj/build.h" \
 	  "$(abs_top_srcdir)"
-libnyc3_util_a-clientversion.$(OBJEXT): obj/build.h
+libcaliforniacoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between nyc3d and nyc3-qt
-libnyc3_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libnyc3_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libnyc3_server_a_SOURCES = \
+# server: shared between californiacoind and californiacoin-qt
+libcaliforniacoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libcaliforniacoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcaliforniacoin_server_a_SOURCES = \
   addrdb.cpp \
   addrman.cpp \
   bloom.cpp \
@@ -227,20 +227,20 @@ libnyc3_server_a_SOURCES = \
   $(PIGEON_CORE_H)
 
 if ENABLE_ZMQ
-libnyc3_zmq_a_CPPFLAGS = $(PIGEON_INCLUDES) $(ZMQ_CFLAGS)
-libnyc3_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libnyc3_zmq_a_SOURCES = \
+libcaliforniacoin_zmq_a_CPPFLAGS = $(PIGEON_INCLUDES) $(ZMQ_CFLAGS)
+libcaliforniacoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcaliforniacoin_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp
 endif
 
 
-# wallet: shared between nyc3d and nyc3-qt, but only linked
+# wallet: shared between californiacoind and californiacoin-qt, but only linked
 # when wallet enabled
-libnyc3_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
-libnyc3_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libnyc3_wallet_a_SOURCES = \
+libcaliforniacoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
+libcaliforniacoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcaliforniacoin_wallet_a_SOURCES = \
   wallet/crypter.cpp \
   wallet/db.cpp \
   wallet/feebumper.cpp \
@@ -253,9 +253,9 @@ libnyc3_wallet_a_SOURCES = \
   $(PIGEON_CORE_H)
 
 # crypto primitives library
-crypto_libnyc3_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
-crypto_libnyc3_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-crypto_libnyc3_crypto_a_SOURCES = \
+crypto_libcaliforniacoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
+crypto_libcaliforniacoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+crypto_libcaliforniacoin_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
   crypto/chacha20.h \
@@ -312,13 +312,13 @@ crypto_libnyc3_crypto_a_SOURCES = \
   crypto/sha512.h
 
 if USE_ASM
-crypto_libnyc3_crypto_a_SOURCES += crypto/sha256_sse4.cpp
+crypto_libcaliforniacoin_crypto_a_SOURCES += crypto/sha256_sse4.cpp
 endif
 
 # consensus: shared between all executables that validate any consensus rules.
-libnyc3_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
-libnyc3_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libnyc3_consensus_a_SOURCES = \
+libcaliforniacoin_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
+libcaliforniacoin_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcaliforniacoin_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -335,7 +335,7 @@ libnyc3_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/nyc3consensus.cpp \
+  script/californiacoinconsensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -350,10 +350,10 @@ libnyc3_consensus_a_SOURCES = \
   utilstrencodings.h \
   version.h
 
-# common: shared between nyc3d, and nyc3-qt and non-server tools
-libnyc3_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
-libnyc3_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libnyc3_common_a_SOURCES = \
+# common: shared between californiacoind, and californiacoin-qt and non-server tools
+libcaliforniacoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
+libcaliforniacoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcaliforniacoin_common_a_SOURCES = \
   base58.cpp \
   bech32.cpp \
   chainparams.cpp \
@@ -376,9 +376,9 @@ libnyc3_common_a_SOURCES = \
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libnyc3_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
-libnyc3_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libnyc3_util_a_SOURCES = \
+libcaliforniacoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
+libcaliforniacoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcaliforniacoin_util_a_SOURCES = \
   support/lockedpool.cpp \
   chainparamsbase.cpp \
   clientversion.cpp \
@@ -398,30 +398,30 @@ libnyc3_util_a_SOURCES = \
   $(PIGEON_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libnyc3_util_a_SOURCES += compat/glibc_compat.cpp
+libcaliforniacoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between nyc3-cli and nyc3-qt
-libnyc3_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
-libnyc3_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libnyc3_cli_a_SOURCES = \
+# cli: shared between californiacoin-cli and californiacoin-qt
+libcaliforniacoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
+libcaliforniacoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcaliforniacoin_cli_a_SOURCES = \
   rpc/client.cpp \
   $(PIGEON_CORE_H)
 
-nodist_libnyc3_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libcaliforniacoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# nyc3d binary #
-nyc3d_SOURCES = nyc3d.cpp
-nyc3d_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
-nyc3d_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-nyc3d_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# californiacoind binary #
+californiacoind_SOURCES = californiacoind.cpp
+californiacoind_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
+californiacoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+californiacoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-nyc3d_SOURCES += nyc3d-res.rc
+californiacoind_SOURCES += californiacoind-res.rc
 endif
 
-nyc3d_LDADD = \
+californiacoind_LDADD = \
   $(LIBPIGEON_SERVER) \
   $(LIBPIGEON_COMMON) \
   $(LIBUNIVALUE) \
@@ -435,38 +435,38 @@ nyc3d_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-nyc3d_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+californiacoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# nyc3-cli binary #
-nyc3_cli_SOURCES = nyc3-cli.cpp
-nyc3_cli_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES) $(EVENT_CFLAGS)
-nyc3_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-nyc3_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# californiacoin-cli binary #
+californiacoin_cli_SOURCES = californiacoin-cli.cpp
+californiacoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES) $(EVENT_CFLAGS)
+californiacoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+californiacoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-nyc3_cli_SOURCES += nyc3-cli-res.rc
+californiacoin_cli_SOURCES += californiacoin-cli-res.rc
 endif
 
-nyc3_cli_LDADD = \
+californiacoin_cli_LDADD = \
   $(LIBPIGEON_CLI) \
   $(LIBUNIVALUE) \
   $(LIBPIGEON_UTIL) \
   $(LIBPIGEON_CRYPTO)
 
-nyc3_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+californiacoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# nyc3-tx binary #
-nyc3_tx_SOURCES = nyc3-tx.cpp
-nyc3_tx_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
-nyc3_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-nyc3_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# californiacoin-tx binary #
+californiacoin_tx_SOURCES = californiacoin-tx.cpp
+californiacoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(PIGEON_INCLUDES)
+californiacoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+californiacoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-nyc3_tx_SOURCES += nyc3-tx-res.rc
+californiacoin_tx_SOURCES += californiacoin-tx-res.rc
 endif
 
-nyc3_tx_LDADD = \
+californiacoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBPIGEON_COMMON) \
   $(LIBPIGEON_UTIL) \
@@ -474,22 +474,22 @@ nyc3_tx_LDADD = \
   $(LIBPIGEON_CRYPTO) \
   $(LIBSECP256K1)
 
-nyc3_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+californiacoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# nyc3consensus library #
+# californiacoinconsensus library #
 if BUILD_PIGEON_LIBS
-include_HEADERS = script/nyc3consensus.h
-libnyc3consensus_la_SOURCES = $(crypto_libnyc3_crypto_a_SOURCES) $(libnyc3_consensus_a_SOURCES)
+include_HEADERS = script/californiacoinconsensus.h
+libcaliforniacoinconsensus_la_SOURCES = $(crypto_libcaliforniacoin_crypto_a_SOURCES) $(libcaliforniacoin_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libnyc3consensus_la_SOURCES += compat/glibc_compat.cpp
+  libcaliforniacoinconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libnyc3consensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libnyc3consensus_la_LIBADD = $(LIBSECP256K1)
-libnyc3consensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_PIGEON_INTERNAL
-libnyc3consensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libcaliforniacoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libcaliforniacoinconsensus_la_LIBADD = $(LIBSECP256K1)
+libcaliforniacoinconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_PIGEON_INTERNAL
+libcaliforniacoinconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #
@@ -519,12 +519,12 @@ CLEANFILES += obj/build.h
 EXTRA_DIST = $(CTAES_DIST)
 
 
-config/nyc3-config.h: config/stamp-h1
+config/californiacoin-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/nyc3-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/californiacoin-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/nyc3-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/nyc3-config.h.in
+$(top_srcdir)/$(subdir)/config/californiacoin-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/californiacoin-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

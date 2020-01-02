@@ -1,7 +1,7 @@
 Description
 ------------
 
-This directory contains data-driven tests for various aspects of Nyc3.
+This directory contains data-driven tests for various aspects of Californiacoin.
 
 License
 --------

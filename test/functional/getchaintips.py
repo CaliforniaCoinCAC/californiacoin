@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the getchaintips RPC.
@@ -11,10 +11,10 @@
 - verify that getchaintips now returns two chain tips.
 """
 
-from test_framework.test_framework import Nyc3TestFramework
+from test_framework.test_framework import CaliforniacoinTestFramework
 from test_framework.util import assert_equal
 
-class GetChainTipsTest (Nyc3TestFramework):
+class GetChainTipsTest (CaliforniacoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
 

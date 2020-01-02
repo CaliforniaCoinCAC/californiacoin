@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -98,7 +98,7 @@ public:
 /**
  * A base58-encoded secret key
  */
-class CNyc3Secret : public CBase58Data
+class CCaliforniacoinSecret : public CBase58Data
 {
 public:
     void SetKey(const CKey& vchSecret);
@@ -107,11 +107,11 @@ public:
     bool SetString(const char* pszSecret);
     bool SetString(const std::string& strSecret);
 
-    CNyc3Secret(const CKey& vchSecret) { SetKey(vchSecret); }
-    CNyc3Secret() {}
+    CCaliforniacoinSecret(const CKey& vchSecret) { SetKey(vchSecret); }
+    CCaliforniacoinSecret() {}
 };
 
-template<typename K, int Size, CChainParams::Base58Type Type> class CNyc3ExtKeyBase : public CBase58Data
+template<typename K, int Size, CChainParams::Base58Type Type> class CCaliforniacoinExtKeyBase : public CBase58Data
 {
 public:
     void SetKey(const K &key) {
@@ -129,19 +129,19 @@ public:
         return ret;
     }
 
-    CNyc3ExtKeyBase(const K &key) {
+    CCaliforniacoinExtKeyBase(const K &key) {
         SetKey(key);
     }
 
-    CNyc3ExtKeyBase(const std::string& strBase58c) {
+    CCaliforniacoinExtKeyBase(const std::string& strBase58c) {
         SetString(strBase58c.c_str(), Params().Base58Prefix(Type).size());
     }
 
-    CNyc3ExtKeyBase() {}
+    CCaliforniacoinExtKeyBase() {}
 };
 
-typedef CNyc3ExtKeyBase<CExtKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_SECRET_KEY> CNyc3ExtKey;
-typedef CNyc3ExtKeyBase<CExtPubKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_PUBLIC_KEY> CNyc3ExtPubKey;
+typedef CCaliforniacoinExtKeyBase<CExtKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_SECRET_KEY> CCaliforniacoinExtKey;
+typedef CCaliforniacoinExtKeyBase<CExtPubKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_PUBLIC_KEY> CCaliforniacoinExtPubKey;
 
 std::string EncodeDestination(const CTxDestination& dest);
 CTxDestination DecodeDestination(const std::string& str);

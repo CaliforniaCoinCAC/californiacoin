@@ -1,6 +1,6 @@
 ### TestGen ###
 
-Utilities to generate test vectors for the data-driven Nyc3 tests.
+Utilities to generate test vectors for the data-driven Californiacoin tests.
 
 Usage: 
 

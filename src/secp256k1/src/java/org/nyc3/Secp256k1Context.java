@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.nyc3;
+package org.californiacoin;
 
 /**
  * This class holds the context reference used in native methods 

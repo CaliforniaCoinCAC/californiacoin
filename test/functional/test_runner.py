@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017 The Nyc3 Core developers
+# Copyright (c) 2017 The Californiacoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Run regression test suite.
@@ -11,7 +11,7 @@ forward all unrecognized arguments onto the individual test scripts.
 Functional tests are disabled on Windows by default. Use --force to run them anyway.
 
 For a description of arguments recognized by test scripts, see
-`test/functional/test_framework/test_framework.py:Nyc3TestFramework.main`.
+`test/functional/test_framework/test_framework.py:CaliforniacoinTestFramework.main`.
 
 """
 
@@ -82,7 +82,7 @@ BASE_SCRIPTS= [
     # vv Tests less than 30s vv
     'keypool-topup.py',
     'zmq_test.py',
-    'nyc3_cli.py',
+    'californiacoin_cli.py',
     'mempool_resurrect_test.py',
     'txn_doublespend.py --mineblock',
     'txn_clone.py',
@@ -203,23 +203,23 @@ def main():
     logging.basicConfig(format='%(message)s', level=logging_level)
 
     # Create base test directory
-    tmpdir = "%s/nyc3_test_runner_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
+    tmpdir = "%s/californiacoin_test_runner_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
     os.makedirs(tmpdir)
 
     logging.debug("Temporary test directory at %s" % tmpdir)
 
     enable_wallet = config["components"].getboolean("ENABLE_WALLET")
     enable_utils = config["components"].getboolean("ENABLE_UTILS")
-    enable_nyc3d = config["components"].getboolean("ENABLE_PIGEOND")
+    enable_californiacoind = config["components"].getboolean("ENABLE_PIGEOND")
 
     if config["environment"]["EXEEXT"] == ".exe" and not args.force:
-        # https://github.com/Nyc3Project/Nyc3coin/commit/d52802551752140cf41f0d9a225a43e84404d3e9
-        # https://github.com/Nyc3Project/Nyc3coin/pull/5677#issuecomment-136646964
+        # https://github.com/CaliforniacoinProject/Californiacoincoin/commit/d52802551752140cf41f0d9a225a43e84404d3e9
+        # https://github.com/CaliforniacoinProject/Californiacoincoin/pull/5677#issuecomment-136646964
         print("Tests currently disabled on Windows by default. Use --force option to enable")
         sys.exit(0)
 
-    if not (enable_wallet and enable_utils and enable_nyc3d):
-        print("No functional tests to run. Wallet, utils, and nyc3d must all be enabled")
+    if not (enable_wallet and enable_utils and enable_californiacoind):
+        print("No functional tests to run. Wallet, utils, and californiacoind must all be enabled")
         print("Rerun `configure` with -enable-wallet, -with-utils and -with-daemon and rerun make")
         sys.exit(0)
 
@@ -273,10 +273,10 @@ def main():
     run_tests(test_list, config["environment"]["SRCDIR"], config["environment"]["BUILDDIR"], config["environment"]["EXEEXT"], tmpdir, args.jobs, args.coverage, passon_args)
 
 def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, jobs=1, enable_coverage=False, args=[]):
-    # Warn if nyc3d is already running (unix only)
+    # Warn if californiacoind is already running (unix only)
     try:
-        if subprocess.check_output(["pidof", "nyc3d"]) is not None:
-            print("%sWARNING!%s There is already a nyc3d process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
+        if subprocess.check_output(["pidof", "californiacoind"]) is not None:
+            print("%sWARNING!%s There is already a californiacoind process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
     except (OSError, subprocess.SubprocessError):
         pass
 
@@ -287,8 +287,8 @@ def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, jobs=1, enable_cove
 
     #Set env vars
     if "PIGEOND" not in os.environ:
-        os.environ["PIGEOND"] = build_dir + '/src/nyc3d' + exeext
-        os.environ["PIGEONCLI"] = build_dir + '/src/nyc3-cli' + exeext
+        os.environ["PIGEOND"] = build_dir + '/src/californiacoind' + exeext
+        os.environ["PIGEONCLI"] = build_dir + '/src/californiacoin-cli' + exeext
 
     tests_dir = src_dir + '/test/functional/'
 
@@ -376,7 +376,7 @@ class TestHandler:
         self.num_running = 0
         self.num_finished = 0
         self.num_jobs = len(test_list)
-        # In case there is a graveyard of zombie nyc3ds, we can apply a
+        # In case there is a graveyard of zombie californiacoinds, we can apply a
         # pseudorandom offset to hopefully jump over them.
         # (625 is PORT_RANGE/MAX_NODES)
         self.portseed_offset = int(time.time() * 1000) % 625
@@ -475,7 +475,7 @@ class RPCCoverage():
     Coverage calculation works by having each test script subprocess write
     coverage files into a particular directory. These files contain the RPC
     commands invoked during testing, as well as a complete listing of RPC
-    commands per `nyc3-cli help` (`rpc_interface.txt`).
+    commands per `californiacoin-cli help` (`rpc_interface.txt`).
 
     After all tests complete, the commands run are combined and diff'd against
     the complete list to calculate uncovered RPC commands.

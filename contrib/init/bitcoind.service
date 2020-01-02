@@ -1,15 +1,15 @@
 [Unit]
-Description=Nyc3's distributed currency daemon
+Description=Californiacoin's distributed currency daemon
 After=network.target
 
 [Service]
-User=nyc3
-Group=nyc3
+User=californiacoin
+Group=californiacoin
 
 Type=forking
-PIDFile=/var/lib/nyc3d/nyc3d.pid
-ExecStart=/usr/bin/nyc3d -daemon -pid=/var/lib/nyc3d/nyc3d.pid \
--conf=/etc/nyc3/nyc3.conf -datadir=/var/lib/nyc3d -disablewallet
+PIDFile=/var/lib/californiacoind/californiacoind.pid
+ExecStart=/usr/bin/californiacoind -daemon -pid=/var/lib/californiacoind/californiacoind.pid \
+-conf=/etc/californiacoin/californiacoin.conf -datadir=/var/lib/californiacoind -disablewallet
 
 Restart=always
 PrivateTmp=true

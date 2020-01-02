@@ -1,10 +1,10 @@
 // Copyright (c) 2012-2016 The Bitcoin Core developers
-// Copyright (c) 2017 The Nyc3 Core developers
+// Copyright (c) 2017 The Californiacoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "netbase.h"
-#include "test/test_nyc3.h"
+#include "test/test_californiacoin.h"
 #include "utilstrencodings.h"
 
 #include <string>
@@ -83,10 +83,10 @@ bool static TestSplitHost(std::string test, std::string host, int port)
 
 BOOST_AUTO_TEST_CASE(netbase_splithost)
 {
-    BOOST_CHECK(TestSplitHost("www.nyc3.org", "www.nyc3.org", -1));
-    BOOST_CHECK(TestSplitHost("[www.nyc3.org]", "www.nyc3.org", -1));
-    BOOST_CHECK(TestSplitHost("www.nyc3.org:80", "www.nyc3.org", 80));
-    BOOST_CHECK(TestSplitHost("[www.nyc3.org]:80", "www.nyc3.org", 80));
+    BOOST_CHECK(TestSplitHost("www.californiacoin.org", "www.californiacoin.org", -1));
+    BOOST_CHECK(TestSplitHost("[www.californiacoin.org]", "www.californiacoin.org", -1));
+    BOOST_CHECK(TestSplitHost("www.californiacoin.org:80", "www.californiacoin.org", 80));
+    BOOST_CHECK(TestSplitHost("[www.californiacoin.org]:80", "www.californiacoin.org", 80));
     BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", -1));
     BOOST_CHECK(TestSplitHost("127.0.0.1:8757", "127.0.0.1", 8757));
     BOOST_CHECK(TestSplitHost("[127.0.0.1]", "127.0.0.1", -1));

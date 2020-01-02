@@ -1,13 +1,13 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Nyc3 Core
-Comment=Connect to the Nyc3 P2P Network
-Comment[de]=Verbinde mit dem Nyc3 peer-to-peer Netzwerk
-Comment[fr]=Nyc3, monnaie virtuelle cryptographique pair à pair
-Comment[tr]=Nyc3, eşten eşe kriptografik sanal para birimi
-Exec=nyc3-qt %u
+Name=Californiacoin Core
+Comment=Connect to the Californiacoin P2P Network
+Comment[de]=Verbinde mit dem Californiacoin peer-to-peer Netzwerk
+Comment[fr]=Californiacoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Californiacoin, eşten eşe kriptografik sanal para birimi
+Exec=californiacoin-qt %u
 Terminal=false
 Type=Application
-Icon=nyc3128
-MimeType=x-scheme-handler/nyc3;
+Icon=californiacoin128
+MimeType=x-scheme-handler/californiacoin;
 Categories=Office;Finance;

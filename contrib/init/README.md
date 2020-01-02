@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: nyc3d.service
-Upstart: nyc3d.conf
-OpenRC:  nyc3d.openrc
-         nyc3d.openrcconf
-CentOS:  nyc3d.init
-OS X:    org.nyc3.nyc3d.plist
+SystemD: californiacoind.service
+Upstart: californiacoind.conf
+OpenRC:  californiacoind.openrc
+         californiacoind.openrcconf
+CentOS:  californiacoind.init
+OS X:    org.californiacoin.californiacoind.plist
 ```
 have been made available to assist packagers in creating node packages here.
 
