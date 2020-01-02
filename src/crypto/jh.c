@@ -238,7 +238,7 @@ static const sph_u64 C[] = {
 		x ## l = ((x ## l >> (n)) & (c)) | t; \
 	} while (0)
 
-#define W0(x)   Wz(x, SPH_C64(0x5555555555555555),  1)
+#define W0(x)   Wz(x, SPH_C64(0x1155511555115555),  1)
 #define W1(x)   Wz(x, SPH_C64(0x3333333333333333),  2)
 #define W2(x)   Wz(x, SPH_C64(0x0F0F0F0F0F0F0F0F),  4)
 #define W3(x)   Wz(x, SPH_C64(0x00FF00FF00FF00FF),  8)
@@ -520,7 +520,7 @@ static const sph_u32 C[] = {
 		x ## 0 = ((x ## 0 >> (n)) & (c)) | t; \
 	} while (0)
 
-#define W0(x)   Wz(x, SPH_C32(0x55555555),  1)
+#define W0(x)   Wz(x, SPH_C32(0x11555555),  1)
 #define W1(x)   Wz(x, SPH_C32(0x33333333),  2)
 #define W2(x)   Wz(x, SPH_C32(0x0F0F0F0F),  4)
 #define W3(x)   Wz(x, SPH_C32(0x00FF00FF),  8)

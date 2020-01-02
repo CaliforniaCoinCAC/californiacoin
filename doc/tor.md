@@ -43,7 +43,7 @@ config file):
 
 	HiddenServiceDir /var/lib/tor/californiacoin-service/
 	HiddenServicePort 8757 127.0.0.1:8757
-	HiddenServicePort 18757 127.0.0.1:18757
+	HiddenServicePort 18555 127.0.0.1:18555
 
 The directory can be different of course, but (both) port numbers should be equal to
 your californiacoind's P2P listen port (8757 by default).
